@@ -1,0 +1,19 @@
+<div class="navbar-section">
+    <div class="navbar-section--logo">
+        <a routerLink="/"><img src="assets/imgs/dvl-logo.png" alt="logo"></a>
+    </div>
+    <div class="navbar-section--items">
+        <ul>
+            @for (item of menuItems; track $index) {
+                <li>
+                    <a [routerLink]="item.path" routerLinkActive="item-active">
+                        {{ item.title }}
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="navbar-section--button">
+        <button>Login in</button>
+    </div>
+</div>

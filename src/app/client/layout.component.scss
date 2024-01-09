@@ -1,0 +1,17 @@
+.layout {
+  position: relative;
+}
+
+.nabvar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.main-content {
+  height: 200rem;
+  position: relative;
+  margin-top: 7rem;
+}

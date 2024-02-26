@@ -1,0 +1,196 @@
+.contacto-section {
+  padding: 4.5625rem 0;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+
+
+  .background-principal {
+    background-color: var(--violet);
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    transform: translateX(-25%) translateY(-65%);
+    z-index: 1;
+
+  }
+
+  .background-circle-one {
+    background-color: rgba(255, 255, 255, 0.075);
+    width: 1186px;
+    height: 1186px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    border-radius: 200%;
+    transform: translateX(-40%) translateY(-65%);
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip-path: circle(35% at 50% 50%);
+      background-color: var(--violet);
+    }
+  }
+
+  .background-circle-two {
+    background-color: rgba(255, 255, 255, 0.075);
+    width: 1186px;
+    height: 1186px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    border-radius: 200%;
+    transform: translateX(75%) translateY(-50%);
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip-path: circle(35% at 50% 50%);
+      background-color: var(--violet);
+    }
+  }
+
+  &-title {
+    z-index: 10;
+
+    p {
+      color: #FFF;
+      text-align: center;
+      font-family: "Chakra Petch";
+      font-size: 2.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%;
+    }
+  }
+
+  &-box {
+    margin-top: 3.75rem;
+    z-index: 10;
+
+    form {
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .contacto-form {
+      display: flex;
+      flex-direction: column;
+      border-radius: .5rem;
+      background: #FFF;
+      box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.03);
+      padding: 4rem;
+      max-width: 832px;
+
+
+
+      &-personal {
+        display: flex;
+
+        &-izq {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+
+          .contacto-form-item {
+            margin-right: 1.875rem;
+            margin-bottom: 1.875rem;
+          }
+        }
+
+        &-der {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+
+          .contacto-form-item {
+            margin-bottom: 1.875rem;
+          }
+        }
+      }
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+
+
+        label {
+          color: #5A7184;
+          font-family: Roboto;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-bottom: 1rem;
+        }
+
+        input,
+        select,
+        textarea {
+          border-radius: .5rem;
+          border: 1px solid #C3CAD9;
+          background: #FFF;
+          color: #183B56;
+          font-family: Roboto;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          padding: 1rem;
+          outline: none;
+          width: 100%;
+        }
+
+        textarea {
+          min-height: 137px;
+        }
+      }
+
+      &-descripcion {
+        margin-top: 1rem;
+
+        p {
+          color: #5A7184;
+          font-family: "Open Sans";
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1.75rem;
+        }
+      }
+
+      &-button {
+        margin-top: 2rem;
+
+        button {
+          background-color: rgba(48, 72, 193, 1);
+          border: none;
+          padding: .8125rem 3.25rem;
+          outline: none;
+          color: #FFF;
+          text-align: center;
+          font-family: "Open Sans";
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}

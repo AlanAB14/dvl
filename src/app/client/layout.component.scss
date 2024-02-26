@@ -11,7 +11,18 @@
 }
 
 .main-content {
-  height: 200rem;
   position: relative;
   margin-top: 7rem;
+
+  @media (max-width: 1200px) {
+    margin-top: 6.2rem;
+  }
+}
+
+.theme-dark {
+  .layout {
+    .main-content {
+      background-color: var(--dark-blue)!important;
+    }
+  }
 }

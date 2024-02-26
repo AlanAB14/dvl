@@ -1,11 +1,13 @@
-<div class="layout">
-    <div class="nabvar">
-        <app-navbar />
-    </div>
-    <div class="main-content">
-        <router-outlet />
-    </div>
-    <div class="footer">
-        <app-footer />
+<div [ngClass]="{'theme-dark': esRutaEspecifica}">
+    <div class="layout">
+        <div class="nabvar">
+            <app-navbar />
+        </div>
+        <div class="main-content">
+            <router-outlet />
+        </div>
+        <div class="footer">
+            <app-footer />
+        </div>
     </div>
 </div>

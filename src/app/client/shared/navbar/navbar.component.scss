@@ -5,6 +5,7 @@
   align-items: center;
   padding: 1.4rem 6rem;
   background-color: white;
+  transition: all .4s;
 
   @media (max-width: 1200px) {
     padding: 1rem 4rem;
@@ -13,6 +14,7 @@
   @media (max-width: 1000px) {
     padding: 1rem 3rem;
   }
+
   @media (max-width: 900px) {
     padding: 1rem
   }
@@ -21,7 +23,7 @@
     img {
       width: 9.6875rem;
       height: auto;
-  
+
       @media (max-width: 1000px) {
         width: 8.6875rem;
       }
@@ -94,5 +96,33 @@
     height: 2px;
     background-color: var(--dark-blue);
     opacity: 1;
+  }
+}
+
+.theme-dark {
+  .navbar-section {
+    background-color: var(--dark-blue);
+  
+    &--items {
+      ul {
+  
+        li {
+          color: white;
+        }
+      }
+    }
+  
+    &--button {
+      button {
+        background-color: var(--violet-secondary);
+        color: black;
+      }
+    }
+  }
+  
+  .item-active {
+    &::after {
+      background-color: white;
+    }
   }
 }

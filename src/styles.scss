@@ -23,7 +23,16 @@
     src: url('./assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Lato';
+    src: url('./assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
 @import 'animate.css';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 * {
     margin: 0;
@@ -39,9 +48,22 @@ html {
 
 :root {
     --violet: #3048C1;
+    --violet-secondary: #640EF1;
     --dark-blue: #080C2E;
+
+    --swiper-pagination-bullet-width: 24px;
+    --swiper-pagination-bullet-height: 5px;
+    --swiper-pagination-bullet-border-radius: 2px;
+    --swiper-pagination-color: #3048c1;
+    --swiper-pagination-bullet-horizontal-gap: 10px
 }
 
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* estándar */
+}
 
 a {
     color: inherit;
@@ -61,6 +83,108 @@ p {
     margin: 0;
 }
 
+.title-primary {
+    color: #333;
+    text-align: center;
+    font-family: Chakra Petch;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.5625rem;
+}
+
+.subtitle-primary {
+    color: #666;
+    text-align: center;
+    font-family: Lato;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.text-world {
+    display: flex;
+    padding: .5rem 1rem;
+    border-radius: 6.25rem;
+    background: #FFF;
+
+    .text-world-data {
+        color: #080C2E;
+        font-family: Poppins;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-left: 6px;
+    }
+}
+
+.loader-dvl-box {
+    background-color: white;
+    position: fixed;
+    top: -6.735rem;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 6.735rem);
+    z-index: 500;
+  
+    @media (max-width: 768px) {
+      top: 0rem;
+      height: 100%;
+    }
+  }
+  
+  .loader-dvl,
+  .loader-dvl:before,
+  .loader-dvl:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation-fill-mode: both;
+    animation: bblFadInOut 1.8s infinite ease-in-out;
+  }
+  
+  .loader-dvl {
+    color: var(--blue);
+    font-size: 7px;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .loader-dvl:before,
+  .loader-dvl:after {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+  
+  .loader-dvl:before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+  }
+  
+  .loader-dvl:after {
+    left: 3.5em;
+  }
+  
+  @keyframes bblFadInOut {
+  
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5em 0 -1.3em
+    }
+  
+    40% {
+      box-shadow: 0 2.5em 0 0
+    }
+  }
 
 
 html,

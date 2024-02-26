@@ -1,3 +1,140 @@
-:host {
-  display: block;
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--violet);
+  color: white;
+  font-family: Inter, sans-serif;
+  padding: 6.25rem 9.375rem 3.75rem 9.375rem;
+
+  @media (max-width: 1200px) {
+    padding: 4.25rem 7.375rem 1.75rem 7.375rem;
+
+  }
+
+
+  &--data {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 950px) {
+      flex-direction: column;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+
+        @media (max-width: 950px) {
+          text-align: center;
+        }
+      }
+
+      .text {
+        color: #BCBCBC;
+        font-size: 1.25rem;
+        max-width: 23.75rem;
+        margin-top: 2.625rem;
+
+        @media (max-width: 1400px) {
+          font-size: 1rem;
+        }
+
+        @media (max-width: 950px) {
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+
+      @media (max-width: 950px) {
+        margin-top: 2rem;
+      }
+
+      .item {
+        width: 39rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #1E0750;
+        padding-bottom: 1rem;
+        cursor: pointer;
+
+        &:not(:last-of-type) {
+          margin-bottom: 3.0625rem;
+        }
+
+        @media (max-width: 1400px) {
+          width: 29rem;
+          padding-bottom: .75rem;
+
+          &:not(:last-of-type) {
+            margin-bottom: 2.0625rem;
+          }
+        }
+
+        @media (max-width: 1200px) {
+          width: 19rem;
+        }
+
+        @media (max-width: 950px) {
+          width: 100%;
+        }
+
+        .text {
+          font-size: 1.5rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+
+          @media (max-width: 1400px) {
+            font-size: 1rem;
+          }
+        }
+
+        img {
+          width: 3rem;
+          height: 3rem;
+
+          @media (max-width: 1400px) {
+            width: 2.75rem;
+            height: 2.75rem;
+          }
+        }
+      }
+    }
+  }
+
+  &--copy {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7.875rem;
+    border-top: 2px solid white;
+    padding-top: 2rem;
+    font-size: 1.25rem;
+
+    @media (max-width: 950px) {
+      margin-top: 4rem;
+      flex-direction: column-reverse;
+      padding-top: 1rem;
+      .text {
+        margin-top: .5rem;
+      }
+    }
+
+    @media (max-width: 1400px) {
+      font-size: 1rem;
+    }
+
+  }
 }

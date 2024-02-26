@@ -1,3 +1,177 @@
-:host {
-  display: block;
+.video-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    max-width: 52.25rem;
+    margin-top: 5.8125rem;
+  }
+
+  &-subtitle {
+    margin-top: 1.5rem;
+  }
+
+  &-videos {
+    margin-top: 3rem;
+    width: 80%;
+  }
+
+  &-button {
+    margin-top: 3rem;
+
+    .btn-nosotros {
+      border-radius: 1.625rem;
+      background: #4A5FC9;
+      box-shadow: 0px 8px 20px 0px rgba(250, 90, 56, 0.16);
+      color: #FFF;
+      text-align: center;
+      font-family: Lato;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+      padding: .875rem 2.875rem;
+    }
+  }
+}
+
+.beneficios-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+
+  .beneficios-box {
+    padding: 3.125rem;
+    border-radius: 2.5rem;
+    background: #3048C1;
+    display: flex;
+    width: fit-content;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .beneficios-text {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.3125rem;
+      max-width: 25.56rem;
+
+      .beneficios-title {
+        color: #FFF;
+        font-family: Chakra Petch;
+        font-size: 2.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .beneficios-text-paragraph {
+        overflow: hidden;
+        color: #FFF;
+        font-family: Poppins;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.75rem;
+        letter-spacing: -0.32px;
+        margin-top: .625rem;
+      }
+    }
+
+    &-cards {
+      margin-left: 3.75rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.25rem;
+
+      .beneficio-card {
+        border-radius: 26px;
+        background: #FFF;
+        padding: 2.5rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s;
+        position: relative;
+
+        .reflect {
+          width: 48.36px;
+          height: 97.016px;
+          transform: rotate(30deg);
+          position: absolute;
+          right: 36.611px;
+          top: 14.5px;
+          background-color: rgba(66, 69, 96, 0.60);
+          filter: blur(10px);
+          border-radius: 40px;
+          visibility: hidden;
+        }
+
+        &:hover {
+          background: var(--dark-blue);
+        }
+
+        &:hover .reflect {
+          visibility: visible;
+        }
+
+        &:hover .beneficio-card-text {
+          color: white;
+        }
+
+        &:hover svg path {
+          stroke: white;
+        }
+
+        &:hover .svg-full-time svg path {
+          stroke: white;
+          fill: white;
+        }
+        
+        &:hover svg .centro-investigacion-svg {
+          fill: white;
+          stroke: transparent;
+        }
+
+        &-image {
+          z-index: 1;
+        }
+
+        &-text {
+          color: #080C2E;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 1.125rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-top: 1.25rem;
+          transition: all .2s;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+.clientes-section {
+  margin-top: 8.75rem;
+
+  .title-clientes {
+    color: #3048C1;
+    text-align: center;
+    font-family: Chakra Petch;
+    font-size: 2.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+  }
+
+  .clientes-slide {
+    margin-top: 2.8125rem;
+  }
 }

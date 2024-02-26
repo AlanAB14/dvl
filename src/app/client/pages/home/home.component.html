@@ -1,0 +1,115 @@
+<div class="video-section">
+    <div class="video-section-title">
+        <p class="title-primary">Tecnología impensada pensada para vos</p>
+    </div>
+    <div class="video-section-subtitle">
+        <p class="subtitle-primary">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    </div>
+    <div class="video-section-videos">
+        <app-touch-slider [categoria]="'videos'" [images]="images" />
+    </div>
+    <div class="video-section-button">
+        <button class="btn-nosotros">Nosotros</button>
+    </div>
+</div>
+
+<div class="beneficios-section">
+    <div class="beneficios-box">
+        <div class="beneficios-box-text">
+            <div class="text-world">
+                <img src="assets/imgs/global.png" alt="global">
+                <p class="text-world-data">Las 24 horas, <strong>los 365 días del año</strong></p>
+            </div>
+            <div class="beneficios-text">
+                <p class="beneficios-title">Más Beneficios</p>
+                <p class="beneficios-text-paragraph">DVL es una empresa que ofrece soluciones innovadoras con tecnología
+                    de avanzada para integrar y monitorear en real time remotamente los activos de sus clientes.
+                    Con el monitoreo de flotas y el internet de las cosas, DVL trae una tecnología que es impensada,
+                    pero que está pensada perfectamente para sus clientes.</p>
+            </div>
+        </div>
+        <div class="beneficios-box-cards">
+            <div class="beneficio-card">
+                <div class="beneficio-card-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="47" viewBox="0 0 46 47" fill="none">
+                        <path
+                            d="M17.2507 42.6667H28.7507C38.334 42.6667 42.1673 38.8334 42.1673 29.25V17.75C42.1673 8.16671 38.334 4.33337 28.7507 4.33337H17.2507C7.66732 4.33337 3.83398 8.16671 3.83398 17.75V29.25C3.83398 38.8334 7.66732 42.6667 17.2507 42.6667Z"
+                            stroke="#3048C1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M18.4003 17.6925L13.6278 22.465C13.072 23.0208 13.072 23.96 13.6278 24.5158L18.4003 29.2883"
+                            stroke="#3048C1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M27.5996 17.6925L32.3721 22.465C32.9279 23.0208 32.9279 23.96 32.3721 24.5158L27.5996 29.2883"
+                            stroke="#3048C1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="beneficio-card-text">
+                    Investigación y Desarrollo
+                </div>
+                <div class="reflect"></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-card-image svg-full-time">
+                    <svg width="29" height="42" viewBox="0 0 29 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.462999 26.4775C0.577182 26.6267 0.693549 26.7741 0.812055 26.9196C0.882349 26.7499 0.964125 26.5851 1.05698 26.4263L0.462999 26.4775ZM0.462999 26.4775C0.542496 26.3142 0.63186 26.1556 0.730804 26.0025M10.7172 29.2485L10.663 28.9535L10.3772 28.8624C7.63261 27.9878 5.21308 26.2568 3.45109 23.9027L3.45069 23.9022C2.11888 22.1279 1.2029 20.0565 0.776164 17.8511C0.349423 15.6457 0.423844 13.3678 0.993443 11.1974C1.56303 9.02713 2.61191 7.02479 4.05609 5.34794C5.50022 3.67115 7.29993 2.36585 9.31246 1.5336C11.3249 0.701394 13.496 0.364581 15.6548 0.549147C17.8136 0.733715 19.9024 1.43475 21.7564 2.59805C23.6106 3.76141 25.1797 5.35557 26.3389 7.25598C27.498 9.1563 28.2151 11.3103 28.4327 13.5482C28.4812 14.0636 28.0717 14.4975 27.55 14.4975C27.0523 14.4975 26.582 14.0643 26.5097 13.4425L26.5093 13.4398C26.2401 11.2328 25.4056 9.13885 24.0905 7.37482C22.7754 5.61068 21.0269 4.24014 19.0247 3.40706C17.0224 2.57391 14.8404 2.30917 12.705 2.64092C10.5696 2.97265 8.56043 3.88846 6.88492 5.29162C5.20954 6.69467 3.92879 8.53379 3.17326 10.6175C2.41776 12.7012 2.21431 14.9551 2.58351 17.1467C2.95272 19.3383 3.8815 21.3897 5.27552 23.0881C6.66964 24.7867 8.47878 26.071 10.5169 26.8059L10.9251 26.9531L11.1283 26.5696C11.4568 25.9496 11.937 25.4326 12.5182 25.0697C13.0993 24.7069 13.7615 24.5105 14.4375 24.4989C15.1135 24.4873 15.7814 24.6609 16.3736 25.0035C16.9659 25.3461 17.4621 25.846 17.8102 26.4543C18.1583 27.0626 18.3453 27.7567 18.3509 28.4659C18.3565 29.1752 18.1805 29.8724 17.842 30.4867C17.5035 31.1008 17.0151 31.6092 16.4282 31.9619C15.8414 32.3144 15.1762 32.4993 14.5001 32.4992H14.4999C13.6081 32.4994 12.7417 32.1777 12.0505 31.5859C11.359 30.9937 10.886 30.1677 10.7172 29.2485Z"
+                            fill="#3048C1" stroke="#3048C1" />
+                    </svg>
+
+                </div>
+                <div class="beneficio-card-text">
+                    Asistencia Full Time
+                </div>
+                <div class="reflect"></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-card-image">
+                    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.2507 42.1667H28.7507C38.334 42.1667 42.1673 38.3334 42.1673 28.75V17.25C42.1673 7.66671 38.334 3.83337 28.7507 3.83337H17.2507C7.66732 3.83337 3.83398 7.66671 3.83398 17.25V28.75C3.83398 38.3334 7.66732 42.1667 17.2507 42.1667Z"
+                            stroke="#3048C1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path class="centro-investigacion-svg"
+                            d="M32.6 16.75H29V14.375C29 13.0687 27.92 12 26.6 12H19.4C18.08 12 17 13.0687 17 14.375V16.75H13.4C12.08 16.75 11 17.8188 11 19.125V31H35V19.125C35 17.8188 33.92 16.75 32.6 16.75ZM19.4 14.375H26.6V16.75H19.4V14.375ZM32.6 28.625H13.4V25.0625H15.8V26.25H18.2V25.0625H27.8V26.25H30.2V25.0625H32.6V28.625ZM30.2 22.6875V21.5H27.8V22.6875H18.2V21.5H15.8V22.6875H13.4V19.125H32.6V22.6875H30.2Z"
+                            fill="#3048C1" />
+                    </svg>
+                </div>
+                <div class="beneficio-card-text">
+                    Centros de Intervención
+                    y servicios
+                </div>
+                <div class="reflect"></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-card-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+                        <path d="M13.1875 34.7874V30.8199" stroke="#3048C1" stroke-width="3" stroke-linecap="round" />
+                        <path d="M23 34.7875V26.8525" stroke="#3048C1" stroke-width="3" stroke-linecap="round" />
+                        <path d="M32.8125 34.7875V22.8658" stroke="#3048C1" stroke-width="3" stroke-linecap="round" />
+                        <path d="M32.8142 11.2125L31.9325 12.2475C27.045 17.9592 20.49 22.0034 13.1875 23.8242"
+                            stroke="#3048C1" stroke-width="3" stroke-linecap="round" />
+                        <path d="M27.1973 11.2125H32.8131V16.8092" stroke="#3048C1" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M17.2507 42.1667H28.7507C38.334 42.1667 42.1673 38.3334 42.1673 28.75V17.25C42.1673 7.66671 38.334 3.83337 28.7507 3.83337H17.2507C7.66732 3.83337 3.83398 7.66671 3.83398 17.25V28.75C3.83398 38.3334 7.66732 42.1667 17.2507 42.1667Z"
+                            stroke="#3048C1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="beneficio-card-text">
+                    Industria Nacional
+                </div>
+                <div class="reflect"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clientes-section">
+    <p class="title-clientes">Nuestros Clientes</p>
+    <div class="clientes-slide">
+        <app-touch-slider [categoria]="'clientes'" [images]="imagesClientes" />
+    </div>
+</div>
+<div class="contacto-section">
+    <app-contacto />
+</div>

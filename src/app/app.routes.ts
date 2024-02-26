@@ -12,6 +12,14 @@ export const routes: Routes = [
             {
                 path: 'nosotros',
                 loadComponent: () => import('./client/pages/nosotros/nosotros.component')
+            },
+            {
+                path: 'certificaciones',
+                loadComponent: () => import('./client/pages/certificaciones/certificaciones.component')
+            },
+            {
+                path: 'dvl-iot',
+                loadComponent: () => import('./client/pages/dvl-iot/dvl-iot.component')
             }
         ]
     }

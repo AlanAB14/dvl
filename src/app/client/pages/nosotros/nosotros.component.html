@@ -1,1 +1,56 @@
-<p>nosotros works!</p>,
+<div class="nosotros-section">
+    <div class="nosotros-section__data">
+        <div class="nosotros-section__data--title">
+            <div class="text-world">
+                <img src="assets/imgs/global-white.png" alt="global">
+                <p class="text-world-data"><strong>DVL Satelital es una división de la Empresa TC S.A.</strong></p>
+            </div>
+            <div class="title">
+                <p>#Unacompañíadecompañías</p>
+            </div>
+            <div class="subtitle">
+                <p>Ofrecemos soluciones innovadoras que incorporan los últimos avances tecnológicos para integrar y monitorear remotamente los activos de nuestros clientes.</p>
+            </div>
+        </div>
+        <div class="nosotros-section__data--img">
+            <img src="assets/imgs/casa-central.png" alt="casa-central">
+        </div>
+        <div class="nosotros-section__data--body">
+                <p>Somos una empresa dedicada a la prestación de servicios a personas y vehículos. Tenemos una estructura edilicia que ocupa una superficie de 5700 m2, donde se encuentran las oficinas de la administración general y desde donde proyectamos los servicios de nuestras Unidades de Negocios: DVL Satelital, TeleAssistance, Taller ASA y Venado Rent a Car.</p>
+        </div>
+    </div>
+    <div class="nosotros-section__numbers">
+        <div class="empleados" #numbers>
+            <div class="number" *ngIf="isNumberVisible">+{{currentNumberEmpleados}}</div>
+            <div class="text">empleados</div>
+        </div>
+        <div class="estructura">
+            <div class="number" *ngIf="isNumberVisible">+{{currentNumberEstructura}}m2</div>
+            <div class="text">de estructura edilicia</div>
+        </div>
+        <div class="anios">
+            <div class="number" *ngIf="isNumberVisible">+{{currentNumberAnios}}</div>
+            <div class="text">años</div>
+        </div>
+    </div>
+    <div class="nosotros-section__politicas">
+        <div class="nosotros-section__politicas--title">
+            <p>
+                Nuestras Políticas de Calidad 
+            </p>
+        </div>
+        <div class="nosotros-section__politicas--slider">
+            <app-touch-slider [info]="data" [categoria]="'politicas'" />
+        </div>
+    </div>
+    <div class="nosotros-section__certificaciones">
+        <div class="nosotros-section__politicas--title">
+            <p>
+                Nuestras Políticas de Calidad 
+            </p>
+        </div>
+        <div class="nosotros-section__politicas--slider">
+            <app-touch-slider [info]="dataCertificaciones" [categoria]="'certificaciones'" />
+        </div>
+    </div>
+</div>

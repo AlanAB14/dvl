@@ -28,6 +28,11 @@
     src: url('./assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Raleway';
+    src: url('./assets/fonts/Raleway/Raleway-Regular.ttf') format('truetype');
+}
+
 @import 'animate.css';
 
 @import 'tailwindcss/base';

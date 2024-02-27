@@ -25,7 +25,7 @@ export default class LayoutComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      this.esRutaEspecifica = event.url === '/dvl-iot';
+      this.esRutaEspecifica = event.url === '/dvl-iot' || event.url === '/dvl-satelital';
     });
   }
 }

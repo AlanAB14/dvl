@@ -1,1 +1,21 @@
-asdasd
+<div class="head">
+    <app-head [image]="'assets/imgs/dvl-iot.png'"
+              [title]="'Soluciones tecnológicas para la Agroindustria'"
+              [subtitle]="'Lo impensado en tecnología'"
+              [subtitleStrong]="'pensado para vos.'" />
+</div>
+
+<div class="servicios-section">
+    <div class="servicios-section__title">
+        <p>Servicios de ingeniería IoT para la telemetría de información remota.</p>
+    </div>
+    <div class="servicios-section__items">
+        @for (item of servicios; track $index) {
+            <app-box-reflect [icon]="item.icon" [title]="item.title" />
+        }
+    </div>
+    <div class="servicios-section__text">
+        <p>Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas).
+            Colocando un equipo IoT Core, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).</p>
+    </div>
+</div>

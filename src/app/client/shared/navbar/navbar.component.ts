@@ -16,6 +16,7 @@ import { filter } from 'rxjs';
 })
 export class NavbarComponent {
   esRutaEspecifica: boolean = false;
+  esRutaEspecificaSatelital: boolean = false;
   menuItems = [
     {
       path: 'nosotros',
@@ -44,6 +45,7 @@ export class NavbarComponent {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
       this.esRutaEspecifica = event.url === '/dvl-iot';
+      this.esRutaEspecificaSatelital = event.url === '/dvl-satelital';
     });
   }
 }

@@ -20,6 +20,10 @@ export const routes: Routes = [
             {
                 path: 'dvl-iot',
                 loadComponent: () => import('./client/pages/dvl-iot/dvl-iot.component')
+            },
+            {
+                path: 'dvl-satelital',
+                loadComponent: () => import('./client/pages/dvl-satelital/dvl-satelital.component')
             }
         ]
     }

@@ -5,6 +5,7 @@
   color: white;
   font-family: Inter, sans-serif;
   padding: 6.25rem 9.375rem 3.75rem 9.375rem;
+  transition: all .2s;
 
   @media (max-width: 1200px) {
     padding: 4.25rem 7.375rem 1.75rem 7.375rem;
@@ -136,5 +137,17 @@
       font-size: 1rem;
     }
 
+  }
+}
+
+.theme-dark {
+  .footer-section {
+    background-color: var(--violet-secondary)!important;
+  }
+}
+
+.theme-dark-satelital {
+  .footer-section {
+    background-color: var(--violet)!important;
   }
 }

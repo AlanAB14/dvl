@@ -1,0 +1,37 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: #15162F;
+  padding: 1.875rem 1.25rem 1.875rem 1.5rem;
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+
+
+  &-icon {
+    img {
+      height: 32px;
+      width: 32px;
+      width: auto;
+    }
+  }
+
+  &-title {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 0.5px;
+    
+    margin-top: 1.75rem;
+
+    @media (max-width: 1400px) {
+      font-size: 1.2rem;
+    }
+    p {
+      white-space: pre-line;
+    }
+  }
+}

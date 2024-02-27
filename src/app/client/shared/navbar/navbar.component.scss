@@ -122,7 +122,35 @@
   
   .item-active {
     &::after {
-      background-color: white;
+      background-color: #691183;
+    }
+  }
+}
+
+.theme-dark-satelital {
+  .navbar-section {
+    background-color: var(--dark-blue);
+  
+    &--items {
+      ul {
+  
+        li {
+          color: white;
+        }
+      }
+    }
+  
+    &--button {
+      button {
+        background-color: var(--violet);
+        color: black;
+      }
+    }
+  }
+  
+  .item-active {
+    &::after {
+      background-color: var(--violet);
     }
   }
 }

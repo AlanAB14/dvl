@@ -1,3 +1,70 @@
-:host {
-  display: block;
+.head {
+  padding-top: 5.8125rem;
+}
+
+.servicios-section {
+  margin-top: 5.8125rem;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__title {
+    p {
+      color: #FFF;
+      font-family: "Chakra Petch";
+      font-size: 2.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  &__items {
+    margin-top: 3.875rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+
+    @media (max-width: 1100px) {
+      grid-gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      grid-gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 450px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+  }
+
+  &__text {
+    margin-top: 5.652rem;
+
+    p {
+      color: #E9E9E9;
+      text-align: justify;
+      font-family: Roboto;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.0625rem;
+      /* 165% */
+    }
+  }
 }

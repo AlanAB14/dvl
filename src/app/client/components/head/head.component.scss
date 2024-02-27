@@ -1,0 +1,212 @@
+.toggleCheckbox {
+  display: none;
+}
+
+.toggleContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  border: 3px solid #121228;
+  border-radius: 20px;
+  background: #121228;
+  font-weight: bold;
+  color: #121228;
+  cursor: pointer;
+}
+
+.toggleContainer::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  border-radius: 20px;
+  background: var(--violet-secondary);
+  transition: all 0.3s;
+}
+
+.toggleContainer div {
+  padding: .625rem 2rem;
+  text-align: center;
+  z-index: 1;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+
+}
+
+.toggleCheckbox:checked+.toggleContainer::before {
+  left: 50%;
+}
+
+.toggleCheckbox:checked+.toggleContainer div:first-child {
+  color: var(--violet-secondary);
+  transition: color 0.3s;
+}
+
+.toggleCheckbox:checked+.toggleContainer div:last-child {
+  color: #121228;
+  transition: color 0.3s;
+}
+
+.toggleCheckbox+.toggleContainer div:first-child {
+  color: #121228;
+  transition: color 0.3s;
+}
+
+.toggleCheckbox+.toggleContainer div:last-child {
+  color: var(--violet-secondary);
+  transition: color 0.3s;
+}
+
+.head-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+
+    .somos {
+      display: flex;
+      align-items: center;
+
+      .line {
+        width: 4.09rem;
+        height: 2px;
+        background-color: white;
+        margin-right: 1.6rem;
+      }
+
+      p {
+        color: #FFF;
+        font-family: "Open Sans";
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: .5316rem;
+      }
+    }
+
+    .title {
+      color: #FFF;
+      font-family: "Chakra Petch";
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      margin-top: 3rem;
+      /* 48px */
+    }
+
+    .subtitle {
+      margin-top: 2.06rem;
+      color: var(--violet-secondary);
+      font-family: Roboto;
+      font-size: 1.375rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.625rem;
+      /* 190.909% */
+      letter-spacing: 0.66px;
+    }
+
+    .subtitle-strong {
+      font-weight: 600;
+      color: var(--violet-secondary);
+      font-family: Roboto;
+      font-size: 1.375rem;
+      font-style: normal;
+      line-height: 2.625rem;
+      letter-spacing: 0.66px;
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 4.31rem;
+
+      .info {
+        background: var(--violet-secondary);
+        color: #05051E;
+        text-align: center;
+        font-family: "Open Sans";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        padding: 1.125rem 3.6rem;
+        margin-right: 3.31rem;
+      }
+
+      .videos {
+        background-color: transparent;
+        color: var(--violet-secondary);
+        font-family: "Open Sans";
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+
+  }
+
+  &-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+}
+
+.theme-satelital {
+  .subtitle {
+    color: var(--violet) !important;
+  }
+
+  .subtitle-strong {
+    color: var(--violet) !important;
+  }
+
+  .buttons {
+    .info {
+      background-color: var(--violet) !important;
+    }
+
+    .videos {
+      color: var(--violet) !important;
+    }
+  }
+
+  .toggleContainer::before {
+    background: var(--violet)!important;
+  }
+
+  .toggleCheckbox:checked+.toggleContainer div:first-child {
+    color: var(--violet)!important;
+  }
+
+  .toggleCheckbox+.toggleContainer div:last-child {
+    color: var(--violet)!important;
+  }
+  
+  .toggleCheckbox:checked+.toggleContainer div:last-child {
+    color: #121228!important;
+    transition: color 0.3s;
+  }
+}

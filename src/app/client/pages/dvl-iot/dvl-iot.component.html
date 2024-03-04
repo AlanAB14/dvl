@@ -1,9 +1,9 @@
-<div class="head">
+<!-- <div class="head">
     <app-head [image]="'assets/imgs/dvl-iot.png'"
               [title]="'Soluciones tecnológicas para la Agroindustria'"
               [subtitle]="'Lo impensado en tecnología'"
               [subtitleStrong]="'pensado para vos.'" />
-</div>
+</div> -->
 
 <div class="servicios-section">
     <div class="servicios-section__title">
@@ -11,11 +11,61 @@
     </div>
     <div class="servicios-section__items">
         @for (item of servicios; track $index) {
-            <app-box-reflect [icon]="item.icon" [title]="item.title" />
+            <div (click)="setIdSeleccionado(item.id)">
+                <app-box-reflect [icon]="item.icon" [servicioSeleccionado]="idServicioSeleccionado" [title]="item.title" [id]="item.id" />
+            </div>
         }
     </div>
-    <div class="servicios-section__text">
-        <p>Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas).
-            Colocando un equipo IoT Core, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).</p>
+    <div class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
+        <p>{{ getTextoIdSeleccionado() }}</p>
+    </div>
+</div>
+
+<div class="modulos-section">
+    <div class="modulos-section__title servicios-section__title">
+        <p>Módulos para la Agroindustria</p>
+    </div>
+    <div class="modulos-section__boxes">
+        @for (item of modulos; track $index) {
+            <div class="box">
+                <app-box-module [icon]="item.icon" [title]="item.title" [text]="item.text" />
+            </div>
+        }
+    </div>
+</div>
+
+<div class="casos-exito-section">
+    <div class="casos-exito-section__title servicios-section__title">
+        <p>Casos de éxito</p>
+    </div>
+    <div class="casos-exito-section__boxes">
+        <div class="box">
+            @if (slidesPerView === 2) {
+                <swiper-container navigation="false"
+                                  autoplay="true"
+                                  slides-per-view="2"
+                                  space-between="30">
+                        @for (item of casosExito; track $index) {
+                            <swiper-slide class="slide-caso">
+                                    <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
+                            </swiper-slide>
+                        }
+                </swiper-container>
+            } @else if (slidesPerView === 1) {
+                <swiper-container navigation="false"
+                                  slides-per-view="1"
+                                  navigation="false"
+                                  pagination-enabled="true"
+                                  pagination-clickable="true"
+                                  pagination-type="bullets"
+                                  space-between="30">
+                        @for (item of casosExito; track $index) {
+                            <swiper-slide class="slide-caso">
+                                    <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
+                            </swiper-slide>
+                        }
+                </swiper-container>
+            }
+        </div>
     </div>
 </div>

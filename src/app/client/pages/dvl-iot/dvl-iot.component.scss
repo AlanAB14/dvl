@@ -68,3 +68,66 @@
     }
   }
 }
+
+.modulos-section {
+  margin-top: 5.8125rem;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__boxes {
+    margin-top: 2.5rem;
+
+    .box {
+      &:not(:last-of-type) {
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+}
+
+.casos-exito-section {
+  margin-top: 5.8125rem;
+  padding-bottom: 5.8125rem!important;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__boxes {
+    margin-top: 2.5rem;
+
+    .box {
+
+      .slide-caso {
+        height: inherit;
+      }
+
+      app-box-exito {
+        display: block;
+        height: 100%;
+      }
+
+
+    }
+  }
+}

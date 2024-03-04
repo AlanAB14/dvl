@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, inject } from '@angular/core';
 
 @Component({
   selector: 'app-box-reflect',
@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     CommonModule,
   ],
   template: `
-    <div class="box">
+    <div class="box" [ngClass]="{'selected': estaSeleccionado}">
       <div class="box-icon">
         <img [src]="icon" [style.padding]="icon === 'assets/imgs/iot-icons/sustentabilidad.svg' ? '3px' : '0'" alt="">
       </div>
@@ -17,14 +17,35 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
           {{ title }}
         </p>
       </div>
+      <div class="reflect"></div>
     </div>
   `
   ,
   styleUrl: './box-reflect.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BoxReflectComponent {
+export class BoxReflectComponent implements OnInit, OnChanges {
   @Input() icon!: string;
   @Input() title!: string;
+  @Input() id!: number;
+  @Input() servicioSeleccionado!: number;
+  @Output() enviarId = new EventEmitter<number>();
+  estaSeleccionado!: boolean;
 
+  ngOnInit(): void {
+    this.verificaSeleccion()
+  }
+
+  verificaSeleccion() {
+    if (this.id === this.servicioSeleccionado) {
+      this.estaSeleccionado = true;
+    }else {
+      this.estaSeleccionado = false
+    }
+  }
+
+  ngOnChanges(changes: any) {
+    console.log(changes)
+    this.verificaSeleccion()
+  }
 }

@@ -1,0 +1,49 @@
+.box {
+  // &:not(:last-of-type) {
+  //   margin-bottom: 1.25rem;
+  // }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &-logo {
+    img {
+      height: 3.25rem;
+      width: auto;
+    }
+  }
+
+  &-content {
+    margin-top: .8125rem;
+    padding: 1.875rem;
+    border-radius: 5px;
+    background: #15162F;
+    color: #838383;
+    font-family: Roboto;
+    height: 100%;
+
+    &-data {
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &-title {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.625rem;
+    letter-spacing: 0.2px;
+  }
+
+  ul {
+    li {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.625rem;
+      letter-spacing: 0.2px;
+    }
+  }
+}

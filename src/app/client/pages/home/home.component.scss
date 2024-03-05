@@ -123,33 +123,25 @@
           color: white;
         }
 
-        &:hover svg path {
-          stroke: white;
-        }
-
-        &:hover .svg-full-time svg path {
-          stroke: white;
-          fill: white;
-        }
-        
-        &:hover svg .centro-investigacion-svg {
-          fill: white;
-          stroke: transparent;
-        }
-
         &-image {
           z-index: 1;
+          img {
+            max-width: 300px;
+          }
         }
 
         &-text {
+          position: absolute;
+          right: 1.75rem;
+          bottom: 2.5rem;
+          width: 100%;
           color: #080C2E;
-          text-align: center;
+          text-align: end;
           font-family: Poppins;
           font-size: 1.125rem;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
-          margin-top: 1.25rem;
           transition: all .2s;
           z-index: 1;
         }

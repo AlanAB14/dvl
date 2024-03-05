@@ -5,3 +5,19 @@
               [subtitleStrong]="'pensado para vos.'"
                />
 </div>
+
+<div class="servicios-section">
+    <div class="servicios-section__title">
+        <!-- <p>Servicios de ingeniería IoT para la telemetría de información remota.</p> -->
+    </div>
+    <div class="servicios-section__items">
+        @for (item of servicios; track $index) {
+            <div (click)="setIdSeleccionado(item.id)">
+                <app-box-reflect [esSatelital]="true" [icon]="item.icon" [servicioSeleccionado]="idServicioSeleccionado" [title]="item.title" [id]="item.id" />
+            </div>
+        }
+    </div>
+    <div class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
+        <p>{{ getTextoIdSeleccionado() }}</p>
+    </div>
+</div>

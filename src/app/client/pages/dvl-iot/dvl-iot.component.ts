@@ -171,7 +171,6 @@ export default class DvlIotComponent implements OnInit{
 
   recibirId(id: number) {
     this.idServicioSeleccionado = id;
-
   }
 
   getTextoIdSeleccionado() {

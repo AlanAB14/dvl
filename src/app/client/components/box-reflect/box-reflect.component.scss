@@ -15,7 +15,7 @@
     background-color: var(--violet-secondary);
   }
 
-  
+
   &:hover .reflect {
     visibility: visible;
   }
@@ -37,12 +37,13 @@
     font-weight: 700;
     line-height: 34px;
     letter-spacing: 0.5px;
-    
+    z-index: 1;
     margin-top: 1.75rem;
 
     @media (max-width: 1400px) {
       font-size: 1.2rem;
     }
+
     p {
       white-space: pre-line;
     }
@@ -63,8 +64,36 @@
 }
 
 .selected {
-  background-color: var(--violet-secondary)!important;
+  background-color: var(--violet-secondary);
+
   .reflect {
-    visibility: visible!important;
+    visibility: visible !important;
+  }
+}
+
+.secondary {
+  &:hover {
+    background-color: var(--violet) !important;
+  }
+
+  .reflect {
+    width: 48.36px;
+    height: 97.016px;
+    transform: rotate(30deg);
+    position: absolute;
+    right: 36.611px;
+    top: 14.5px;
+    background-color: black;
+    filter: blur(25px);
+    border-radius: 40px;
+    visibility: hidden;
+  }
+}
+
+.selected-secondary {
+  background-color: var(--violet) !important;
+
+  .reflect {
+    visibility: visible !important;
   }
 }

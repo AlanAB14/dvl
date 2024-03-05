@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, Input, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, Input, OnInit, inject } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { Router, RouterModule } from '@angular/router';
 
@@ -22,18 +22,29 @@ export interface Slide {
   templateUrl: './touch-slider.component.html',
   styleUrl: './touch-slider.component.scss',
 })
-export class TouchSliderComponent{
+export class TouchSliderComponent implements OnInit{
   @Input() categoria!: string;
   @Input() images: Slide[] = [];
   @Input() info: any[] = [];
   activeSlideIndex: number = 1;
   slidesPerView!: number;
+  slidesPerViewCertificaciones!: number;
   screenWidth!: number;
   router = inject(Router)
 
+  ngOnInit(): void {
+    this.getScreenWidth();
+  }
+  
   @HostListener('window:resize')
   getScreenWidth() {
     this.screenWidth = window.innerWidth;
+    if (this.screenWidth <= 1300) {
+      this.slidesPerViewCertificaciones = 1
+    }
+    if (this.screenWidth > 1300) {
+      this.slidesPerViewCertificaciones = 3
+    }
     if (this.screenWidth <= 1080) {
       this.slidesPerView = 1
     }

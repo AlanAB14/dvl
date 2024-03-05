@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnI
     CommonModule,
   ],
   template: `
-    <div class="box" [ngClass]="{'selected': estaSeleccionado}">
+    <div class="box" [ngClass]="{'selected': estaSeleccionado, 'secondary': esSatelital, 'selected-secondary': estaSeleccionado && esSatelital}">
       <div class="box-icon">
         <img [src]="icon" [style.padding]="icon === 'assets/imgs/iot-icons/sustentabilidad.svg' ? '3px' : '0'" alt="">
       </div>
@@ -29,6 +29,7 @@ export class BoxReflectComponent implements OnInit, OnChanges {
   @Input() title!: string;
   @Input() id!: number;
   @Input() servicioSeleccionado!: number;
+  @Input() esSatelital: boolean = false;
   @Output() enviarId = new EventEmitter<number>();
   estaSeleccionado!: boolean;
 

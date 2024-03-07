@@ -24,6 +24,10 @@ export const routes: Routes = [
             {
                 path: 'dvl-satelital',
                 loadComponent: () => import('./client/pages/dvl-satelital/dvl-satelital.component')
+            },
+            {
+                path: 'novedades',
+                loadComponent: () => import('./client/pages/novedades/novedades.component')
             }
         ]
     }

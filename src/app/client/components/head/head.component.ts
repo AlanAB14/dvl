@@ -12,7 +12,7 @@ import { filter } from 'rxjs';
     FormsModule
   ],
   template: `
-  <div class="head-section animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital}">
+  <div class="head-section animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital, 'theme-novedades': esNovedades}">
 
     <div class="head-section__text">
       <div class="somos">
@@ -39,14 +39,15 @@ import { filter } from 'rxjs';
       <img [src]="image" alt="imagen">
     </div>
   </div>
-  
-  <div class="head-section-switch animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital}">
-    <input type="checkbox" id="toggle" class="toggleCheckbox" (change)="onToggleChange()" [checked]="!dvlIot" />
-      <label for="toggle" class="toggleContainer">
-        <div>DLV IOT</div> 
-        <div>SATELITAL</div>
-      </label>
-  </div>
+      @if(!esNovedades) {
+        <div class="head-section-switch animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital}">
+          <input type="checkbox" id="toggle" class="toggleCheckbox" (change)="onToggleChange()" [checked]="!dvlIot" />
+            <label for="toggle" class="toggleContainer">
+              <div>DLV IOT</div> 
+              <div>SATELITAL</div>
+            </label>
+        </div>
+      }
   `,
   styleUrl: './head.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -56,6 +57,7 @@ export class HeadComponent{
   @Input() subtitle!: string;
   @Input() subtitleStrong!: string;
   @Input() image!: string;
+  @Input() esNovedades: boolean = false;
   esSatelital: boolean = false;
   dvlIot!: boolean;
 

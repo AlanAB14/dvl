@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, Input, OnInit, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, HostListener, Input, OnInit, Output, inject } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { Router, RouterModule } from '@angular/router';
 
@@ -26,6 +26,7 @@ export class TouchSliderComponent implements OnInit{
   @Input() categoria!: string;
   @Input() images: Slide[] = [];
   @Input() info: any[] = [];
+  @Output() sendIdNoticia = new EventEmitter(); 
   activeSlideIndex: number = 1;
   slidesPerView!: number;
   slidesPerViewCertificaciones!: number;
@@ -57,6 +58,10 @@ export class TouchSliderComponent implements OnInit{
     const data = certificacion;
     const url = this.router.serializeUrl(this.router.createUrlTree(['certificaciones', { c: btoa(JSON.stringify(data)) }]));
     window.open(`${url}`, '_self');
+  }
+
+  enviarId(id: number) {
+    this.sendIdNoticia.emit(id)
   }
 
 }

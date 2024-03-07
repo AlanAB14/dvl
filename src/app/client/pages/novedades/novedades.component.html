@@ -1,0 +1,18 @@
+<div class="head">
+    <app-head [image]="'assets/imgs/novedades/novedades.png'" [title]="'Plataforma de gestión de flotas'"
+        [subtitle]="'Lo impensado en tecnología'" [subtitleStrong]="'pensado para vos.'" [esNovedades]="true" />
+</div>
+
+<div class="novedades-section">
+    <div class="novedades-section__search">
+        <div class="novedades-section__search--title">
+            <p>Novedades</p>
+        </div>
+        <div class="novedades-section__search--subtitle">
+            <p>Descubrí lo nuevo de DVL: Te invitamos a dar un recorrido por nuestras noticias y actualizaciones.</p>
+        </div>
+        <div class="novedades-section__search--carousel">
+            <app-touch-slider [categoria]="'novedades'" (sendIdNoticia)="setIdNoticia($event)" [info]="info" />
+        </div>
+    </div>
+</div>

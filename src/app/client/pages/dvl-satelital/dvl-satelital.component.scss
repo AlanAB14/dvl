@@ -68,3 +68,160 @@
     }
   }
 }
+
+.beneficios-monitoreo-section {
+  margin-top: 5.8125rem;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__title {
+    p {
+      color: #FFF;
+      font-family: "Chakra Petch";
+      font-size: 2.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  &__text {
+    margin-top: 2.5rem;
+
+    p {
+      color: #E9E9E9;
+      text-align: justify;
+      font-family: Roboto;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.0625rem;
+      /* 165% */
+    }
+  }
+}
+
+.herramientas-section {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 5.8125rem;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__image {
+    display: flex;
+    flex-direction: column;
+
+    .text {
+      margin-bottom: 2rem;
+      color: #FFF;
+      font-family: "Chakra Petch";
+      font-size: 2.875rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .image {
+
+      &-box-principal {
+        position: relative;
+        width: fit-content;
+        
+        &-items {
+          .icon {
+            transform: translateX(-50%);
+          }
+
+          .card {
+            border-radius: 1rem;
+            transform: translateX(25%);
+          }
+        }
+
+      }
+
+      .icon {
+        position: absolute;
+        left: 0;
+        top: 10%;
+      }
+
+      .card {
+        position: absolute;
+        right: 0;
+        bottom: 10%;
+      }
+    }
+  }
+
+  &__content {
+    margin-left: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // .box {
+    //   &:not(:last-of-type) {
+    //     margin-bottom: 1.25rem;
+    //   }
+    // }
+  }
+
+}
+
+.casos-exito-section {
+  margin-top: 5.8125rem;
+  padding-bottom: 5.8125rem!important;
+  padding: 0 6rem;
+
+  @media (max-width: 1200px) {
+    padding: 0rem 4rem;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0rem 1rem;
+  }
+
+  &__boxes {
+    margin-top: 2.5rem;
+
+    .box {
+
+      .slide-caso {
+        height: inherit;
+      }
+
+      app-box-exito {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+}

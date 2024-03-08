@@ -276,11 +276,18 @@
       display: flex;
       justify-content: center;
       position: relative;
+
+      .border-selected {
+          border: 4px solid var(--violet-secondary);
+          border-radius: 1rem;
+      }
       img {
-        cursor: pointer;
-        &:hover {
-          border: 2px solid var(--violet-secondary);
-        }
+        transition: all .1s;
+        border-radius: 1rem;
+
+        // &:hover {
+        //   border: 2px solid var(--violet-secondary);
+        // }
 
         &:hover + button {
           opacity: 1;
@@ -290,6 +297,7 @@
       }
 
       button {
+        cursor: pointer;
         background-color: var(--violet-secondary);
         color: white;
         padding: .75rem 2rem;
@@ -305,6 +313,7 @@
           opacity: 1;
           top: 70%;
         }
+
       }
     }
   }

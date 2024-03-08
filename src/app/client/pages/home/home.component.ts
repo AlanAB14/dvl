@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
 import { ContactoComponent } from '../../components/contacto/contacto.component';
+import { InfiniteSlideComponent } from '../../components/infinite-slide/infinite-slide.component';
 
 
 
@@ -12,7 +13,8 @@ import { ContactoComponent } from '../../components/contacto/contacto.component'
   imports: [
     CommonModule,
     TouchSliderComponent,
-    ContactoComponent
+    ContactoComponent,
+    InfiniteSlideComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

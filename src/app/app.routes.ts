@@ -28,6 +28,10 @@ export const routes: Routes = [
             {
                 path: 'novedades',
                 loadComponent: () => import('./client/pages/novedades/novedades.component')
+            },
+            {
+                path: 'contacto',
+                loadComponent: () => import('./client/pages/contacto/contacto.component')
             }
         ]
     }

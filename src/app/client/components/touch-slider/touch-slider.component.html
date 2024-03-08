@@ -82,8 +82,7 @@
 </swiper-container>
 }
 } @else if (categoria === 'novedades') {
-<swiper-container autoplay="true" 
-                  autoplay-delay="5000" 
+<swiper-container autoplay="false" 
                   class="swiper-novedades" 
                   space-between="30" 
                   slides-per-view="3"
@@ -94,8 +93,8 @@
     @for (item of info; track $index) {
     <swiper-slide>
         <div class="novedad">
-            <img (click)="enviarId(item.id)" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
-            <button>Leer más</button>
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <button (click)="enviarId(item.id)">Leer más</button>
         </div>
     </swiper-slide>
     }

@@ -14,5 +14,40 @@
         <div class="novedades-section__search--carousel">
             <app-touch-slider [categoria]="'novedades'" (sendIdNoticia)="setIdNoticia($event)" [info]="info" />
         </div>
+        <div class="novedades-section__result">
+            @if (noticiaSeleccionada) {
+                <div class="noticia-seleccionada" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
+                    <div class="noticia-seleccionada--img">
+                        <img [src]="noticiaSeleccionada.imgCompleta" alt="img-completa">
+                    </div>
+                    <div class="noticia-seleccionada--text">
+                        <p>{{ noticiaSeleccionada.text }}</p>
+
+                    </div>
+                    <div class="border-line"></div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="comentarios-section">
+    <div class="comentarios-section__title">
+        <div class="comentarios-section__title--title">
+            <p>Comentarios</p>
+        </div>
+        <div class="comentarios-section__title--subtitle">
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing</p>
+        </div>
+    </div>
+    <div class="comentarios-section__qualifications">
+        @for (item of comentarios; track $index) {
+            <app-box-comentario [stars]="item.stars" 
+                                [text]="item.text" 
+                                [img]="item.img" 
+                                [name]="item.name" 
+                                [profession]="item.profession" 
+            />
+        }
     </div>
 </div>

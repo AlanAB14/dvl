@@ -27,6 +27,7 @@ export class TouchSliderComponent implements OnInit{
   @Input() images: Slide[] = [];
   @Input() info: any[] = [];
   @Output() sendIdNoticia = new EventEmitter(); 
+  idSeleccionada!: number;
   activeSlideIndex: number = 1;
   slidesPerView!: number;
   slidesPerViewCertificaciones!: number;
@@ -61,6 +62,7 @@ export class TouchSliderComponent implements OnInit{
   }
 
   enviarId(id: number) {
+    this.idSeleccionada = id;
     this.sendIdNoticia.emit(id)
   }
 

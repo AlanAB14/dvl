@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -8,6 +8,7 @@ import { filter } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',

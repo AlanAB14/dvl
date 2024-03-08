@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-infinite-slide',
@@ -26,13 +26,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrl: './infinite-slide.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InfiniteSlideComponent implements OnInit{
+export class InfiniteSlideComponent {
   @Input() logos!: any[];
   
-  ngOnInit(): void {
-    var copy = document.querySelector(".logos-slide")!.cloneNode(true)
-    console.log(copy)
-    document.querySelector('.logos')?.appendChild(copy)
-  }
-
 }

@@ -7,6 +7,7 @@ register();
 
 export interface Slide {
   imgSrc: string;
+  imgPre: string;
   imgAlt: string;
 }
 

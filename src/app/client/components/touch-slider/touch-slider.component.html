@@ -5,7 +5,7 @@
     coverflow-effect-slide-shadows="true" navigation="true" allow-touch-move="false" focusable-elements="video">
     @for (item of images; track $index) {
     <swiper-slide>
-        <video [controls]="true" [src]="item.imgSrc"></video>
+        <video [poster]="item.imgPre"  [controls]="true" [src]="item.imgSrc"></video>
     </swiper-slide>
     }
 </swiper-container>
@@ -52,7 +52,7 @@
                 <div class="certificacion-box-text">
                     <p class="no-select date-text">{{item.date}}</p>
                     <p class="no-select title-text">{{item.title}}</p>
-                    <p class="no-select link-text"><a (click)="goToCertificacion(item)">Leer más</a></p>
+                    <p class="no-select link-text"><a (click)="goToCertificacion(item)">Ver</a></p>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 <div class="certificacion-box-text">
                     <p class="no-select date-text">{{item.date}}</p>
                     <p class="no-select title-text">{{item.title}}</p>
-                    <p class="no-select link-text"><a (click)="goToCertificacion(item)">Leer más</a></p>
+                    <p class="no-select link-text"><a (click)="goToCertificacion(item)">Ver</a></p>
                 </div>
             </div>
         </div>

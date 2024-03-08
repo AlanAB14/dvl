@@ -4,12 +4,12 @@
   align-items: center;
 
   &-title {
-    max-width: 52.25rem;
     margin-top: 5.8125rem;
   }
 
   &-subtitle {
     margin-top: 1.5rem;
+    max-width: 52.25rem;
   }
 
   &-videos {
@@ -32,6 +32,12 @@
       font-weight: 600;
       line-height: 150%;
       padding: .875rem 2.875rem;
+      transition: all .2s;
+
+      &:active {
+        box-shadow: unset;
+        transform: translateY(2px);
+      }
     }
   }
 }
@@ -97,6 +103,7 @@
         justify-content: center;
         transition: all .2s;
         position: relative;
+        cursor: pointer;
 
         .reflect {
           width: 48.36px;

@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
 import { ContactoComponent } from '../../components/contacto/contacto.component';
 import { InfiniteSlideComponent } from '../../components/infinite-slide/infinite-slide.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { InfiniteSlideComponent } from '../../components/infinite-slide/infinite
     CommonModule,
     TouchSliderComponent,
     ContactoComponent,
-    InfiniteSlideComponent
+    InfiniteSlideComponent,
+    RouterModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -23,17 +25,15 @@ import { InfiniteSlideComponent } from '../../components/infinite-slide/infinite
 export default class HomeComponent {
   images = [
     {
-      imgSrc: 'assets/videos/coop.mp4',
+      imgSrc: 'assets/videos/video-dvl-flota.mp4',
+      imgPre: 'assets/videos/dvl-sat-pre.png',
       imgAlt: 'image 1'
     },
     {
-      imgSrc: 'assets/videos/coop.mp4',
+      imgSrc: 'assets/videos/video-dvl-iot.mp4',
+      imgPre: 'assets/videos/dvl-iot-pre.png',
       imgAlt: 'image 1'
-    },
-    {
-      imgSrc: 'assets/videos/coop.mp4',
-      imgAlt: 'image 1'
-    },
+    }
   ]
 
   imagesClientes = [

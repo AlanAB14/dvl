@@ -228,6 +228,10 @@
       text-overflow: ellipsis; /* Otras líneas de texto no serán visibles */
       word-wrap: break-word; /* Forzar el texto a ajustarse */
 
+      a {
+        cursor: pointer;
+      }
+
       .date-text {
         color: #F18F01;
         font-family: Open Sans;

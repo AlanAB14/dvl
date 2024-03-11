@@ -19,6 +19,7 @@
 
   &-img {
     width: 30%;
+    cursor: pointer;
   }
 
   &-content {
@@ -58,4 +59,9 @@
       }
     }
   }
+}
+
+.imagen-completa {
+  width: 100%;
+  height: 100%;
 }

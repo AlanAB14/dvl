@@ -14,7 +14,7 @@ import { filter } from 'rxjs';
   template: `
   <div class="head-section animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital, 'theme-novedades': esNovedades}">
 
-    <div class="head-section__text">
+    <div class="head-section__text animate__animated animate__backInLeft">
       <div class="somos">
           <div class="line"></div>
           <p>SOMOS <strong>DVL</strong></p>

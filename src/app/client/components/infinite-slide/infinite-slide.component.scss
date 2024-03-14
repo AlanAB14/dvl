@@ -16,6 +16,14 @@
 
 .slider .slide {
   width: 200px;
+
+  @media (max-width: 1000px) {
+    width: 150px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100px;
+  }
 }
 
 .slider .slide img {
@@ -30,6 +38,10 @@
   height: 100%;
   content: "";
   z-index: 2;
+
+  @media (max-width: 420px) {
+    width: 50px;
+  }
 }
 
 .slider::before {
@@ -50,5 +62,15 @@
   100% {
     -webkit-transform: translateX(calc(-200px * 20));
     transform: translateX(calc(-200px * 20));
+
+    @media (max-width: 1000px) {
+      -webkit-transform: translateX(calc(-150px * 20));
+      transform: translateX(calc(-150px * 20));
+    }
+
+    @media (max-width: 600px) {
+      -webkit-transform: translateX(calc(-100px * 20));
+      transform: translateX(calc(-100px * 20));
+    }
   }
 }

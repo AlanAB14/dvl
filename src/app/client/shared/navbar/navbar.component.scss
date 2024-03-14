@@ -23,10 +23,6 @@
     img {
       width: 9.6875rem;
       height: auto;
-
-      @media (max-width: 1000px) {
-        width: 8.6875rem;
-      }
     }
   }
 
@@ -43,9 +39,6 @@
         font-size: 1rem;
         line-height: 4.1875rem;
 
-        @media (max-width: 1000px) {
-          font-size: .85rem;
-        }
 
         &:not(:last-of-type) {
           margin-right: 1.25rem;
@@ -79,7 +72,6 @@
 
       @media (max-width: 1000px) {
         padding: .85rem 1.1875rem;
-        font-size: .85rem;
       }
     }
   }

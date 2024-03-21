@@ -81,7 +81,8 @@
 </swiper-container>
 }
 } @else if (categoria === 'novedades') {
-<swiper-container autoplay="false" 
+@if (slidesPerViewNovedades === 3) {
+    <swiper-container autoplay="false" 
                   class="swiper-novedades" 
                   space-between="30" 
                   slides-per-view="3"
@@ -98,4 +99,43 @@
     </swiper-slide>
     }
 </swiper-container>
+}@else if (slidesPerViewNovedades === 2) {
+    <swiper-container autoplay="false" 
+                      class="swiper-novedades" 
+                      space-between="30" 
+                      slides-per-view="2"
+                      navigation="true" 
+                      grab-cursor="true" 
+                      allow-touch-move="false"
+                      nested="true">
+    @for (item of info; track $index) {
+    <swiper-slide>
+        <div class="novedad">
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <button (click)="enviarId(item.id)">Leer más</button>
+        </div>
+    </swiper-slide>
+}
+</swiper-container>
+
+}@else if (slidesPerViewNovedades === 1) {
+    <swiper-container autoplay="false" 
+                      class="swiper-novedades"
+                      space-between="30" 
+                      slides-per-view="1"
+                      pagination="true"
+                      grab-cursor="true" 
+                      allow-touch-move="true"
+                      nested="true">
+    @for (item of info; track $index) {
+    <swiper-slide>
+        <div class="novedad">
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <button (click)="enviarId(item.id)">Leer más</button>
+        </div>
+    </swiper-slide>
+}
+</swiper-container>
+}
+
 }

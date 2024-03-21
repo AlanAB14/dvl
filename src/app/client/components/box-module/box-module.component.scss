@@ -32,9 +32,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: 1.5rem; /* 109.091% */
-      @media (max-width: 1000px) {
-        font-size: 1.075rem;
-      }
+
     }
     &-text {
       overflow: hidden;
@@ -44,9 +42,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      @media (max-width: 1000px) {
-        font-size: .8rem;
-      }
+
     }
   }
 }

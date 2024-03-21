@@ -131,6 +131,10 @@
     padding: 0rem 1rem;
   }
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   &__image {
     display: flex;
     flex-direction: column;
@@ -143,22 +147,82 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+
+      @media (max-width: 768px) {
+        text-align: center;
+
+        br {
+          display: none;
+        }
+      }
     }
 
     .image {
 
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+      }
+
       &-box-principal {
         position: relative;
         width: fit-content;
-        
+
+        @media (max-width: 768px) {
+          display: flex;
+          justify-content: center;
+        }
+
+        img {
+          @media (max-width: 768px) {
+            width: 80%;
+          }
+          
+          @media (max-width: 370px) {
+            width: 100%;
+          }
+        }
+
         &-items {
           .icon {
             transform: translateX(-50%);
+
+            @media (max-width: 1000px) {
+              transform: translateX(-30%);
+            }
+
+            @media (max-width: 900px) {
+              display: none;
+            }
+
+            @media (max-width: 768px) {
+              transform: translateX(-50%);
+              display: block;
+              width: 10%;
+            }
+
+            @media (max-width: 370px) {
+              display: none;
+            }
           }
 
           .card {
             border-radius: 1rem;
             transform: translateX(25%);
+
+
+            @media (max-width: 1000px) {
+              transform: translateX(20%);
+            }
+
+            @media (max-width: 768px) {
+              width: 20%;
+              transform: translateX(0%);
+            }
+
+            @media (max-width: 370px) {
+              width: 30%;
+            }
           }
         }
 
@@ -168,12 +232,20 @@
         position: absolute;
         left: 0;
         top: 10%;
+
+        @media (max-width: 768px) {
+          left: 3.5rem;
+        }
       }
 
       .card {
         position: absolute;
         right: 0;
         bottom: 10%;
+
+        @media (max-width: 370px) {
+          bottom: 5%;
+        }
       }
     }
   }
@@ -183,6 +255,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 900px) {
+      margin-left: 5rem;
+    }
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+
+      .box {
+          margin-top: 1rem;
+      }
+    }
+
     // .box {
     //   &:not(:last-of-type) {
     //     margin-bottom: 1.25rem;
@@ -194,7 +279,7 @@
 
 .casos-exito-section {
   margin-top: 5.8125rem;
-  padding-bottom: 5.8125rem!important;
+  padding-bottom: 5.8125rem !important;
   padding: 0 6rem;
 
   @media (max-width: 1200px) {

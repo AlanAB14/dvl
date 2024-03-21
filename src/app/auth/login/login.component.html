@@ -1,0 +1,29 @@
+@if (mostrarLoader) {
+    <section class="loading centered-element">
+        <img [src]="spinnerUrl" alt="">
+    </section>
+}
+
+@if (byPass) {
+    <section class="vh-100 login">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+    
+                            <h3 class="mb-5" style="display: flex; justify-content: center;"><img src="./assets/imgs/dvl-logo.png" alt=""></h3>
+    
+                            <div class="form-outline mb-4">
+                                <input (keyup.enter)="login()" [(ngModel)]="usuId" type="text" class="form-control form-control-lg mb-2" placeholder="Usuario"/>
+                                <input (keyup.enter)="login()" [(ngModel)]="password" type="password" class="form-control form-control-lg" placeholder="Contraseña"/>
+                            </div>
+    
+                            <button (click)="login()" id="btnLogIn" class="btn btn-primary btn-lg btn-block" [disabled]="(!usuId || !password) || (cargando)" type="submit">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

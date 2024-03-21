@@ -77,12 +77,19 @@
     padding: 0rem 1rem;
   }
 
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
+
 
   &__text {
     display: flex;
     flex-direction: column;
     width: 50%;
 
+    @media (max-width: 600px) {
+      width: 100%;
+    }
     .somos {
       display: flex;
       align-items: center;
@@ -178,6 +185,11 @@
     width: 50%;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 600px) {
+      width: 75%;
+      margin-bottom: 2rem;
+    }
   }
 }
 

@@ -7,7 +7,7 @@
                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
           @for (item of fillerNav; track $index) {
-            <a mat-list-item routerLink=".">{{item.title}}</a>
+            <a mat-list-item routerLinkActive="active-class" class="item-nav" [routerLink]="item.route">{{item.title}}<mat-icon style="margin-left: 1.5rem;">{{item.icon}}</mat-icon></a>
           }
         </mat-nav-list>
       </mat-sidenav>

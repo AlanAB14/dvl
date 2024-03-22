@@ -7,7 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { importProvidersFrom } from '@angular/core';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from './environments/environment';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpRequestInterceptor } from './app/interceptors/http-request.interceptor';
 
 registerSwiperElements();
 
@@ -21,6 +22,12 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes, inMemoryScrollingFeature), 
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:HttpRequestInterceptor,
+      multi:true
+    },
     provideAnimationsAsync(),
     importProvidersFrom(
       

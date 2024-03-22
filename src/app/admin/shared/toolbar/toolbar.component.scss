@@ -1,3 +1,23 @@
-:host {
-  display: block;
+::ng-deep .mdc-circular-progress__spinner-layer circle,
+.mdc-circular-progress__spinner-layer circle {
+  stroke: white!important;
+}
+
+.user {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-icon {
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+}
+
+mat-spinner {
+  width: 100%!important;
+  height: 100%!important;
 }

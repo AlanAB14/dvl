@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Buffer } from 'buffer';
 import { environment } from '../../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Buffer } from 'buffer';
 
 
 @Injectable({
@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   getToken(): string {
-    return this._cookieService.get(this.tknStr);;
+    return this._cookieService.get(this.tknStr);
   }
 
   getUser(): string {

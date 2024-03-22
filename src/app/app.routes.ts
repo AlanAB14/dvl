@@ -16,6 +16,18 @@ export const routes: Routes = [
             {
                 path: '',
                 loadComponent: () => import('./admin/pages/home/home.component')
+            },
+            {
+                path: 'usuarios',
+                loadComponent: () => import('./admin/pages/usuarios/usuarios.component')
+            },
+            {
+                path: 'edit-usuario/:id',
+                loadComponent: () => import('./admin/pages/edit-usuario/edit-usuario.component')
+            },
+            {
+                path: '**',
+                redirectTo: ''
             }
         ]
     },

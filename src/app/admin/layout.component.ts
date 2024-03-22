@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, View
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
@@ -17,7 +17,8 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     ToolbarComponent,
-    RouterModule
+    RouterModule,
+    MatIcon
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
@@ -27,9 +28,9 @@ export default class LayoutComponent {
   mobileQuery: MediaQueryList;
   fillerNav = [
     {
-      title: 'Ejemplo',
-      route: 'ejemplo',
-      icon: 'example'
+      title: 'Usuarios',
+      route: 'usuarios',
+      icon: 'person'
     },
     {
       title: 'Ejemplo 2',

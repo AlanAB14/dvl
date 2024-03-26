@@ -1,5 +1,6 @@
 .example-card {
   width: fit-content;
+  min-width: 20rem;
 }
 
 ::ng-deep .mdc-circular-progress__spinner-layer circle,
@@ -28,6 +29,10 @@
   .campo-editable {
     display: flex;
     justify-content: space-between;
+
+    .mat-mdc-form-field {
+      width: 100%;
+    }
   }
 }
 
@@ -39,6 +44,13 @@ mat-card-header {
   align-items: center;
   mat-icon {
     transform: scale(3);
+    cursor: pointer;
+  }
+  img {
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
   }
 }
 

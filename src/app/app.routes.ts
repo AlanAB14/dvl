@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { NoAuthGuard } from './guards/no-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { userRoleGuard } from './guards/user-role.guard';
+import { editOwnUserGuard } from './guards/edit-own-user.guard';
 
 export const routes: Routes = [
     {
@@ -19,10 +21,12 @@ export const routes: Routes = [
             },
             {
                 path: 'usuarios',
+                canActivate: [userRoleGuard],
                 loadComponent: () => import('./admin/pages/usuarios/usuarios.component')
             },
             {
                 path: 'edit-usuario/:id',
+                canActivate: [editOwnUserGuard],
                 loadComponent: () => import('./admin/pages/edit-usuario/edit-usuario.component')
             },
             {

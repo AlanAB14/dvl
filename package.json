@@ -23,8 +23,9 @@
     "@auth0/angular-jwt": "^5.2.0",
     "animate.css": "^4.1.1",
     "ngx-cookie-service": "^17.1.0",
+    "ngx-image-compress": "^15.1.6",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.10.6",
+    "sweetalert2": "^11.10.7",
     "swiper": "^11.0.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

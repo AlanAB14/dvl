@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, inject, signal } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -7,6 +7,7 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { TokenDataService } from '../services/token-data.service';
 
 
 @Component({
@@ -24,8 +25,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LayoutComponent {
+export default class LayoutComponent implements OnInit{
   mobileQuery: MediaQueryList;
+  dataUser: any = signal(null);
+  tokenDataService = inject(TokenDataService)
   fillerNav = [
     {
       title: 'Usuarios',
@@ -47,7 +50,17 @@ export default class LayoutComponent {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  ngOnInit(): void {
+    this.dataUser.set(this.tokenDataService.getTokenJson());
+
+    // Quito rutas para usuarios que no son super_admin
+    if (this.dataUser().role_id !== 1) {
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'usuarios')
+    }
+  }
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
 }

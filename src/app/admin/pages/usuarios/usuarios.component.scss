@@ -1,3 +1,34 @@
-:host {
-  display: block;
+.users {
+  padding: 0 5rem;
+  padding-bottom: 2rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.img-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+::ng-deep .mat-mdc-mini-fab {
+  box-shadow: unset!important;
+}
+
+.icon-delete-user {
+  margin-left: 1rem;
+  background-color: red;
+}
+
+.box-agregar-usuario {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }

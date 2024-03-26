@@ -43,7 +43,6 @@ export default class LoginComponent {
       this.cargando = true
       this._authService.loginUser(this.usuId, this.password)
         .subscribe( (data: any) => {
-          console.log(data)
           this.cargando = false
           if(data.token) {
             this._authService.setCookie(data.token)

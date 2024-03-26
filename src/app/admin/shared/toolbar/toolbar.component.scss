@@ -1,11 +1,12 @@
 ::ng-deep .mdc-circular-progress__spinner-layer circle,
 .mdc-circular-progress__spinner-layer circle {
-  stroke: white!important;
+  stroke: white !important;
 }
 
 .user {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+
   margin-left: auto;
   display: flex;
   justify-content: center;
@@ -15,9 +16,22 @@
     transform: scale(1.5);
     cursor: pointer;
   }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    cursor: pointer;
+  }
 }
 
 mat-spinner {
-  width: 100%!important;
-  height: 100%!important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.name-user {
+  font-size: 1.2rem;
+  margin-left: .5rem;
+  cursor: pointer;
 }

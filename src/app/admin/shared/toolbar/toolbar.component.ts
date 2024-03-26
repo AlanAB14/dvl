@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output, inject, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CookieService } from 'ngx-cookie-service';
@@ -9,6 +9,8 @@ import { UsersService } from '../../../services/users.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -30,21 +32,24 @@ import { RouterModule } from '@angular/router';
         <div class="user" [matMenuTriggerFor]="menu">
           @if (loading) {
             <mat-spinner></mat-spinner>
-          }@else if (!loading && user && user.avatar) {
-            <img [src]="'data:image/png;base64,' + user.avatar" alt="avatar">
-          }@else if (!loading && user && !user.avatar) {
-            <mat-icon>person</mat-icon>
+          }@else if (!loading && user() && user().avatar) {
+            <img [src]="user().avatar" alt="avatar">
+          }@else if (!loading && user() && !user().avatar) {
+            <mat-icon>account_circle</mat-icon>
           }       
         </div>
+          @if (!loading && user()) {
+            <p [matMenuTriggerFor]="menu" class="name-user">{{ user().username }}</p>
+          }
           <mat-menu #menu="matMenu">
-            @if (!loading && user) {
-              <a [routerLink]="['edit-usuario', user.user_id]"
+            @if (!loading && user()) {
+              <a [routerLink]="['edit-usuario', user().user_id]"
               routerLinkActive="router-link-active">
                 <button mat-menu-item>
                   Editar
                 </button>
               </a>
-              <button mat-menu-item>Salir</button>
+              <button mat-menu-item (click)="logOut()">Salir</button>
             }
           </mat-menu>
     </mat-toolbar>
@@ -54,14 +59,24 @@ import { RouterModule } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
   @Output() toggle = new EventEmitter<any>();
-  user: any;
+  user: any = signal(null);
   loading: boolean = true;
   private tknStr = 'tkn_' + environment.app
   _cookieService = inject(CookieService)
   usersService = inject(UsersService)
+  authService = inject(AuthService)
+  notificationService = inject(NotificationService)
   cdr = inject(ChangeDetectorRef)
 
   ngOnInit(): void {
+    this.loadData()
+
+    this.notificationService.notifyParent$.subscribe(() => {
+      this.loadData();
+    });
+  }
+
+  loadData() {
     const userToken = this.getTokenJson()
     this.getUser(userToken.user_id)
   }
@@ -77,15 +92,19 @@ export class ToolbarComponent implements OnInit {
   getUser(id: number) {
     this.loading = true;
     this.usersService.getUser(id)
-      .subscribe(user => {
+      .subscribe((user: any) => {
         this.loading = false;
-        this.user = user
+        this.user.set(user)
         this.cdr.detectChanges()
       }, (error) => {
         this.loading = false;
         this.cdr.detectChanges()
         console.log('Error al traer usuario', error)
       })
+  }
+
+  logOut() {
+    this.authService.logout()
   }
 
   private getTokenJson(): any {

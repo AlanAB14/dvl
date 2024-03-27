@@ -78,9 +78,11 @@ export class AuthService {
   }
 
   deleteCookie() {
-    const expiredDate = new Date();
-    expiredDate.setDate(expiredDate.getDate() - 1);
-    this._cookieService.set(this.tknStr, '', expiredDate, '/', '');
+    this._cookieService.delete(this.tknStr)
+
+    // const expiredDate = new Date();
+    // expiredDate.setDate(expiredDate.getDate() - 1);
+    // this._cookieService.set(this.tknStr, '', expiredDate, '/', '');
   }
 
   setCookie(token: string) {

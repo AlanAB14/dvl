@@ -88,10 +88,10 @@ import { NgxImageCompressService } from 'ngx-image-compress';
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>  </th>
               <td mat-cell *matCellDef="let element"> 
-                <button (click)="editUser(element.user_id)" mat-mini-fab color="primary">
+                <button (click)="editUser(element.user_id)" class="button-table-icon" mat-mini-fab color="primary">
                   <mat-icon>edit</mat-icon>
                 </button>
-                <button (click)="deleteUser(element.user_id)" mat-mini-fab class="icon-delete-user">
+                <button (click)="deleteUser(element.user_id)" mat-mini-fab class="button-table-icon icon-delete-user">
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>

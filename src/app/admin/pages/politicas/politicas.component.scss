@@ -25,10 +25,17 @@ table {
   border-radius: 2rem;
 }
 
-.button-table-icon {
+.icon-user {
+  transform: scale(1.4);
+  margin-left: .4rem;
+}
+
+.img-avatar {
   width: 2.5rem!important;
   height: 2.5rem!important;
+  border-radius: 2rem;
 }
+
 
 ::ng-deep .mat-mdc-mini-fab {
   box-shadow: unset!important;

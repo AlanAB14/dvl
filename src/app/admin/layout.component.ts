@@ -36,9 +36,9 @@ export default class LayoutComponent implements OnInit{
       icon: 'person'
     },
     {
-      title: 'Ejemplo 2',
-      route: 'ejemplo-dos',
-      icon: 'example'
+      title: 'Políticas',
+      route: 'politicas',
+      icon: 'lock'
     }
   ];
 
@@ -56,6 +56,11 @@ export default class LayoutComponent implements OnInit{
     // Quito rutas para usuarios que no son super_admin
     if (this.dataUser().role_id !== 1) {
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'usuarios')
+    }
+
+    // Quito rutas para usuarios que no son super_admin, ni admin
+    if (this.dataUser().role_id !== 1 && this.dataUser().role_id !== 2) {
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'politicas')
     }
   }
 

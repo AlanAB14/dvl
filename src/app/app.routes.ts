@@ -3,6 +3,7 @@ import { NoAuthGuard } from './guards/no-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { userRoleGuard } from './guards/user-role.guard';
 import { editOwnUserGuard } from './guards/edit-own-user.guard';
+import { userRoleGuardTogether } from './guards/user-role-together.guard';
 
 export const routes: Routes = [
     {
@@ -28,6 +29,11 @@ export const routes: Routes = [
                 path: 'edit-usuario/:id',
                 canActivate: [editOwnUserGuard],
                 loadComponent: () => import('./admin/pages/edit-usuario/edit-usuario.component')
+            },
+            {
+                path: 'politicas',
+                canActivate: [userRoleGuardTogether],
+                loadComponent: () => import('./admin/pages/politicas/politicas.component')
             },
             {
                 path: '**',

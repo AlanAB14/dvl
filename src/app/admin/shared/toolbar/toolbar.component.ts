@@ -73,6 +73,7 @@ export class ToolbarComponent implements OnInit {
 
     this.notificationService.notifyParent$.subscribe(() => {
       this.loadData();
+      console.log(this.user())
     });
   }
 

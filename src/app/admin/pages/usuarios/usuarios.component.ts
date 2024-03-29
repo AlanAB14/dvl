@@ -81,6 +81,8 @@ import { NgxImageCompressService } from 'ngx-image-compress';
               <td mat-cell *matCellDef="let element"> 
                 @if (element.avatar) {
                   <img class="img-avatar" [src]="element.avatar" alt="user-image">
+                }@else {
+                  <mat-icon class="img-icon">account_circle</mat-icon>
                 }
               </td>
             </ng-container>

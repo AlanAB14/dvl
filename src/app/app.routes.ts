@@ -36,6 +36,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./admin/pages/politicas/politicas.component')
             },
             {
+                path: 'datos',
+                canActivate: [userRoleGuardTogether],
+                loadComponent: () => import('./admin/pages/datos/datos.component')
+            },
+            {
                 path: '**',
                 redirectTo: ''
             }

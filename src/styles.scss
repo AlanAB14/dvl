@@ -249,3 +249,9 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.example-is-mobile {
+  mat-sidenav-container {
+    margin-top: 0!important;
+  }
+}

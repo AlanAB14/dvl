@@ -1,0 +1,128 @@
+.datos-table {
+  display: flex;
+  margin: 1rem 10rem;
+  border: 1px solid black;
+  border-radius: .5rem;
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+    border-radius: 0;
+    border-top: 0;
+  }
+
+  &-element {
+    flex-grow: 1;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+
+
+
+    &--header {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid black;
+      background-color: rgb(236, 236, 236);
+
+      @media (max-width: 760px) {
+        border-top: 1px solid black;
+      }
+
+
+
+      h1 {
+        height: fit-content;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+
+      }
+
+      mat-icon {
+        margin-left: 1rem;
+      }
+    }
+
+    &--data {
+      flex-grow: 1;
+
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    &--last-modified {
+      flex-grow: 1;
+
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: .85rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & {
+        .img-avatar {
+          flex-grow: 1;
+        }
+
+        .icon-user {
+          flex-grow: 1;
+        }
+      }
+    }
+
+    &--action {
+      flex-grow: 1;
+
+      padding: 1rem 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+    }
+  }
+}
+
+.border-radius-left-top {
+  border-top-left-radius: .5rem;
+
+  @media (max-width: 760px) {
+    border-radius: 0;
+  }
+}
+
+.border-radius-right-top {
+  border-top-right-radius: .5rem;
+
+  @media (max-width: 760px) {
+    border-radius: 0;
+  }
+}
+
+.cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.img-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.icon-user {
+  transform: scale(1.7);
+  margin-top: .4rem;
+}
+
+
+::ng-deep .mdc-circular-progress__spinner-layer circle,
+.mdc-circular-progress__spinner-layer circle {
+  stroke: #3f51b5 !important;
+}

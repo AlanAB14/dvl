@@ -44,7 +44,18 @@ export default class LayoutComponent implements OnInit{
       title: 'Datos',
       route: 'datos',
       icon: 'numbers'
+    },
+    {
+      title: 'Noticias',
+      route: 'noticias',
+      icon: 'article'
+    },
+    {
+      title: 'Nosotros',
+      route: 'nosotros',
+      icon: 'group'
     }
+
   ];
 
   private _mobileQueryListener: () => void;
@@ -67,6 +78,8 @@ export default class LayoutComponent implements OnInit{
     if (this.dataUser().role_id !== 1 && this.dataUser().role_id !== 2) {
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'politicas')
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'datos')
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'noticias')
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'nosotros')
     }
   }
 

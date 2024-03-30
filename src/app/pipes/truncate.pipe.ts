@@ -7,7 +7,7 @@ import { Pipe, type PipeTransform } from '@angular/core';
 export class TruncatePipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
-    const maxLength = 25;
+    const maxLength = 20;
     const ellipsis = '...';
 
     if (!value || value.length <= maxLength) {

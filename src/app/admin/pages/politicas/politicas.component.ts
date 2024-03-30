@@ -220,6 +220,10 @@ export default class PoliticasComponent implements OnInit {
       }
     }).then((resp) => {
       if (resp.isConfirmed) {
+        Swal.fire({
+          html: `<div style="display:flex; justify-content:center"><img src="assets/imgs/loader.gif" /></div>`,
+          showConfirmButton: false
+        })
         this.policiesService.deletePolicy(id)
           .subscribe(resp => {
             Swal.fire({

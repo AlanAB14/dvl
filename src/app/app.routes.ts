@@ -51,6 +51,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./admin/pages/nosotros/nosotros.component')
             },
             {
+                path: 'comentarios',
+                canActivate: [userRoleGuardTogether],
+                loadComponent: () => import('./admin/pages/comentarios/comentarios.component')
+            },
+            {
+                path: 'certificaciones',
+                canActivate: [userRoleGuardTogether],
+                loadComponent: () => import('./admin/pages/certificaciones/certificaciones.component')
+            },
+            {
                 path: '**',
                 redirectTo: ''
             }

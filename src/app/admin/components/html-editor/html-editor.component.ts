@@ -26,7 +26,7 @@ export class HtmlEditorComponent {
     editable: true,
     minWidth: '30rem',
     minHeight: '10rem',
-    placeholder: 'Ingrese política...',
+    placeholder: 'Ingrese texto...',
     outline: false,
     toolbarHiddenButtons: [
       [

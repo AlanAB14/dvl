@@ -54,6 +54,16 @@ export default class LayoutComponent implements OnInit{
       title: 'Nosotros',
       route: 'nosotros',
       icon: 'group'
+    },
+    {
+      title: 'Comentarios',
+      route: 'comentarios',
+      icon: 'chat_bubble'
+    },
+    {
+      title: 'Certificaciones',
+      route: 'certificaciones',
+      icon: 'verified'
     }
 
   ];
@@ -80,6 +90,8 @@ export default class LayoutComponent implements OnInit{
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'datos')
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'noticias')
       this.fillerNav = this.fillerNav.filter(item => item.route !== 'nosotros')
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'comentarios')
+      this.fillerNav = this.fillerNav.filter(item => item.route !== 'certificaciones')
     }
   }
 

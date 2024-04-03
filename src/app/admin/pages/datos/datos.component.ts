@@ -47,7 +47,7 @@ import Swal from 'sweetalert2';
             <p>{{ item.number }}</p>
           </div>
           <div class="datos-table-element--last-modified">
-            <p>Ultima modificación</p>
+            <p>Última modificación</p>
             @if (!cargandoData && users().length > 0) {
                 @if (getUserData(item.updated_by).avatar) {
                   <img class="img-avatar" [matTooltip]="getUserData(item.updated_by).username" [src]="getUserData(item.updated_by).avatar" alt="img-user">

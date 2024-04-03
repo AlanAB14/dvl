@@ -121,7 +121,7 @@ import { TruncatePipe } from '../../../pipes/truncate.pipe';
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           
             <tr class="mat-row" *matNoDataRow>
-              <td class="mat-cell" colspan="4" style="padding: 1rem;">No se encontro el usuario "{{input.value}}"</td>
+              <td class="mat-cell" colspan="4" style="padding: 1rem;">No se encontro la noticia "{{input.value}}"</td>
             </tr>
           </table>
         </div>

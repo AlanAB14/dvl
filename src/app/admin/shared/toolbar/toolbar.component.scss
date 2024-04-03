@@ -7,7 +7,7 @@
   width: 3rem;
   height: 3rem;
 
-  margin-left: auto;
+  margin-left: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,4 +34,13 @@ mat-spinner {
   font-size: 1.2rem;
   margin-left: .5rem;
   cursor: pointer;
+}
+
+.dvl-sitio {
+  margin-left: auto;
+
+  p {
+    text-decoration: underline;
+    font-size: 1rem;
+  }
 }

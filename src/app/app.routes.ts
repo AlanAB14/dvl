@@ -61,6 +61,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./admin/pages/certificaciones/certificaciones.component')
             },
             {
+                path: 'contactos',
+                loadComponent: () => import('./admin/pages/contactos/contactos.component')
+            },
+            {
                 path: '**',
                 redirectTo: ''
             }

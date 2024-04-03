@@ -1,0 +1,67 @@
+.users {
+  padding: 0 5rem;
+  padding-bottom: 2rem;
+}
+
+.cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.img-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+}
+
+.icon-user {
+  transform: scale(1.9);
+  margin-left: .4rem;
+}
+
+.img-avatar {
+  width: 2.5rem!important;
+  height: 2.5rem!important;
+  border-radius: 2rem;
+}
+
+.img-table {
+  height: 3rem;
+  width: auto;
+}
+
+
+.form-control:focus {
+  background-color: transparent!important;
+}
+
+::ng-deep .mat-mdc-mini-fab {
+  box-shadow: unset!important;
+}
+
+.icon-delete-user {
+  margin-left: 1rem;
+  background-color: red;
+}
+
+.box-agregar-usuario {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+::ng-deep .mdc-circular-progress__spinner-layer circle,
+.mdc-circular-progress__spinner-layer circle {
+  stroke: #3f51b5!important;
+}

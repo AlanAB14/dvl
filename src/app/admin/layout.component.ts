@@ -64,6 +64,11 @@ export default class LayoutComponent implements OnInit{
       title: 'Certificaciones',
       route: 'certificaciones',
       icon: 'verified'
+    },
+    {
+      title: 'Contactos',
+      route: 'contactos',
+      icon: 'contact_mail'
     }
 
   ];

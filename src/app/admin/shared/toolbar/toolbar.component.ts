@@ -29,6 +29,11 @@ import { NotificationService } from '../../../services/notification.service';
         <a routerLink="/admin">
           <h1 class="example-app-name" style="margin-left: 1.5rem;">DVL Admin</h1>
         </a>
+        <div class="dvl-sitio">
+          <a routerLink="/">
+            <p>Ir al sitio</p>
+          </a>
+        </div>
         <div class="user" [matMenuTriggerFor]="menu">
           @if (loading) {
             <mat-spinner></mat-spinner>

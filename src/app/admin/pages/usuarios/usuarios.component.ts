@@ -278,7 +278,7 @@ export default class UsuariosComponent implements OnInit {
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Salir</button>
-      <button mat-raised-button cdkFocusInitial color="primary" (click)="agregarUsuario()">Agregar</button>
+      <button mat-raised-button cdkFocusInitial color="primary" (click)="agregarUsuario()" [disabled]="!userForm.valid">Agregar</button>
     </mat-dialog-actions>
   
   `,

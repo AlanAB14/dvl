@@ -88,7 +88,9 @@
   &__boxes {
     margin-top: 2.5rem;
 
-    .box {
+    .box-module {
+      opacity: 0;
+      transform: translateY(100px);
       &:not(:last-of-type) {
         margin-bottom: 1.25rem;
       }

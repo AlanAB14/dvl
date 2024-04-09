@@ -27,7 +27,7 @@
     </div>
     <div class="modulos-section__boxes">
         @for (item of modulos; track $index) {
-            <div class="box">
+            <div class="box-module">
                 <app-box-module [icon]="item.icon" [title]="item.title" [text]="item.text" />
             </div>
         }

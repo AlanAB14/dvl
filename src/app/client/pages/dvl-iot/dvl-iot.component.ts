@@ -1,9 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Inject, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { HeadComponent } from '../../components/head/head.component';
 import { BoxReflectComponent } from '../../components/box-reflect/box-reflect.component';
 import { BoxModuleComponent } from '../../components/box-module/box-module.component';
 import { BoxExitoComponent } from '../../components/box-exito/box-exito.component';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { register } from 'swiper/element/bundle';
 register();
@@ -23,7 +25,7 @@ register();
   styleUrl: './dvl-iot.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class DvlIotComponent implements OnInit{
+export default class DvlIotComponent implements OnInit, AfterViewInit {
   idServicioSeleccionado!: number;
   screenWidth!: number;
   slidesPerView!: number;
@@ -33,7 +35,7 @@ export default class DvlIotComponent implements OnInit{
   @HostListener('window:resize')
   getScreenWidth() {
     this.screenWidth = window.innerWidth;
-    
+
     if (this.screenWidth <= 1000) {
       this.slidesPerView = 1
     }
@@ -41,7 +43,11 @@ export default class DvlIotComponent implements OnInit{
       this.slidesPerView = 2
     }
   }
-  
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+
+  }
+
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 1000) {
@@ -53,7 +59,26 @@ export default class DvlIotComponent implements OnInit{
 
     this.seteoPrimerServicio()
   }
-  
+
+  ngAfterViewInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+    const boxModules = document.querySelectorAll(".box-module");
+    if (isPlatformBrowser(this.platformId)) {
+      boxModules.forEach(boxModule => {
+        gsap.to(boxModule, {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: boxModule,
+            start: "top 85%", // Comienza la animación cuando el 80% superior del elemento es visible
+            end: "bottom 60%", // Termina la animación cuando el 20% inferior del elemento es visible
+            scrub: true, // Hace que la animación se sincronice con el desplazamiento
+          }
+        });
+      });
+    }
+  }
+
   casosExito = [
     {
       img: 'assets/imgs/casos-exito/friar-logo.png',
@@ -68,7 +93,7 @@ export default class DvlIotComponent implements OnInit{
       resultados: ['Las métricas y mediciones de pulverización pueden visualizarse en forma remota, garantizando la captura de datos sin pérdidas.', 'Los datos recolectados en sitio son enviados mediante tecnología de transmisión de datos de última generación, permitiendo ser utilizados mediante cualquier computadora o celular, gracias a la plataforma WEB responsive, y la APP DVL para Android.']
     }
   ]
-  
+
   servicios = [
     {
       icon: 'assets/imgs/iot-icons/rentabilidad.svg',

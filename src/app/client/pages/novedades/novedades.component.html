@@ -14,7 +14,7 @@
         <div class="novedades-section__search--carousel">
             <app-touch-slider [categoria]="'novedades'" (sendIdNoticia)="setIdNoticia($event)" [info]="info" />
         </div>
-        <div class="novedades-section__result">
+        <div #noticia class="novedades-section__result">
             @if (noticiaSeleccionada) {
                 <div class="noticia-seleccionada" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
                     <div class="noticia-seleccionada--img">

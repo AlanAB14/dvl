@@ -56,6 +56,12 @@
   &__text {
     margin-top: 5.652rem;
 
+    scroll-margin-top: 7rem;
+
+    @media (max-width: 1200px) {
+      scroll-margin-top: 6.2rem;
+    }
+
     p {
       color: #E9E9E9;
       text-align: justify;

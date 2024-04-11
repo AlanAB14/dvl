@@ -56,10 +56,18 @@
 
   &__result {
 
+    scroll-margin-top: 7.8125rem;
+
+    @media (max-width: 620px) {
+      scroll-margin-top: 3.8125rem;
+    }
+
+
     .noticia-seleccionada {
       margin-top: 7.8125rem;
       display: flex;
       flex-direction: column;
+
 
       @media (max-width: 620px) {
         margin-top: 3.8125rem;

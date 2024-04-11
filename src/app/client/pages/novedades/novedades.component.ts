@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { HeadComponent } from '../../components/head/head.component';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
 import { BoxComentarioComponent } from '../../components/box-comentario/box-comentario.component';
@@ -22,6 +22,7 @@ export default class NovedadesComponent {
   noticiaSeleccionada!: any;
   animateText: boolean = false;
   cdr = inject(ChangeDetectorRef);
+  @ViewChild('noticia') noticia!: ElementRef;
   comentarios = [
     {
       img:'assets/imgs/gris.jpg',
@@ -94,5 +95,7 @@ export default class NovedadesComponent {
       this.animateText = false;
       this.cdr.detectChanges();
     }, 500);
+    console.log(this.noticia)
+    this.noticia.nativeElement.scrollIntoView({ behavior: "smooth" })
   }
 }

@@ -163,7 +163,7 @@ export default class DvlSatelitalComponent {
     return servicio?.text
   }
 
-  setIdSeleccionado(id: number) {
+  setIdSeleccionado(id: number, element: HTMLElement) {
     this.idServicioSeleccionado = id
     this.animateText = true;
     this.cdr.detectChanges();
@@ -172,5 +172,9 @@ export default class DvlSatelitalComponent {
       this.animateText = false;
       this.cdr.detectChanges();
     }, 500);
+
+    if (this.screenWidth < 450) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
   }
 }

@@ -18,7 +18,7 @@ register();
     HeadComponent,
     BoxReflectComponent,
     BoxModuleComponent,
-    BoxExitoComponent
+    BoxExitoComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dvl-iot.component.html',
@@ -30,7 +30,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
   screenWidth!: number;
   slidesPerView!: number;
   animateText: boolean = false;
-  cdr = inject(ChangeDetectorRef)
+  cdr = inject(ChangeDetectorRef);
 
   @HostListener('window:resize')
   getScreenWidth() {
@@ -44,9 +44,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -207,7 +205,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     this.recibirId(this.servicios[0].id)
   }
 
-  setIdSeleccionado(id: number) {
+  setIdSeleccionado(id: number, element: HTMLElement) {
     this.idServicioSeleccionado = id
     this.animateText = true;
     this.cdr.detectChanges();
@@ -216,5 +214,10 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
       this.animateText = false;
       this.cdr.detectChanges();
     }, 500);
+
+    if (this.screenWidth < 450) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    
   }
 }

@@ -11,12 +11,12 @@
     </div>
     <div class="servicios-section__items">
         @for (item of servicios; track $index) {
-            <div (click)="setIdSeleccionado(item.id)">
+            <div (click)="setIdSeleccionado(item.id, description)">
                 <app-box-reflect [icon]="item.icon" [servicioSeleccionado]="idServicioSeleccionado" [title]="item.title" [id]="item.id" />
             </div>
         }
     </div>
-    <div class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
+    <div #description class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
         <p>{{ getTextoIdSeleccionado() }}</p>
     </div>
 </div>

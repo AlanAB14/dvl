@@ -17,6 +17,8 @@ import { filter } from 'rxjs';
 export class NavbarComponent {
   esRutaEspecifica: boolean = false;
   esRutaEspecificaSatelital: boolean = false;
+  isExpanded: boolean = false;
+
   menuItems = [
     {
       path: 'nosotros',
@@ -47,5 +49,9 @@ export class NavbarComponent {
       this.esRutaEspecifica = event.url === '/dvl-iot';
       this.esRutaEspecificaSatelital = event.url === '/dvl-satelital';
     });
+  }
+
+  toggleMenu() {
+    this.isExpanded = !this.isExpanded;
   }
 }

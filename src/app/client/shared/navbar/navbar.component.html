@@ -20,4 +20,32 @@
             </a>
         </div>
     </div>
+
+
+    <div class="navbar-responsive" [ngClass]="{'theme-dark': esRutaEspecifica, 'theme-dark-satelital': esRutaEspecificaSatelital}">
+        <div class="navbar-responsive__top">
+            <a [routerLink]="'/'">
+                <img src="./assets/imgs/dvl-logo.png" class="dvl-logo-responsive" alt="logo-p">
+                <img src="./assets/imgs/dvl-icon.png" class="dvl-icon-responsive" alt="logo-p">
+            </a>
+            <button class="btn-home-responsive"><a href="https://hb.mutualentreasoc.com.ar/auth/login" target="_blank" lang="es" translate="no">Login in</a></button>
+            <div class="navbar-responsive__top__expand">
+                @if (!isExpanded) {
+                    <img (click)="toggleMenu()" src="./assets/imgs/icon_menu.png" alt="">
+                }@else {
+                    <img (click)="toggleMenu()" src="./assets/imgs/icon_close.png" alt="">
+                }
+            </div>
+        </div>
+    
+        <div class="navbar-responsive__body" [ngClass]="{expanded: isExpanded}" >
+            <ul class="animate__animated animate__fadeIn animate__faster" *ngIf="isExpanded">
+                <li *ngFor="let item of menuItems">
+                    <a [routerLink]="item.path" (click)="isExpanded = false" routerLinkActive="selected">
+                        {{ item.title }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

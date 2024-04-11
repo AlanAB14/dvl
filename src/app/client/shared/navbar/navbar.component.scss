@@ -19,6 +19,10 @@
     padding: 1rem
   }
 
+  @media (max-width: 768px) {
+    display: none;
+}
+
   &--logo {
     img {
       width: 9.6875rem;
@@ -103,6 +107,13 @@
 }
 
 .theme-dark {
+  .navbar-responsive {
+    background-color: var(--dark-blue);
+    
+    a {
+      color: white!important;
+    }
+  }
   .navbar-section {
     background-color: var(--dark-blue);
 
@@ -137,6 +148,15 @@
 }
 
 .theme-dark-satelital {
+
+  .navbar-responsive {
+    background-color: var(--dark-blue);
+    
+    a {
+      color: white!important;
+    }
+  }
+
   .navbar-section {
     background-color: var(--dark-blue);
 
@@ -167,5 +187,109 @@
     &::after {
       background-color: var(--violet);
     }
+  }
+}
+
+
+
+.navbar-responsive {
+  background-color: white;
+  display: none;
+
+  @media (max-width: 768px) {
+      display: block;
+  }
+
+  &__top {
+      display: flex;
+      padding: 1.4rem 1rem;
+      align-items: center;
+
+      button {
+        background-color: var(--violet);
+        color: #FFF;
+        font-family: Open Sans;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 1rem 2.1875rem;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        margin-left: auto;
+
+        @media (max-width: 300px) {
+          padding: .5rem 1.5rem;
+          font-size: .75rem;
+        }
+      }
+
+      img {
+          width: 10rem;
+      }
+
+
+      &__expand {
+          padding: .5rem;
+          cursor: pointer;
+          margin-left: 1.5rem;
+
+          img {
+              width: 2.5rem;
+              height: 2.5rem;
+          }
+      }
+  }
+
+  &__body {
+      visibility: hidden;
+      height: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all .2s;
+      position: relative;
+
+      ul {
+          margin-bottom: 0;
+
+          li {
+              display: flex;
+              cursor: pointer;
+              list-style: none;
+              font-size: 1.6rem;
+              font-family: Open Sans;
+
+              &:not(:last-child) {
+                  margin-bottom: 2rem;
+              }
+
+              a {
+                  text-decoration: none;
+                  color: #031A44;
+              }
+          }
+      }
+  }
+
+  .expanded {
+      height: 95vh;
+      visibility: visible;
+  }
+
+}
+.dvl-logo-responsive {
+  display: block;
+
+  @media (max-width: 370px) {
+    display: none;
+  }
+}
+.dvl-icon-responsive {
+  display: none;
+  width: 3rem!important;
+  @media (max-width: 370px) {
+    display: block;
   }
 }

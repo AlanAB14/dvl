@@ -68,9 +68,10 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
           y: 0,
           scrollTrigger: {
             trigger: boxModule,
-            start: "top 60%", // Comienza la animación cuando el 80% superior del elemento es visible
+            start: "top 80%", // Comienza la animación cuando el 80% superior del elemento es visible
             end: "bottom 40%", // Termina la animación cuando el 20% inferior del elemento es visible
             // scrub: true, // Hace que la animación se sincronice con el desplazamiento
+            markers: true
           }
         });
       });

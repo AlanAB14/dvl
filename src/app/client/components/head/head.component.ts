@@ -30,10 +30,10 @@ import { filter } from 'rxjs';
           <p>{{ subtitleStrong }}</p>
         </div>
       }
-      <div class="buttons">
+      <!-- <div class="buttons">
         <button class="info">Más info</button>
         <button class="videos">Show Videos</button>
-      </div>
+      </div> -->
     </div>
     <div class="head-section__image">
       <img [src]="image" alt="imagen">
@@ -43,8 +43,8 @@ import { filter } from 'rxjs';
         <div class="head-section-switch animate__animated animate__fadeIn" [ngClass]="{'theme-satelital': esSatelital}">
           <input type="checkbox" id="toggle" class="toggleCheckbox" (change)="onToggleChange()" [checked]="!dvlIot" />
             <label for="toggle" class="toggleContainer">
-              <div>DLV IOT</div> 
-              <div>SATELITAL</div>
+              <div>IOT</div> 
+              <div>MONITOREO</div>
             </label>
         </div>
       }
@@ -63,8 +63,8 @@ export class HeadComponent{
 
   constructor(private router: Router) {
     const currentUrl = this.router.url;
-    this.esSatelital = currentUrl === '/dvl-satelital';
-    this.dvlIot = currentUrl === '/dvl-iot';
+    this.esSatelital = currentUrl === '/monitoreo-flota';
+    this.dvlIot = currentUrl === '/iot';
     console.log(this.dvlIot)
   }
 
@@ -73,9 +73,9 @@ export class HeadComponent{
     console.log('El valor del toggle es: ', this.dvlIot);
 
     if (!this.dvlIot) {
-      this.router.navigateByUrl('/dvl-satelital');
+      this.router.navigateByUrl('/monitoreo-flota');
     } else {
-      this.router.navigateByUrl('/dvl-iot');
+      this.router.navigateByUrl('/iot');
     }
 
   }

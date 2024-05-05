@@ -4,14 +4,13 @@
             <p class="title-primary">Tecnología impensada pensada para vos</p>
         </div>
         <div class="video-section-subtitle">
-            <p class="subtitle-primary"><strong>Ofrecemos soluciones innovadoras que incorporan los últimos avances tecnológicos
-                para integrar y monitorear remotamente los activos de nuestros clientes.</strong>
+            <p class="subtitle-primary"><strong>Ofrecemos soluciones innovadoras que incorporan los últimos avances
+                    tecnológicos
+                    para integrar y monitorear remotamente los activos de nuestros clientes.</strong>
                 <br>
-                Nuestras herramientas proporcionan información en tiempo real, de manera segura y confiable, permitiendo así
+                Nuestras herramientas proporcionan información en tiempo real, de manera segura y confiable, permitiendo
+                así
                 optimizar costos, minimizar riesgos y evaluar la productividad.
-                <br>
-                <strong>Las soluciones que brindamos actualmente incluyen:</strong> Gestión de flotas, Monitoreo Remoto de Tambos, Control
-                remoto de Maquinarias, Gestión de Consumo Eléctrico y Medición de nivel y caudal de fluidos.</p>
         </div>
         <div class="video-section-videos">
             <app-touch-slider [categoria]="'videos'" [images]="images" />
@@ -22,7 +21,7 @@
             </a>
         </div>
     </div>
-    
+
     <div class="beneficios-section">
         <div class="beneficios-box">
             <div class="beneficios-box-text">
@@ -32,31 +31,32 @@
                 </div>
                 <div class="beneficios-text">
                     <p class="beneficios-title">Bienvenido a DVL</p>
-                    <p class="beneficios-text-paragraph">Ofrecemos soluciones innovadoras que incorporan los últimos avances
-                        tecnológicos para integrar y monitorear remotamente los activos de nuestros clientes.  Nuestras
-                        herramientas proporcionan información en tiempo real, de manera segura y confiable, permitiendo así
-                        optimizar costos, minimizar riesgos y evaluar la productividad.</p>
+                    <p class="beneficios-text-paragraph">Las soluciones que brindamos incluyen:</p>
+                    <ul>
+                        <li>Suite de Servicios de Ingeniería IOT</li>
+                        <li>Monitoreo de Flotas</li>
+                    </ul>
                 </div>
             </div>
             <div class="beneficios-box-cards">
                 <div class="beneficio-card">
-                    <a [routerLink]="['/dvl-satelital']">
-                        <div class="beneficio-card-image">
-                            <img src="assets/imgs/dvl-satelital.png" alt="dvl-satelital">
-                        </div>
-                        <div class="beneficio-card-text">
-                            AVL
-                        </div>
-                        <div class="reflect"></div>
-                    </a>
-                </div>
-                <div class="beneficio-card">
-                    <a [routerLink]="['/dvl-iot']">
+                    <a [routerLink]="['/iot']">
                         <div class="beneficio-card-image">
                             <img src="assets/imgs/dvl-iot.png" alt="dvl-iot">
                         </div>
                         <div class="beneficio-card-text">
                             IOT
+                        </div>
+                        <div class="reflect"></div>
+                    </a>
+                </div>
+                <div class="beneficio-card">
+                    <a [routerLink]="['/monitoreo-flota']">
+                        <div class="beneficio-card-image">
+                            <img src="assets/imgs/dvl-satelital.png" alt="dvl-satelital">
+                        </div>
+                        <div class="beneficio-card-text">
+                            MONITOREO
                         </div>
                         <div class="reflect"></div>
                     </a>

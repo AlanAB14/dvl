@@ -112,6 +112,18 @@
         line-height: 1.75rem;
         letter-spacing: -0.32px;
         margin-top: .625rem;
+
+      }
+      ul {
+        margin-top: 1rem;
+        li {
+          list-style-type: disc;
+          color: white;
+          margin-left: 1rem;
+          &:not(:first-of-type) {
+            margin-top: .5rem;
+          }
+        }
       }
     }
 

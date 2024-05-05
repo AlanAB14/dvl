@@ -41,23 +41,27 @@ export default class LoginComponent {
   login() {
     if (this.usuId && this.password) {
       this.cargando = true
-      this._authService.loginUser(this.usuId, this.password)
-        .subscribe( (data: any) => {
-          this.cargando = false
-          if(data.token) {
-            this._authService.setCookie(data.token)
-            this._authService.loginResponse();
+      try {
+        this._authService.loginUser(this.usuId, this.password)
+          .subscribe( (data: any) => {
+            this.cargando = false
+            if(data.token) {
+              this._authService.setCookie(data.token)
+              this._authService.loginResponse();
+              this.usuId = ''
+              this.password = ''
+            }
+          },
+          (error) => {
+            console.log(error)
+            Swal.fire('Ocurrió un error', `${ error.error.message }`, 'error')
             this.usuId = ''
             this.password = ''
-          }
-        },
-        (error) => {
-          console.log(error)
-          Swal.fire('Ocurrió un error', `${ error.error.message }`, 'error')
-          this.usuId = ''
-          this.password = ''
-          this.cargando = false
-        })
+            this.cargando = false
+          })
+      } catch (error) {
+        Swal.fire('Ocurrió un error con la conexión', 'error')
+      }
     }
   }
 }

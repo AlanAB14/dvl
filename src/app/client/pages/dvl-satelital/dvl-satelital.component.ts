@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
 import { HeadComponent } from '../../components/head/head.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BoxReflectComponent } from '../../components/box-reflect/box-reflect.component';
 import { BoxModuleComponent } from '../../components/box-module/box-module.component';
+import { casosExito } from '../../../../assets/data/casos-exito'
 
 import { register } from 'swiper/element/bundle';
 import { BoxExitoComponent } from '../../components/box-exito/box-exito.component';
@@ -25,11 +26,13 @@ register();
   styleUrl: './dvl-satelital.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class DvlSatelitalComponent {
+export default class DvlSatelitalComponent implements OnInit{
   idServicioSeleccionado!: number;
   screenWidth!: number;
   slidesPerView!: number;
   animateText: boolean = false;
+  casosExito = casosExito
+
   cdr = inject(ChangeDetectorRef)
 
   @HostListener('window:resize')
@@ -56,43 +59,30 @@ export default class DvlSatelitalComponent {
     this.seteoPrimerServicio()
   }
 
-  casosExito = [
-    {
-      img: 'assets/imgs/casos-exito/friar-logo.png',
-      problematica: ['Conocer el estado operativo de sus estaciones de bombeo.', 'Obtener la huella hídrica por kilo de animal.'],
-      solucion: ['Medición de Niveles y Caudales.'],
-      resultados: ['Instalación de sensores en bombas.', 'Volvió más eficiente el sistema.', 'Se logró a través de la plataforma medir la huella hídrica por kilo de animal.']
-    },
-    {
-      img: 'assets/imgs/casos-exito/geosistemas-logo.png',
-      problematica: ['Proporcionar herramientas de gestión de plagas y enfermedades con el objetivo de optimizar el uso de pesticidas e incrementar la calidad de la cosecha.'],
-      solucion: ['Integramos IoT Core de DVL al nuevo modelo de doble pulverizador con detectores de malezas, desarrollado por Geosistemas.'],
-      resultados: ['Las métricas y mediciones de pulverización pueden visualizarse en forma remota, garantizando la captura de datos sin pérdidas.', 'Los datos recolectados en sitio son enviados mediante tecnología de transmisión de datos de última generación, permitiendo ser utilizados mediante cualquier computadora o celular, gracias a la plataforma WEB responsive, y la APP DVL para Android.']
-    }
-  ]
+
   servicios = [
     {
       icon: 'assets/imgs/satelital-icons/ic_control-flota.svg',
-      title: 'Control de Flota',
-      text: 'Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas). Colocando un equipo IoT Core, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).',
+      title: 'Controlar la Flota',
+      text: 'Estableciendo un programa de mantenimiento preventivo para cada vehículo. Uso de informes y análisis de costos para tomar decisiones informadas. Implementación de políticas de seguridad vial y programas de entrenamiento para conductores. Uso de tecnologías de asistencias al conductor y alertas de seguridad. Paneles de control para evaluar el rendimiento y la eficiencia de la flota.',
       id: 1
     },
     {
       icon: 'assets/imgs/satelital-icons/ic_aumento-rendimiento.svg',
-      title: 'Aumento de Rendimiento',
-      text: 'Prueba',
+      title: 'Aumentar Rendimiento',
+      text: 'Monitoreo del consumo de combustible para identificar áreas de mejora. Casos de Éxito 20% de ahorro. Reducción de kilómetros recorridos mediante la planificación eficiente. Seguimiento de la vida útil de los neumáticos y reemplazo oportuno. Casos de Éxito 30% de ahorro. Creación del perfil de conducción, relacionando comportamiento en velocidades, frenadas bruscas y ralentí de motor.',
       id: 2
     },
     {
       icon: 'assets/imgs/satelital-icons/ic_aumento-rendimiento.svg',
-      title: 'Incremento de Rentabilidad',
-      text: 'Prueba',
+      title: 'Incrementar Rentabilidad',
+      text: 'Monitoreo del consumo de combustible para identificar áreas de mejora. Casos de Éxito 20% de ahorro. Reducción de kilómetros recorridos mediante la planificación eficiente. Seguimiento de la vida útil de los neumáticos y reemplazo oportuno. Casos de Éxito 30% de ahorro. Creación del perfil de conducción, relacionando comportamiento en velocidades, frenadas bruscas y ralentí de motor.',
       id: 3
     },
     {
       icon: 'assets/imgs/satelital-icons/ic_beneficios.svg',
-      title: 'Beneficios de sumar nuestra solución',
-      text: 'Prueba',
+      title: 'Servicio Colaborativo',
+      text: 'Webservices, integraciones y nuevas herramientas para generar reportes diferenciales logrando que el dato se convierta en información. Capacitaciones al personal de logística y a los choferes. Gestión de flotas.',
       id: 4
     }
   ];

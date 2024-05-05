@@ -8,6 +8,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { register } from 'swiper/element/bundle';
+import { casosExito } from '../../../../assets/data/casos-exito';
 register();
 
 @Component({
@@ -31,6 +32,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
   slidesPerView!: number;
   animateText: boolean = false;
   cdr = inject(ChangeDetectorRef);
+  casosExito = casosExito;
 
   @HostListener('window:resize')
   getScreenWidth() {
@@ -77,20 +79,6 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     }
   }
 
-  casosExito = [
-    {
-      img: 'assets/imgs/casos-exito/friar-logo.png',
-      problematica: ['Conocer el estado operativo de sus estaciones de bombeo.', 'Obtener la huella hídrica por kilo de animal.'],
-      solucion: ['Medición de Niveles y Caudales.'],
-      resultados: ['Instalación de sensores en bombas.', 'Volvió más eficiente el sistema.', 'Se logró a través de la plataforma medir la huella hídrica por kilo de animal.']
-    },
-    {
-      img: 'assets/imgs/casos-exito/geosistemas-logo.png',
-      problematica: ['Proporcionar herramientas de gestión de plagas y enfermedades con el objetivo de optimizar el uso de pesticidas e incrementar la calidad de la cosecha.'],
-      solucion: ['Integramos IoT Core de DVL al nuevo modelo de doble pulverizador con detectores de malezas, desarrollado por Geosistemas.'],
-      resultados: ['Las métricas y mediciones de pulverización pueden visualizarse en forma remota, garantizando la captura de datos sin pérdidas.', 'Los datos recolectados en sitio son enviados mediante tecnología de transmisión de datos de última generación, permitiendo ser utilizados mediante cualquier computadora o celular, gracias a la plataforma WEB responsive, y la APP DVL para Android.']
-    }
-  ]
 
   servicios = [
     {
@@ -101,7 +89,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     },
     {
       icon: 'assets/imgs/iot-icons/sustentabilidad.svg',
-      title: 'Mejora la sustentabilidad',
+      title: 'Mejorar la sustentabilidad',
       text: 'Prueba',
       id: 2
     },
@@ -113,7 +101,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     },
     {
       icon: 'assets/imgs/iot-icons/flota.svg',
-      title: 'Controla la flota',
+      title: 'Control de procesos',
       text: 'Prueba',
       id: 4
     }

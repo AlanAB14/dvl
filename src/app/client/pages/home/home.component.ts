@@ -25,13 +25,13 @@ import { RouterModule } from '@angular/router';
 export default class HomeComponent {
   images = [
     {
-      imgSrc: 'assets/videos/video-dvl-flota.mp4',
-      imgPre: 'assets/videos/dvl-sat-pre.png',
+      imgSrc: 'assets/videos/video-dvl-iot.mp4',
+      imgPre: 'assets/videos/dvl-iot-pre.png',
       imgAlt: 'image 1'
     },
     {
-      imgSrc: 'assets/videos/video-dvl-iot.mp4',
-      imgPre: 'assets/videos/dvl-iot-pre.png',
+      imgSrc: 'assets/videos/video-dvl-flota.mp4',
+      imgPre: 'assets/videos/dvl-sat-pre.png',
       imgAlt: 'image 1'
     }
   ]

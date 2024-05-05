@@ -87,11 +87,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./client/pages/certificaciones/certificaciones.component')
             },
             {
-                path: 'dvl-iot',
+                path: 'iot',
                 loadComponent: () => import('./client/pages/dvl-iot/dvl-iot.component')
             },
             {
-                path: 'dvl-satelital',
+                path: 'monitoreo-flota',
                 loadComponent: () => import('./client/pages/dvl-satelital/dvl-satelital.component')
             },
             {

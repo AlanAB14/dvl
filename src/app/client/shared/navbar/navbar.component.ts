@@ -25,12 +25,12 @@ export class NavbarComponent {
       title: 'Nosotros'
     },
     {
-      path: 'dvl-iot',
-      title: 'DVL IoT'
+      path: 'iot',
+      title: 'IOT'
     },
     {
-      path: 'dvl-satelital',
-      title: 'DVL Satelital'
+      path: 'monitoreo-flota',
+      title: 'Monitoreo de flota'
     },
     {
       path: 'novedades',
@@ -46,8 +46,8 @@ export class NavbarComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      this.esRutaEspecifica = event.url === '/dvl-iot';
-      this.esRutaEspecificaSatelital = event.url === '/dvl-satelital';
+      this.esRutaEspecifica = event.url === '/iot';
+      this.esRutaEspecificaSatelital = event.url === '/monitoreo-flota';
     });
   }
 

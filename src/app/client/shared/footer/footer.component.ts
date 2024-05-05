@@ -24,8 +24,8 @@ export class FooterComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      this.esRutaEspecifica = event.url === '/dvl-iot';
-      this.esRutaEspecificaSatelital = event.url === '/dvl-satelital';
+      this.esRutaEspecifica = event.url === '/iot';
+      this.esRutaEspecificaSatelital = event.url === '/monitoreo-flota';
       cdf.detectChanges()
     });
   }

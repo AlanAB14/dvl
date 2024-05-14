@@ -101,6 +101,10 @@ export const routes: Routes = [
             {
                 path: 'contacto',
                 loadComponent: () => import('./client/pages/contacto/contacto.component')
+            },
+            {
+                path: 'iot-core',
+                loadComponent: () => import('./client/pages/iot-core/iot-core.component')
             }
         ]
     },

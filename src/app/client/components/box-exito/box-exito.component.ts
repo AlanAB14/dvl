@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
           <div class="box">
             <div class="box-logo">
-                <img [src]="img" alt="">
+                <img [src]="img" [ngClass]="{'img-nestle': img.includes('nestle')}" alt="">
             </div>
             <div class="box-content">
                 <div class="box-content-data">

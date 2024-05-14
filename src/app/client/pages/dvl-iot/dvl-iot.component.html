@@ -17,7 +17,7 @@
         }
     </div>
     <div #description class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
-        <p>{{ getTextoIdSeleccionado() }}</p>
+        <p [innerHTML]="getTextoIdSeleccionado()">{{ getTextoIdSeleccionado() }}</p>
     </div>
 </div>
 

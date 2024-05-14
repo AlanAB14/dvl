@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { register } from 'swiper/element/bundle';
 import { casosExito } from '../../../../assets/data/casos-exito';
+import { DomSanitizer } from '@angular/platform-browser';
 register();
 
 @Component({
@@ -33,6 +34,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
   animateText: boolean = false;
   cdr = inject(ChangeDetectorRef);
   casosExito = casosExito;
+  sanitizerService = inject(DomSanitizer);
 
   @HostListener('window:resize')
   getScreenWidth() {
@@ -84,7 +86,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/iot-icons/rentabilidad.svg',
       title: 'Incrementar rentabilidad',
-      text: 'Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas). Colocando un equipo IoT Core, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).',
+      text: this.sanitizerService.bypassSecurityTrustHtml('Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas). Colocando un equipo <a style="color: blue!important" href="/iot-core">IoT Core</a>, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).'),
       id: 1
     },
     {
@@ -206,6 +208,6 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     if (this.screenWidth < 450) {
       element.scrollIntoView({ behavior: "smooth" })
     }
-    
+
   }
 }

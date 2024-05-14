@@ -72,6 +72,11 @@
       font-weight: 400;
       line-height: 2.0625rem;
       /* 165% */
+
+    }
+
+    a {
+      color: blue !important;
     }
   }
 }
@@ -98,6 +103,7 @@
     .box-module {
       opacity: 0;
       transform: translateY(100px);
+
       &:not(:last-of-type) {
         margin-bottom: 1.25rem;
       }
@@ -107,7 +113,7 @@
 
 .casos-exito-section {
   margin-top: 5.8125rem;
-  padding-bottom: 5.8125rem!important;
+  padding-bottom: 5.8125rem !important;
   padding: 0 6rem;
 
   @media (max-width: 1200px) {

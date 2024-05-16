@@ -24,10 +24,10 @@ import {MatButtonModule} from '@angular/material/button';
             <p>{{ certificacion.title }}</p>
           </div>
           <div class="certificacion-box-content--date">
-            <p>{{ certificacion.date }}</p>
+            <p>{{ certificacion.date | date:'dd/MM/YYYY' }}</p>
           </div>
           <div class="certificacion-box-content--text">
-            <p>{{ certificacion.text }}</p>
+            <p [innerHTML]="certificacion.text"></p>
           </div>
         </div>
       </div>

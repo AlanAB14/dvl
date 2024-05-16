@@ -59,6 +59,22 @@ export default class DvlSatelitalComponent implements OnInit{
     this.seteoPrimerServicio()
   }
 
+  confian = [
+    { src: "assets/imgs/confian/confian-1.png", alt: "img-1" },
+    { src: "assets/imgs/confian/confian-2.png", alt: "img-2" },
+    { src: "assets/imgs/confian/confian-3.png", alt: "img-3" },
+    { src: "assets/imgs/confian/confian-4.png", alt: "img-4" },
+    { src: "assets/imgs/confian/confian-5.png", alt: "img-5" },
+    { src: "assets/imgs/confian/confian-6.png", alt: "img-6" },
+    { src: "assets/imgs/confian/confian-7.png", alt: "img-7" },
+    { src: "assets/imgs/confian/confian-8.png", alt: "img-8" },
+    { src: "assets/imgs/confian/confian-9.png", alt: "img-9" },
+    { src: "assets/imgs/confian/confian-10.png", alt: "img-10" },
+    { src: "assets/imgs/confian/confian-11.png", alt: "img-11" },
+    { src: "assets/imgs/confian/confian-12.png", alt: "img-12" },
+    { src: "assets/imgs/confian/confian-13.png", alt: "img-13" },
+  ];
+
 
   servicios = [
     {

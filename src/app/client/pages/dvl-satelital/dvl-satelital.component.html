@@ -57,6 +57,19 @@
     </div>
 </div>
 
+<div class="confian-section">
+    <div class="confian-section__title">
+        <div class="text">
+            <p>Confían en nosotros</p>
+        </div>
+    </div>
+    <div class="confian-section__imgs">
+        @for (item of confian; track $index) {
+            <img [src]="item.src" [alt]="item.alt">
+        }
+    </div>
+</div>
+
 <div class="casos-exito-section">
     <div class="casos-exito-section__title servicios-section__title">
         <p>Casos de éxito</p>

@@ -138,6 +138,10 @@
       font-weight: 700;
       line-height: normal;
       text-align: center;
+
+      @media (max-width: 250px) {
+        word-break: break-word;
+      }
     }
 
     &--subtitle {

@@ -1,5 +1,11 @@
 <div [ngClass]="{'theme-dark': esRutaEspecifica}">
-    <div class="layout">
+    @if (cargando()) {
+        <div class="loader-section">
+            <span class="loader"></span>
+        </div>
+    }
+
+    <div class="layout" [ngClass]="{'hidde-content': cargando()}">
         <div class="nabvar">
             <app-navbar />
         </div>

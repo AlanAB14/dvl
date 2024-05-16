@@ -1,118 +1,99 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject, signal } from '@angular/core';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
+import { NumbersUsService } from '../../../services/numbers-us.service';
+import { LoaderService } from '../../../services/loader.service';
+import { CountUpModule } from 'ngx-countup';
+import { PoliciesService } from '../../../services/policies.service';
+import { CertificationsService } from '../../../services/certifications.service';
+import { NosotrosService } from '../../../services/nosotros.service';
 
 @Component({
   selector: 'app-nosotros',
   standalone: true,
   imports: [
     CommonModule,
-    TouchSliderComponent
+    TouchSliderComponent,
+    CountUpModule
   ],
   templateUrl: './nosotros.component.html',
   styleUrl: './nosotros.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class NosotrosComponent implements OnInit{
-  empleados: number = 100;
-  currentNumberEmpleados: number = 0;
-  estructura: number = 6500;
-  currentNumberEstructura: number = Math.floor(this.estructura / 1.02);
-  anios: number = 25;
-  currentNumberAnios: number = 0;
-  incrementSpeed: number = 10;
-  isNumberVisible: boolean = false;
-  
-  data: string[] = [
-    'PRIORIZAR la capacitación permanente para asegurar las competencias del personal en los diferentes niveles de la organización y generar un ambiente de trabajo motivador, brindando el apoyo y los recursos necesarios para garantizar la mejora continua.',
-    'ADAPTARSE a las nuevas demandas, focalizando permanentemente en la innovación de la tecnología y los procesos, mediante una organización flexible que sea capaz de dar respuesta a las necesidades de los clientes, actuales y potenciales.',
-    'PROVEER bienes y servicios que constantemente satisfagan los requerimientos de los clientes, el capital humano y la dirección estratégica de la empresa.',
-    'ADOPTAR una estrategia de estandarización de los procesos para mejorar la eficiencia y obtener los mejores costos, estableciendo metas y objetivos específicos.',
-    'TRABAJAR en conjunto con nuestros proveedores para alcanzar su compromiso con la calidad, y así poder garantizarla a nuestros clientes.',
-    'CONTRIBUIR de manera activa y responsable con el desarrollo sustentable.'
-  ]
-  dataCertificaciones: any[] = [
-    {
-      id: 1,
-      title: 'Certificación Cesvi',
-      date: '10 December 2020',
-      img: 'assets/imgs/certificaciones/cesvi.png',
-      text: 'Informacion del certificado'
-    },
-    {
-      id: 2,
-      title: 'Certificación ISO 9001',
-      date: '10 December 2020',
-      img: 'assets/imgs/certificaciones/iso.png',
-      text: 'Informacion del certificado'
-    },
-    {
-      id: 3,
-      title: 'Políticas de Calidad – Documentación ISO 9001:2015',
-      date: '10 December 2020',
-      img: 'assets/imgs/certificaciones/no-img.png',
-      text: 'Informacion del certificado'
-    },
-    {
-      id: 4,
-      title: 'Políticas de Calidad – Ej ISO 9001:2015',
-      date: '10 December 2020',
-      img: 'assets/imgs/certificaciones/no-img.png',
-      text: 'Informacion del certificado'
-    },
-    {
-      id: 5,
-      title: 'Políticas de Calidad – Ej2 ISO 9001:2015',
-      date: '10 December 2020',
-      img: 'assets/imgs/certificaciones/no-img.png',
-      text: 'Informacion del certificado'
-    },
-  ];
+  numbersUsService = inject(NumbersUsService);
+  nosotrosService = inject(NosotrosService);
+  policiesService = inject(PoliciesService);
+  certificationService = inject(CertificationsService);
+  loaderService = inject(LoaderService);
+  empleados!: number;
+  estructura!: number;
+  anios!: number;
+  politicas = signal(null);
+  certificaciones = signal(null);
+  nosotros: any = signal(null);
+ 
   @ViewChild('numbers', { static: true }) elementRef!: ElementRef;
   constructor( private cdf: ChangeDetectorRef ) {}
   ngOnInit(): void {
-    this.checkIfNumberVisible();
+    this.getNosotros();
+    this.getNumbers();
+    this.getPolicies();
+    this.getCertifications()
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: Event) {
-    this.checkIfNumberVisible();
+  getNosotros() {
+    this.loaderService.setLoader(true);
+    this.nosotrosService.getInfoUs()
+      .subscribe((nosotros: any) => {
+        this.nosotros.set(nosotros[0]);
+        this.loaderService.setLoader(false);
+      }, (error) => {
+        console.log('Error al traer Nosotros', error)
+        this.loaderService.setLoader(false);
+      })
   }
 
-  checkIfNumberVisible() {
-    const windowHeight = window.innerHeight;
-    const elementOffset = this.elementRef.nativeElement.getBoundingClientRect().top;
+  getPolicies() {
+    this.loaderService.setLoader(true);
+    this.policiesService.getPolicies()
+      .subscribe((policies: any) => {
+        this.politicas.set(policies);
+        this.loaderService.setLoader(false);
+      }, (error) => {
+        console.log('Error al traer Politicas', error)
+        this.loaderService.setLoader(false);
+      })
+  }
 
-    // Si el elemento está dentro de la vista
-    if (elementOffset < windowHeight && !this.isNumberVisible) {
-      this.isNumberVisible = true;
-      this.increaseNumber();
-    }
+  getNumbers() {
+    this.loaderService.setLoader(true);
+    this.numbersUsService.getNumbers()
+      .subscribe((numbers: any) => {
+        const estructuraObj = numbers.filter((number: any) => number.type === "estructura")
+        const empleadosObj = numbers.filter((number: any) => number.type === "empleados")
+        const aniosObj = numbers.filter((number: any) => number.type === "anios")
+        this.estructura = estructuraObj[0].number;
+        this.empleados = empleadosObj[0].number;
+        this.anios = aniosObj[0].number;
+        this.cdf.detectChanges();
+        this.loaderService.setLoader(false);
+      },(error) => {
+        console.log('Error al traer numbersUs', error);
+        this.loaderService.setLoader(false);
+      })
+  }
+
+  getCertifications() {
+    this.loaderService.setLoader(true);
+    this.certificationService.getCertifications()
+      .subscribe((cert: any) => {
+        this.certificaciones.set(cert);
+        this.loaderService.setLoader(false);
+      }, (error) => {
+        console.log('Error al traer Certificaciones', error)
+        this.loaderService.setLoader(false);
+      })
   }
   
-  increaseNumber() {
-    const timerEmpleados = setInterval(() => {
-      this.currentNumberEmpleados++;
-      if (this.currentNumberEmpleados >= this.empleados) {
-        clearInterval(timerEmpleados);
-      }
-      this.cdf.detectChanges();
-    }, 10);
-
-    const timerEstructura = setInterval(() => {
-      this.currentNumberEstructura++;
-      if (this.currentNumberEstructura >= this.estructura) {
-        clearInterval(timerEstructura);
-      }
-      this.cdf.detectChanges();
-    }, 10);
-
-    const timerAnio = setInterval(() => {
-      this.currentNumberAnios++;
-      if (this.currentNumberAnios >= this.anios) {
-        clearInterval(timerAnio);
-      }
-      this.cdf.detectChanges();
-    }, 50);
-  }
 }

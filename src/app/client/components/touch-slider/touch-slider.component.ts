@@ -27,7 +27,9 @@ export interface Slide {
 export class TouchSliderComponent implements OnInit{
   @Input() categoria!: string;
   @Input() images: Slide[] = [];
-  @Input() info: any[] = [];
+  @Input() info!: any;
+  @Input() politicas!: any;
+  @Input() certificaciones!: any;
   @Output() sendIdNoticia = new EventEmitter(); 
   idSeleccionada!: number;
   activeSlideIndex: number = 1;

@@ -14,11 +14,11 @@
 <swiper-container slides-per-view="3" class="swiper-politicas" autoplay="true" space-between="30"
     pagination-enabled="true" pagination-clickable="true" pagination-type="bullets" grab-cursor="true"
     allow-touch-move="true" nested="true">
-    @for (item of info; track $index) {
+    @for (item of politicas; track $index) {
     <swiper-slide>
         <div class="politica-box">
             <div class="reflect"></div>
-            <p class="no-select">{{item}}</p>
+            <p class="no-select" [innerHTML]="item.text"></p>
         </div>
     </swiper-slide>
     }
@@ -26,11 +26,11 @@
 } @else {
 <swiper-container autoplay="true" class="swiper-politicas" loop="true" space-between="30" slides-per-view="1"  grab-cursor="true"
     allow-touch-move="true" nested="true">
-    @for (item of info; track $index) {
+    @for (item of politicas; track $index) {
     <swiper-slide>
         <div class="politica-box">
             <div class="reflect"></div>
-            <p class="no-select">{{item}}</p>
+            <p class="no-select" [innerHTML]="item.text"></p>
         </div>
     </swiper-slide>
     }
@@ -41,7 +41,7 @@
 <swiper-container slides-per-view="3" class="swiper-certificaciones" autoplay="true" autoplay-delay="5000"
     space-between="30" pagination-enabled="true" pagination-clickable="true" pagination-type="bullets"
     grab-cursor="true" allow-touch-move="true" nested="true">
-    @for (item of info; track $index) {
+    @for (item of certificaciones; track $index) {
     <swiper-slide>
         <div class="certificacion">
             <div class="certificacion-box">
@@ -62,7 +62,7 @@
 <swiper-container autoplay="true" autoplay-delay="5000" class="swiper-certificaciones" space-between="30"
     slides-per-view="1" pagination-enabled="true" pagination-clickable="true" pagination-type="bullets"
     grab-cursor="true" allow-touch-move="true" nested="true">
-    @for (item of info; track $index) {
+    @for (item of certificaciones; track $index) {
     <swiper-slide>
         <div class="certificacion">
             <div class="certificacion-box">
@@ -70,7 +70,7 @@
                     <img [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
                 </div>
                 <div class="certificacion-box-text">
-                    <p class="no-select date-text">{{item.date}}</p>
+                    <p class="no-select date-text">{{item.date | date:'dd/MM/YYYY'}}</p>
                     <p class="no-select title-text">{{item.title}}</p>
                     <p class="no-select link-text"><a (click)="goToCertificacion(item)">Ver</a></p>
                 </div>

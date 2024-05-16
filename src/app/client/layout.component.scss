@@ -1,3 +1,7 @@
+.hidde-content {
+  display: none;
+}
+
 .layout {
   position: relative;
 }
@@ -19,10 +23,45 @@
   }
 }
 
+.loader-section {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--violet);
+  z-index: 101;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
 .theme-dark {
   .layout {
     .main-content {
-      background-color: var(--dark-blue)!important;
+      background-color: var(--dark-blue) !important;
     }
   }
 }

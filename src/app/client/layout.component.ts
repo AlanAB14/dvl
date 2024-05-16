@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-layout',
@@ -18,8 +19,10 @@ import { filter } from 'rxjs';
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LayoutComponent {
+export default class LayoutComponent implements OnInit {
   esRutaEspecifica: boolean = false;
+  cargando: any = signal(true);
+  loaderService = inject(LoaderService);
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -27,5 +30,15 @@ export default class LayoutComponent {
     ).subscribe((event: any) => {
       this.esRutaEspecifica = event.url === '/iot' || event.url === '/monitoreo-flota';
     });
+  }
+
+  ngOnInit(): void {
+    this.loaderService.loader$.subscribe(value => {
+      this.cargando.set(value);
+    })
+
+    setTimeout(() => {
+      this.loaderService.setLoader(false);
+    }, 1000);
   }
 }

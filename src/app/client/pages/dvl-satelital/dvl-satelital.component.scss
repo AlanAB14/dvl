@@ -118,7 +118,12 @@
   }
 }
 
-.herramientas-section {
+.confian-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.herramientas-section, .confian-section {
   display: flex;
   justify-content: center;
 
@@ -139,6 +144,38 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+
+  &__imgs {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+
+    img {
+      height: 2rem;
+      width: auto;
+      opacity: .5;
+    }
+  }
+
+  .text {
+    margin-bottom: 2rem;
+    color: #FFF;
+    font-family: "Chakra Petch";
+    font-size: 2.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: 768px) {
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
   }
 
   &__image {

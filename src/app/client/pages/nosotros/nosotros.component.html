@@ -1,41 +1,51 @@
 <div class="nosotros-section animate__animated animate__fadeIn">
     <div class="nosotros-section__data">
-        <div class="nosotros-section__data--title">
-            <div class="text-world">
-                <img src="assets/imgs/global-white.png" alt="global">
-                <p class="text-world-data"><strong>DVL Satelital es una división de la Empresa TC S.A.</strong></p>
+        @if (nosotros()) {
+            <div class="nosotros-section__data--title">
+                <div class="text-world">
+                    <img src="assets/imgs/global-white.png" alt="global">
+                    <p class="text-world-data"><strong>DVL es una división de la Empresa TC S.A.</strong></p>
+                </div>
+                <div class="title">
+                    <p>{{ nosotros().title }}</p>
+                </div>
+                <div class="subtitle">
+                    <p>{{ nosotros().subtitle }}</p>
+                    <!-- <p>Ofrecemos soluciones innovadoras que incorporan los últimos avances tecnológicos para integrar y monitorear remotamente los activos de nuestros clientes.</p> -->
+                </div>
             </div>
-            <div class="title">
-                <p>#Unacompañíadecompañías</p>
+            <div class="nosotros-section__data--img">
+                <img [src]="nosotros().image" alt="casa-central"  (load)="loaderService.setLoader(false)">
             </div>
-            <div class="subtitle">
-                <!-- <p>Ofrecemos soluciones innovadoras que incorporan los últimos avances tecnológicos para integrar y monitorear remotamente los activos de nuestros clientes.</p> -->
+            <div class="nosotros-section__data--body">
+                    <div><p style="text-align: center;"><strong>MISIÓN</strong></p></div>
+                    <p style="text-align: center;">Brindar servicios innovadores a personas, empresas y vehículos.</p>
+                    <div><p style="text-align: center;"><strong>VISIÓN</strong></p></div>
+                    <p style="text-align: center;">Expandir la eficiencia y la sustentabilidad, siendo sinónimo de tecnología y calidad.</p>
             </div>
-        </div>
-        <div class="nosotros-section__data--img">
-            <img src="assets/imgs/casa-central.jpg" alt="casa-central">
-        </div>
-        <div class="nosotros-section__data--body">
-                <div><p style="text-align: center;"><strong>MISIÓN</strong></p></div>
-                <p style="text-align: center;">Brindar servicios innovadores a personas, empresas y vehículos.</p>
-                <div><p style="text-align: center;"><strong>VISIÓN</strong></p></div>
-                <p style="text-align: center;">Expandir la eficiencia y la sustentabilidad, siendo sinónimo de tecnología y calidad.</p>
-        </div>
+        }
     </div>
-    <div class="nosotros-section__numbers">
-        <div class="empleados datos-container" #numbers>
-            <div class="number" *ngIf="isNumberVisible">+{{currentNumberEmpleados}}</div>
-            <div class="text">empleados</div>
+    @if (estructura && empleados && anios) {
+        <div class="nosotros-section__numbers">
+            <div class="empleados datos-container" #numbers>
+                <div class="number" [countUp]="empleados" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                <div class="text">empleados</div>
+            </div>
+            <div class="estructura datos-container">
+                <div class="number">
+                    <div style="display: inline-flex;">
+                        <div [countUp]="estructura" [options]="{separator: '', enableScrollSpy: true, scrollSpyOnce: true}">0</div>
+                        <div>m2</div>
+                    </div>
+                </div>
+                <div class="text">de estructura edilicia</div>
+            </div>
+            <div class="anios datos-container">
+                <div class="number" [countUp]="anios" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                <div class="text">años</div>
+            </div>
         </div>
-        <div class="estructura datos-container">
-            <div class="number" *ngIf="isNumberVisible">+{{currentNumberEstructura}}m2</div>
-            <div class="text">de estructura edilicia</div>
-        </div>
-        <div class="anios datos-container">
-            <div class="number" *ngIf="isNumberVisible">+{{currentNumberAnios}}</div>
-            <div class="text">años</div>
-        </div>
-    </div>
+    }
     <div class="nosotros-section__politicas">
         <div class="nosotros-section__politicas--title">
             <p>
@@ -43,7 +53,9 @@
             </p>
         </div>
         <div class="nosotros-section__politicas--slider">
-            <app-touch-slider [info]="data" [categoria]="'politicas'" />
+            @if (politicas()) {
+                <app-touch-slider [politicas]="politicas()" [categoria]="'politicas'" />
+            }
         </div>
     </div>
     <div class="nosotros-section__certificaciones">
@@ -53,7 +65,9 @@
             </p>
         </div>
         <div class="nosotros-section__politicas--slider">
-            <app-touch-slider [info]="dataCertificaciones" [categoria]="'certificaciones'" />
+            @if (certificaciones()) {
+                <app-touch-slider [certificaciones]="certificaciones()" [categoria]="'certificaciones'" />
+            }
         </div>
     </div>
 </div>

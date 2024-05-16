@@ -280,7 +280,7 @@ export class DialogContentExampleDialogNosotros implements OnInit {
 
   nosotrosForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
-    subtitle: ['', Validators.required],
+    subtitle: [''],
     image: [null, Validators.required],
     text: ['', Validators.required]
   })

@@ -7,6 +7,7 @@ import { CountUpModule } from 'ngx-countup';
 import { PoliciesService } from '../../../services/policies.service';
 import { CertificationsService } from '../../../services/certifications.service';
 import { NosotrosService } from '../../../services/nosotros.service';
+import { catchError, of, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-nosotros',
@@ -35,65 +36,66 @@ export default class NosotrosComponent implements OnInit{
  
   @ViewChild('numbers', { static: true }) elementRef!: ElementRef;
   constructor( private cdf: ChangeDetectorRef ) {}
+
   ngOnInit(): void {
-    this.getNosotros();
-    this.getNumbers();
-    this.getPolicies();
-    this.getCertifications()
+    this.loadDataSequentially();
+  }
+
+  loadDataSequentially() {
+    this.loaderService.setLoader(true);
+    
+    this.getNosotros()
+      .pipe(
+        switchMap(() => this.getCertifications()),
+        switchMap(() => this.getNumbers()),
+        switchMap(() => this.getPolicies()),
+        catchError(error => {
+          console.log('Error en la cadena de llamadas', error);
+          this.loaderService.setLoader(false);
+          return of(null);
+        })
+      )
+      .subscribe(() => {
+        this.loaderService.setLoader(false);
+      });
   }
 
   getNosotros() {
-    this.loaderService.setLoader(true);
-    this.nosotrosService.getInfoUs()
-      .subscribe((nosotros: any) => {
+    return this.nosotrosService.getInfoUs().pipe(
+      tap((nosotros: any) => {
         this.nosotros.set(nosotros[0]);
-        this.loaderService.setLoader(false);
-      }, (error) => {
-        console.log('Error al traer Nosotros', error)
-        this.loaderService.setLoader(false);
       })
+    );
   }
 
   getPolicies() {
-    this.loaderService.setLoader(true);
-    this.policiesService.getPolicies()
-      .subscribe((policies: any) => {
+    return this.policiesService.getPolicies().pipe(
+      tap((policies: any) => {
         this.politicas.set(policies);
-        this.loaderService.setLoader(false);
-      }, (error) => {
-        console.log('Error al traer Politicas', error)
-        this.loaderService.setLoader(false);
       })
+    );
   }
 
   getNumbers() {
-    this.loaderService.setLoader(true);
-    this.numbersUsService.getNumbers()
-      .subscribe((numbers: any) => {
-        const estructuraObj = numbers.filter((number: any) => number.type === "estructura")
-        const empleadosObj = numbers.filter((number: any) => number.type === "empleados")
-        const aniosObj = numbers.filter((number: any) => number.type === "anios")
+    return this.numbersUsService.getNumbers().pipe(
+      tap((numbers: any) => {
+        const estructuraObj = numbers.filter((number: any) => number.type === "estructura");
+        const empleadosObj = numbers.filter((number: any) => number.type === "empleados");
+        const aniosObj = numbers.filter((number: any) => number.type === "anios");
         this.estructura = estructuraObj[0].number;
         this.empleados = empleadosObj[0].number;
         this.anios = aniosObj[0].number;
         this.cdf.detectChanges();
-        this.loaderService.setLoader(false);
-      },(error) => {
-        console.log('Error al traer numbersUs', error);
-        this.loaderService.setLoader(false);
       })
+    );
   }
 
   getCertifications() {
-    this.loaderService.setLoader(true);
-    this.certificationService.getCertifications()
-      .subscribe((cert: any) => {
+    return this.certificationService.getCertifications().pipe(
+      tap((cert: any) => {
         this.certificaciones.set(cert);
-        this.loaderService.setLoader(false);
-      }, (error) => {
-        console.log('Error al traer Certificaciones', error)
-        this.loaderService.setLoader(false);
       })
+    );
   }
   
 }

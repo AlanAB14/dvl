@@ -123,7 +123,16 @@
   flex-direction: column;
 }
 
-.herramientas-section, .confian-section {
+.herramientas-section {
+  width: 100%;
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+}
+
+.herramientas-section,
+.confian-section {
   display: flex;
   justify-content: center;
 
@@ -181,6 +190,11 @@
   &__image {
     display: flex;
     flex-direction: column;
+    width: 70%;
+
+    @media (max-width: 1400px) {
+      width: 100%;
+    }
 
     .text {
       margin-bottom: 2rem;
@@ -201,6 +215,7 @@
     }
 
     .image {
+      width: 100%;
 
       @media (max-width: 768px) {
         display: flex;
@@ -209,22 +224,18 @@
 
       &-box-principal {
         position: relative;
-        width: fit-content;
+        width: 100%;
+
+        .img-princial {
+          width: 100%;
+        }
 
         @media (max-width: 768px) {
           display: flex;
           justify-content: center;
         }
 
-        img {
-          @media (max-width: 768px) {
-            width: 80%;
-          }
-          
-          @media (max-width: 370px) {
-            width: 100%;
-          }
-        }
+        
 
         &-items {
           .icon {
@@ -294,28 +305,42 @@
   }
 
   &__content {
-    margin-left: 7rem;
+    width: 30%;
+    margin-left: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    @media (max-width: 900px) {
-      margin-left: 5rem;
+    @media (max-width: 1400px) {
+      margin-left: 0rem;
+      margin-top: 2rem;
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: start;
     }
 
-    @media (max-width: 768px) {
-      margin-left: 0;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
 
-      .box {
-          margin-top: 1rem;
+    .box {
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+
+        @media (max-width: 1400px) {
+          margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: 600px) {
+        width: 100%;
       }
     }
-
-    // .box {
-    //   &:not(:last-of-type) {
-    //     margin-bottom: 1.25rem;
-    //   }
-    // }
   }
 
 }

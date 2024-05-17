@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     </div>
     <div class="text"><p>{{ text }}</p></div>
     <div class="info">
-      <img [src]="img" alt="">
+      <img [src]="img ?? 'assets/imgs/gris.jpg'" alt="">
       <div class="data">
         <div class="name">
           <p>{{ name }}</p>

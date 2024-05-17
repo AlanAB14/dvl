@@ -12,16 +12,16 @@
             <p>Descubrí lo nuevo de DVL: Te invitamos a dar un recorrido por nuestras noticias y actualizaciones.</p>
         </div>
         <div class="novedades-section__search--carousel">
-            <app-touch-slider [categoria]="'novedades'" (sendIdNoticia)="setIdNoticia($event)" [info]="info" />
+            <app-touch-slider [categoria]="'novedades'" (sendIdNoticia)="setIdNoticia($event)" [info]="news()" />
         </div>
         <div #noticia class="novedades-section__result">
             @if (noticiaSeleccionada) {
                 <div class="noticia-seleccionada" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
                     <div class="noticia-seleccionada--img">
-                        <img [src]="noticiaSeleccionada.imgCompleta" alt="img-completa">
+                        <img [src]="noticiaSeleccionada.image" alt="img-completa">
                     </div>
                     <div class="noticia-seleccionada--text">
-                        <p>{{ noticiaSeleccionada.text }}</p>
+                        <p [innerHTML]="noticiaSeleccionada.text"></p>
 
                     </div>
                     <div class="border-line"></div>
@@ -41,10 +41,10 @@
         </div>
     </div>
     <div class="comentarios-section__qualifications">
-        @for (item of comentarios; track $index) {
-            <app-box-comentario [stars]="item.stars" 
-                                [text]="item.text" 
-                                [img]="item.img" 
+        @for (item of comments(); track $index) {
+            <app-box-comentario [stars]="+item.stars" 
+                                [text]="item.title" 
+                                [img]="item.avatar" 
                                 [name]="item.name" 
                                 [profession]="item.profession" 
             />

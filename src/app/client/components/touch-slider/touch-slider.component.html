@@ -49,7 +49,7 @@
                     <img [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
                 </div>
                 <div class="certificacion-box-text">
-                    <p class="no-select date-text">{{item.date}}</p>
+                    <p class="no-select date-text">{{item.date | date:'dd/MM/YYYY'}}</p>
                     <p class="no-select title-text">{{item.title}}</p>
                     <p class="no-select link-text"><a (click)="goToCertificacion(item)">Ver</a></p>
                 </div>
@@ -83,7 +83,8 @@
 } @else if (categoria === 'novedades') {
 @if (slidesPerViewNovedades === 3) {
     <swiper-container autoplay="false" 
-                  class="swiper-novedades" 
+                  class="swiper-novedades"
+                  centered-slides="true" 
                   space-between="30" 
                   slides-per-view="3"
                   navigation="true" 
@@ -93,7 +94,7 @@
     @for (item of info; track $index) {
     <swiper-slide>
         <div class="novedad">
-            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img_preview ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
             <button (click)="enviarId(item.id)">Leer más</button>
         </div>
     </swiper-slide>
@@ -101,7 +102,8 @@
 </swiper-container>
 }@else if (slidesPerViewNovedades === 2) {
     <swiper-container autoplay="false" 
-                      class="swiper-novedades" 
+                      class="swiper-novedades"
+                      centered-slides="true" 
                       space-between="30" 
                       slides-per-view="2"
                       navigation="true" 
@@ -111,7 +113,7 @@
     @for (item of info; track $index) {
     <swiper-slide>
         <div class="novedad">
-            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img_preview ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
             <button (click)="enviarId(item.id)">Leer más</button>
         </div>
     </swiper-slide>
@@ -121,6 +123,7 @@
 }@else if (slidesPerViewNovedades === 1) {
     <swiper-container autoplay="false" 
                       class="swiper-novedades"
+                      centered-slides="true"
                       space-between="30" 
                       slides-per-view="1"
                       pagination="true"
@@ -130,7 +133,7 @@
     @for (item of info; track $index) {
     <swiper-slide>
         <div class="novedad">
-            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
+            <img [class.border-selected]="idSeleccionada === item.id" [src]="item.img_preview ?? 'assets/imgs/certificaciones/no-img.png'" alt="cert-img">
             <button (click)="enviarId(item.id)">Leer más</button>
         </div>
     </swiper-slide>

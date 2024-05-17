@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, inject, signal } from '@angular/core';
 import { HeadComponent } from '../../components/head/head.component';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
 import { BoxComentarioComponent } from '../../components/box-comentario/box-comentario.component';
+import { NewsService } from '../../../services/news.service';
+import { LoaderService } from '../../../services/loader.service';
+import { CommentsService } from '../../../services/comments.service';
 
 @Component({
   selector: 'app-novedades',
@@ -18,8 +21,13 @@ import { BoxComentarioComponent } from '../../components/box-comentario/box-come
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class NovedadesComponent {
+export default class NovedadesComponent implements OnInit{
+  newsService = inject(NewsService);
+  commentsService = inject(CommentsService);
+  loaderService = inject(LoaderService);
   noticiaSeleccionada!: any;
+  news: any = signal(null);
+  comments: any = signal(null);
   animateText: boolean = false;
   cdr = inject(ChangeDetectorRef);
   @ViewChild('noticia') noticia!: ElementRef;
@@ -46,49 +54,44 @@ export default class NovedadesComponent {
       profession: 'Analista en Logísitica'
     }
   ]
-  info = [
-    {
-      id: 1,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    },
-    {
-      id: 2,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    },
-    {
-      id: 3,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    },
-    {
-      id: 4,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    },
-    {
-      id: 5,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    },
-    {
-      id: 6,
-      img: 'assets/imgs/novedades/noticias/noticia.png',
-      imgCompleta: 'assets/imgs/novedades/noticias/noticia.png',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum arcu nisl, feugiat sed neque id, lacinia vestibulum dui. Fusce ultrices leo id ex interdum efficitur. Vivamus vitae sollicitudin nibh. Duis et ligula vestibulum, dictum orci nec, feugiat sem. Aenean faucibus gravida ex, vel mollis leo condimentum at. Cras tincidunt odio ac ex auctor molestie. Cras a elit facilisis, condimentum metus at, viverra ex. Quisque purus nunc, facilisis a volutpat vitae, iaculis a velit. Sed non quam vitae massa fermentum consequat vitae eu metus. Quisque gravida tristique nunc sit amet rhoncus. In mollis tristique dui sit amet imperdiet. Curabitur sollicitudin justo nec feugiat condimentum.Duis quam quam, vehicula eu nibh eget, condimentum fermentum leo.Aliquam erat volutpat.Vestibulum at tempus nulla.Praesent at consectetur odio.Cras id tristique lectus.Integer non justo turpis.Nulla et mi at elit cursus placerat quis non justo.Nunc suscipit auctor urna.Vivamus tristique ligula ut erat vulputate, a faucibus est tempus. Nunc ac egestas leo.Donec semper sapien nec dui iaculis, nec vestibulum tortor viverra.Phasellus lacinia nulla sodales, ullamcorper magna sit amet, malesuada eros.Suspendisse scelerisque lectus lacus, at lacinia elit egestas sed.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc consectetur tincidunt volutpat.Nullam non tempor quam, vitae lobortis lectus.Phasellus tristique mi vitae justo tincidunt tristique.Aliquam sed dolor arcu.Duis sodales ullamcorper lorem vel aliquet.Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ut quam nibh.Mauris sodales ipsum eu mauris pulvinar sollicitudin.Etiam condimentum ipsum id mauris bibendum, tristique vulputate magna blandit.Proin tincidunt id mi sed consequat.Vestibulum sit amet sagittis enim, at pellentesque erat.Phasellus orci ante, sodales porttitor arcu eget, laoreet lobortis turpis.Vestibulum id ligula vel lectus aliquet blandit.Nullam interdum, mi eget mattis posuere, enim orci maximus felis, non varius neque neque sed enim.Nunc cursus pellentesque rhoncus.Phasellus tempus eros eget porttitor fringilla. Sed tincidunt orci et sem egestas viverra.Aliquam erat volutpat.Integer nec sagittis orci.Interdum et malesuada fames ac ante ipsum primis in faucibus.Cras congue elit volutpat, egestas orci sit amet, mollis lorem.Cras eget leo consequat, elementum dolor et, venenatis quam.In venenatis tincidunt neque eget luctus.Sed egestas ligula lorem, et lobortis purus commodo vitae.Aenean a odio lacinia, ultricies purus at, pharetra purus.Integer lobortis ligula diam, sit amet iaculis justo laoreet non.Vestibulum at ex sed enim facilisis fermentum.Pellentesque dignissim turpis vel neque sollicitudin, quis rhoncus orci scelerisque.Sed eu pharetra lorem. Sed eu pharetra lorem. 2024'
-    }
-  ]
+
+  ngOnInit(): void {
+    this.getNoticias();
+    this.getComentarios();
+  }
+
+  getComentarios() {
+    this.loaderService.setLoader(true);
+    this.commentsService.getComments()
+      .subscribe((comments: any) => {
+        console.log(comments)
+        this.comments.set(comments);
+        this.loaderService.setLoader(false);
+      }, (error) => {
+        console.log('Error en getComments', error)
+        this.loaderService.setLoader(false);
+      })
+  }
+
+  getNoticias() {
+    this.loaderService.setLoader(true);
+    this.newsService.getNews()
+      .subscribe((news: any) => {
+        this.news.set(news);
+        this.loaderService.setLoader(false);
+      }, (error) => {
+        console.log('Error en getNoticias', error)
+        this.loaderService.setLoader(false);
+      })
+  }
+
+  
 
   setIdNoticia(id: number) {
-    const noticia = this.info.find(noticia => noticia.id === id)
+    const noticia = this.news().find((noticia: any) => noticia.id === id)
     this.noticiaSeleccionada = noticia;
     this.animateText = true;
+    console.log(this.noticiaSeleccionada)
     this.cdr.detectChanges();
 
     setTimeout(() => {

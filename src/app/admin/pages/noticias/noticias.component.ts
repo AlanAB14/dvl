@@ -87,7 +87,7 @@ import { TruncatePipe } from '../../../pipes/truncate.pipe';
 
             <ng-container matColumnDef="text">
               <th mat-header-cell *matHeaderCellDef> Texto noticia </th>
-              <td mat-cell *matCellDef="let element"> {{element.text | appTruncate}} </td>
+              <td mat-cell *matCellDef="let element"> <div [innerHTML]="element.text | appTruncate"></div></td>
             </ng-container>
           
             <ng-container matColumnDef="updated_by">

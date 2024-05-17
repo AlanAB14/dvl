@@ -19,7 +19,7 @@ register();
     HeadComponent,
     BoxReflectComponent,
     BoxModuleComponent,
-    BoxExitoComponent
+    BoxExitoComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './dvl-satelital.component.html',

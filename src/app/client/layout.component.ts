@@ -21,7 +21,7 @@ import { LoaderService } from '../services/loader.service';
 })
 export default class LayoutComponent implements OnInit {
   esRutaEspecifica: boolean = false;
-  cargando: any = signal(true);
+  cargando: any = signal(false);
   loaderService = inject(LoaderService);
 
   constructor(private router: Router) {
@@ -36,9 +36,5 @@ export default class LayoutComponent implements OnInit {
     this.loaderService.loader$.subscribe(value => {
       this.cargando.set(value);
     })
-
-    setTimeout(() => {
-      this.loaderService.setLoader(false);
-    }, 1000);
   }
 }

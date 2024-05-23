@@ -7,7 +7,7 @@ import { CountUpModule } from 'ngx-countup';
 import { PoliciesService } from '../../../services/policies.service';
 import { CertificationsService } from '../../../services/certifications.service';
 import { NosotrosService } from '../../../services/nosotros.service';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-nosotros',
@@ -21,7 +21,7 @@ import { catchError, of, switchMap, tap } from 'rxjs';
   styleUrl: './nosotros.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class NosotrosComponent implements OnInit{
+export default class NosotrosComponent implements OnInit {
   numbersUsService = inject(NumbersUsService);
   nosotrosService = inject(NosotrosService);
   policiesService = inject(PoliciesService);
@@ -33,69 +33,55 @@ export default class NosotrosComponent implements OnInit{
   politicas = signal(null);
   certificaciones = signal(null);
   nosotros: any = signal(null);
- 
+
   @ViewChild('numbers', { static: true }) elementRef!: ElementRef;
-  constructor( private cdf: ChangeDetectorRef ) {}
+  constructor() { }
 
   ngOnInit(): void {
-    this.loadDataSequentially();
+    this.loadData();
   }
 
-  loadDataSequentially() {
+  loadData() {
+    // Mostrar el loader antes de iniciar las solicitudes
     this.loaderService.setLoader(true);
-    
-    this.getNosotros()
-      .pipe(
-        switchMap(() => this.getCertifications()),
-        switchMap(() => this.getNumbers()),
-        switchMap(() => this.getPolicies()),
-        catchError(error => {
-          console.log('Error en la cadena de llamadas', error);
-          this.loaderService.setLoader(false);
-          return of(null);
-        })
-      )
-      .subscribe(() => {
-        this.loaderService.setLoader(false);
-      });
-  }
 
-  getNosotros() {
-    return this.nosotrosService.getInfoUs().pipe(
-      tap((nosotros: any) => {
+    // Crear observables para cada una de las solicitudes
+    const nosotros$ = this.nosotrosService.getInfoUs();
+    const numbers$ = this.numbersUsService.getNumbers();
+    const policies$ = this.policiesService.getPolicies();
+    const certifications$ = this.certificationService.getCertifications();
+
+    // Utilizar forkJoin para ejecutar todas las solicitudes en paralelo
+    forkJoin([nosotros$, numbers$, policies$, certifications$]).subscribe(
+      ([nosotros, numbers, policies, certifications]: any) => {
+
+        // Procesar datos de nosotros
         this.nosotros.set(nosotros[0]);
-      })
-    );
-  }
 
-  getPolicies() {
-    return this.policiesService.getPolicies().pipe(
-      tap((policies: any) => {
-        this.politicas.set(policies);
-      })
-    );
-  }
-
-  getNumbers() {
-    return this.numbersUsService.getNumbers().pipe(
-      tap((numbers: any) => {
+        // Procesar datos de numbers
         const estructuraObj = numbers.filter((number: any) => number.type === "estructura");
         const empleadosObj = numbers.filter((number: any) => number.type === "empleados");
         const aniosObj = numbers.filter((number: any) => number.type === "anios");
         this.estructura = estructuraObj[0].number;
         this.empleados = empleadosObj[0].number;
         this.anios = aniosObj[0].number;
-        this.cdf.detectChanges();
-      })
-    );
-  }
 
-  getCertifications() {
-    return this.certificationService.getCertifications().pipe(
-      tap((cert: any) => {
-        this.certificaciones.set(cert);
-      })
+        // Procesar datos de policies
+        this.politicas.set(policies);
+
+        // Procesar datos de certifications
+        this.certificaciones.set(certifications);
+
+        // Ocultar el loader después de completar todas las solicitudes
+        this.loaderService.setLoader(false);
+      },
+      error => {
+        // Manejar errores de cualquier solicitud
+        console.log('Error en una de las solicitudes', error);
+
+        // Ocultar el loader en caso de error
+        this.loaderService.setLoader(false);
+      }
     );
   }
-  
 }

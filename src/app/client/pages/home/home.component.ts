@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { TouchSliderComponent } from '../../components/touch-slider/touch-slider.component';
 import { ContactoComponent } from '../../components/contacto/contacto.component';
 import { InfiniteSlideComponent } from '../../components/infinite-slide/infinite-slide.component';
 import { RouterModule } from '@angular/router';
+import { LoaderService } from '../../../services/loader.service';
 
 
 
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent {
+export default class HomeComponent implements OnInit {
+  loaderService = inject(LoaderService)
   images = [
     {
       imgSrc: 'assets/videos/video-dvl-iot.mp4',
@@ -118,4 +120,11 @@ export default class HomeComponent {
       imgAlt: 'img 1'
     }
   ]
+
+  ngOnInit(): void {
+    this.loaderService.setLoader(true)
+    setTimeout(() => {
+      this.loaderService.setLoader(false);
+    }, 500);
+  }
 }

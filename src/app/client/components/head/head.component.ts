@@ -44,7 +44,7 @@ import { filter } from 'rxjs';
           <input type="checkbox" id="toggle" class="toggleCheckbox" (change)="onToggleChange()" [checked]="!dvlIot" />
             <label for="toggle" class="toggleContainer">
               <div>IOT</div> 
-              <div>MONITOREO</div>
+              <div>FLOTAS</div>
             </label>
         </div>
       }

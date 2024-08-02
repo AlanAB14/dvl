@@ -16,7 +16,7 @@
         }
     </div>
     <div #description class="servicios-section__text" [ngClass]="{'animate__animated': animateText, 'animate__fadeIn': animateText}">
-        <p>{{ getTextoIdSeleccionado() }}</p>
+        <p [innerHTML]="getTextoIdSeleccionado()"></p>
     </div>
 </div>
 
@@ -46,12 +46,33 @@
                     <img class="card" src="assets/imgs/satelital-icons/herramientas/card.png" alt="card">
                 </div> -->
                 <div class="img-princial">
-                    <swiper-container grab-cursor="true" autoplay="true" space-between="20">
+                    <swiper-container grab-cursor="true"  autoplay="true" loop="true" space-between="20">
                         <swiper-slide>
                             <img src="assets/imgs/herramientas/panel-1.jpeg" alt="">
                         </swiper-slide>
                         <swiper-slide>
                             <img src="assets/imgs/herramientas/panel-2.jpeg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-3.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-4.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-5.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-6.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-7.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-8.jpg" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="assets/imgs/herramientas/panel-9.jpg" alt="">
                         </swiper-slide>
                     </swiper-container>
                 </div>
@@ -92,9 +113,11 @@
                                   slides-per-view="2"
                                   space-between="30">
                         @for (item of casosExito; track $index) {
-                            <swiper-slide class="slide-caso">
-                                    <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
-                            </swiper-slide>
+                            @if (item.img !== 'assets/imgs/casos-exito/friar-logo.png') {
+                                <swiper-slide class="slide-caso">
+                                        <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
+                                </swiper-slide>
+                            }
                         }
                 </swiper-container>
             } @else if (slidesPerView === 1) {
@@ -106,9 +129,11 @@
                                   pagination-type="bullets"
                                   space-between="30">
                         @for (item of casosExito; track $index) {
-                            <swiper-slide class="slide-caso">
-                                    <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
-                            </swiper-slide>
+                            @if (item.img !== 'assets/imgs/casos-exito/friar-logo.png') {
+                                <swiper-slide class="slide-caso">
+                                        <app-box-exito [img]="item.img" [problematica]="item.problematica" [solucion]="item.solucion" [resultados]="item.resultados" />
+                                </swiper-slide>
+                            }
                         }
                 </swiper-container>
             }

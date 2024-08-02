@@ -9,6 +9,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from './environments/environment';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HttpRequestInterceptor } from './app/interceptors/http-request.interceptor';
+import { RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY, RecaptchaSettings } from 'ng-recaptcha';
 
 registerSwiperElements();
 
@@ -21,16 +22,18 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
   withInMemoryScrolling(scrollConfig);
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes, inMemoryScrollingFeature), 
+    provideRouter(routes, inMemoryScrollingFeature),
     provideHttpClient(withInterceptorsFromDi()),
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:HttpRequestInterceptor,
-      multi:true
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true
     },
     provideAnimationsAsync(),
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.siteKeyV3 },
+    
     importProvidersFrom(
-      
+
       JwtModule.forRoot({
         config: {
           tokenGetter: () => {
@@ -39,7 +42,7 @@ bootstrapApplication(AppComponent, {
           // allowedDomains: ['localhost:4200'],
         },
       }),
-      ),
-      provideHttpClient(withInterceptorsFromDi()),
+    ),
+    provideHttpClient(withInterceptorsFromDi()),
   ],
 });

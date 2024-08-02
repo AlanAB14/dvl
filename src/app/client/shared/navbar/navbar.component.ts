@@ -30,7 +30,7 @@ export class NavbarComponent {
     },
     {
       path: 'monitoreo-flota',
-      title: 'Monitoreo de flota'
+      title: 'Flotas'
     },
     {
       path: 'novedades',

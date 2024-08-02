@@ -1,7 +1,7 @@
 <div [ngClass]="{'theme-dark': esRutaEspecifica, 'theme-dark-satelital': esRutaEspecificaSatelital}">
     <div class="navbar-section">
         <div class="navbar-section--logo">
-            <a routerLink="/"><img [src]="!esRutaEspecifica ? 'assets/imgs/dvl-logo.png' : 'assets/imgs/dvl-logo-blanco.png'" alt="logo"></a>
+            <a routerLink="/"><img [src]="!esRutaEspecifica && !esRutaEspecificaSatelital ? 'assets/imgs/dvl-logo.png' : 'assets/imgs/dvl-logo-blanco.png'" alt="logo"></a>
         </div>
         <div class="navbar-section--items">
             <ul>

@@ -4,12 +4,15 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactsService } from '../../../services/contacts.service';
 import Swal from 'sweetalert2';
 import { LoaderService } from '../../../services/loader.service';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
   imports: [
     CommonModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     ReactiveFormsModule
   ],
   templateUrl: './contacto.component.html',
@@ -25,6 +28,7 @@ export class ContactoComponent {
     country: ['', Validators.required], 
     email: ['', [Validators.required, Validators.email]],
     company: ['', Validators.required],
+    recaptcha: ['', Validators.required],
     message: ['', Validators.required]
   });
 

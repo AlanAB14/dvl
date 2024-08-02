@@ -92,7 +92,7 @@ export default class DvlSatelitalComponent implements OnInit{
     {
       icon: 'assets/imgs/satelital-icons/ic_aumento-rendimiento.svg',
       title: 'Incrementar Rentabilidad',
-      text: 'Monitoreo del consumo de combustible para identificar áreas de mejora. Casos de Éxito 20% de ahorro. Reducción de kilómetros recorridos mediante la planificación eficiente. Seguimiento de la vida útil de los neumáticos y reemplazo oportuno. Casos de Éxito 30% de ahorro. Creación del perfil de conducción, relacionando comportamiento en velocidades, frenadas bruscas y ralentí de motor.',
+      text: '- Análisis regular de las rutas para identificar oportunidades de mejora y reducción de kilómetros recorridos. <br> - Uso de datos para identificar áreas de mejora en la eficiencia de combustible y reducción de emisiones. <br> - Uso de incentivos para motivar a los conductores a mantener un buen desempeño y respetar las políticas de eficiencia.',
       id: 3
     },
     {

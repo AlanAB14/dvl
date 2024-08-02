@@ -30,8 +30,6 @@ bootstrapApplication(AppComponent, {
       multi: true
     },
     provideAnimationsAsync(),
-    { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.siteKeyV3 },
-    
     importProvidersFrom(
 
       JwtModule.forRoot({

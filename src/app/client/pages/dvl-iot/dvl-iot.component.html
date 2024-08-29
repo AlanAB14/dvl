@@ -9,6 +9,9 @@
     <div class="servicios-section__title">
         <p>Servicios de ingeniería IoT para la telemetría de información remota.</p>
     </div>
+    <div class="servicios-section__subtitle">
+        <p>Ofrecemos servicios de instrumentación y control con tecnología IoT (Internet de las cosas) para todo tipo de industrias 4.0, agroindustrias, productores agropecuarios, ciudades y municipios. Colocando equipamiento específico podemos capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP). Nuestro dispositivo IoT Core, permite capturar múltiples señales en forma simultánea, así como programarlo para cada regla de negocio específica de nuestros clientes.</p>
+    </div>
     <div class="servicios-section__items">
         @for (item of servicios; track $index) {
             <div (click)="setIdSeleccionado(item.id, description)">

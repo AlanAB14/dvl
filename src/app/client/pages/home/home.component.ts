@@ -40,15 +40,23 @@ export default class HomeComponent implements OnInit {
 
   imagesClientes = [
     {
-      imgSrc: 'assets/imgs/clientes/aapresid.jpg',
+      imgSrc: 'assets/imgs/clientes/aapresid.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/adeco-agro.jpg',
+      imgSrc: 'assets/imgs/clientes/adeco-agro.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/advanta.jpg',
+      imgSrc: 'assets/imgs/clientes/advanta.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/agropecuarios.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/altamirano.png',
       imgAlt: 'img 1'
     },
     {
@@ -56,19 +64,43 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/cooperacion-seguros.jpg',
+      imgSrc: 'assets/imgs/clientes/bragadense.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/corven.jpg',
+      imgSrc: 'assets/imgs/clientes/brayco.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/cotreco.jpg',
+      imgSrc: 'assets/imgs/clientes/cigra.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/desab.jpg',
+      imgSrc: 'assets/imgs/clientes/cooperacion-seguros.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/corven.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/cotreco.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/desab.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/elpra.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/elsurco.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/emi.png',
       imgAlt: 'img 1'
     },
     {
@@ -76,23 +108,39 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
+      imgSrc: 'assets/imgs/clientes/gear.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/losgrobo.png',
+      imgAlt: 'img 1'
+    },
+    {
       imgSrc: 'assets/imgs/clientes/hook.jpg',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/melincue.jpg',
+      imgSrc: 'assets/imgs/clientes/marchisone.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/monsanto.jpg',
+      imgSrc: 'assets/imgs/clientes/ingesa.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/municipio-venado.jpg',
+      imgSrc: 'assets/imgs/clientes/jerarquicos.png',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/nestle.jpg',
+      imgSrc: 'assets/imgs/clientes/municipio-venado.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/monsanto.png',
+      imgAlt: 'img 1'
+    },
+    {
+      imgSrc: 'assets/imgs/clientes/nestle.png',
       imgAlt: 'img 1'
     },
     {
@@ -100,7 +148,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/promivi.jpg',
+      imgSrc: 'assets/imgs/clientes/promivi.png',
       imgAlt: 'img 1'
     },
     {
@@ -108,15 +156,15 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
+      imgSrc: 'assets/imgs/clientes/tomas.png',
+      imgAlt: 'img 1'
+    },
+    {
       imgSrc: 'assets/imgs/clientes/transnatali.jpg',
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/vasalli.jpg',
-      imgAlt: 'img 1'
-    },
-    {
-      imgSrc: 'assets/imgs/clientes/venturino.jpg',
+      imgSrc: 'assets/imgs/clientes/venturino.png',
       imgAlt: 'img 1'
     }
   ]

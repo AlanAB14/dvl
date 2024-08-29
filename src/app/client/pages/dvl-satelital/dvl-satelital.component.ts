@@ -5,7 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BoxReflectComponent } from '../../components/box-reflect/box-reflect.component';
 import { BoxModuleComponent } from '../../components/box-module/box-module.component';
-import { casosExito } from '../../../../assets/data/casos-exito'
+import { casosExitoFlota } from '../../../../assets/data/casos-exito'
 
 import { register } from 'swiper/element/bundle';
 import { BoxExitoComponent } from '../../components/box-exito/box-exito.component';
@@ -31,7 +31,7 @@ export default class DvlSatelitalComponent implements OnInit{
   screenWidth!: number;
   slidesPerView!: number;
   animateText: boolean = false;
-  casosExito = casosExito
+  casosExito = casosExitoFlota
 
   cdr = inject(ChangeDetectorRef)
 

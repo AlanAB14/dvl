@@ -5,6 +5,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -37,4 +38,11 @@ export default class LayoutComponent implements OnInit {
       this.cargando.set(value);
     })
   }
+
+  openWhatsapp() {
+    const number = environment.phoneNumber;
+    const message = 'Tengo una consulta desde la web';
+    const whatsappUrl = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
 }

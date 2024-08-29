@@ -10,7 +10,7 @@
   display: flex;
   animation: scroll 40s linear infinite;
   -webkit-animation: scroll 40s linear infinite;
-  width: calc(200px * 40);
+  width: calc(200px * 64);
   position: relative;
 }
 
@@ -60,17 +60,17 @@
     transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-200px * 20));
-    transform: translateX(calc(-200px * 20));
+    -webkit-transform: translateX(calc(-200px * 32));
+    transform: translateX(calc(-200px * 32));
 
     @media (max-width: 1000px) {
-      -webkit-transform: translateX(calc(-150px * 20));
-      transform: translateX(calc(-150px * 20));
+      -webkit-transform: translateX(calc(-150px * 32));
+      transform: translateX(calc(-150px * 32));
     }
 
     @media (max-width: 600px) {
-      -webkit-transform: translateX(calc(-100px * 20));
-      transform: translateX(calc(-100px * 20));
+      -webkit-transform: translateX(calc(-100px * 32));
+      transform: translateX(calc(-100px * 32));
     }
   }
 }

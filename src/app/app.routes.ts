@@ -94,10 +94,10 @@ export const routes: Routes = [
                 path: 'monitoreo-flota',
                 loadComponent: () => import('./client/pages/dvl-satelital/dvl-satelital.component')
             },
-            {
-                path: 'novedades',
-                loadComponent: () => import('./client/pages/novedades/novedades.component')
-            },
+            // {
+            //     path: 'novedades',
+            //     loadComponent: () => import('./client/pages/novedades/novedades.component')
+            // },
             {
                 path: 'contacto',
                 loadComponent: () => import('./client/pages/contacto/contacto.component')
@@ -105,6 +105,10 @@ export const routes: Routes = [
             {
                 path: 'iot-core',
                 loadComponent: () => import('./client/pages/iot-core/iot-core.component')
+            },
+            {
+                path: '**',
+                redirectTo: ''
             }
         ]
     },

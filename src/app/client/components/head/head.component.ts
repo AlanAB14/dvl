@@ -30,6 +30,12 @@ import { filter } from 'rxjs';
           <p>{{ subtitleStrong }}</p>
         </div>
       }
+
+      @if (esSatelital) {
+        <div class="text">
+          Nuestra solución permite tener un control total de cada vehículo en todo momento a través de nuestra plataforma web, brindando tranquilidad, seguridad y eficiencia en la movilidad empresarial. Además de generar ahorros significativos, mejorando la rentabilidad del negocio.
+        </div>
+      }
       <!-- <div class="buttons">
         <button class="info">Más info</button>
         <button class="videos">Show Videos</button>

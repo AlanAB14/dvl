@@ -8,7 +8,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { register } from 'swiper/element/bundle';
-import { casosExito } from '../../../../assets/data/casos-exito';
+import { casosExitoIOT } from '../../../../assets/data/casos-exito';
 import { DomSanitizer } from '@angular/platform-browser';
 register();
 
@@ -33,7 +33,7 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
   slidesPerView!: number;
   animateText: boolean = false;
   cdr = inject(ChangeDetectorRef);
-  casosExito = casosExito;
+  casosExito = casosExitoIOT;
   sanitizerService = inject(DomSanitizer);
 
   @HostListener('window:resize')
@@ -86,25 +86,26 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/iot-icons/rentabilidad.svg',
       title: 'Incrementar rentabilidad',
-      text: this.sanitizerService.bypassSecurityTrustHtml('Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas). Colocando un equipo <a style="color: blue!important" href="/iot-core">IoT Core</a>, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).'),
+      //text: this.sanitizerService.bypassSecurityTrustHtml('Ofrecemos servicios llave en mano utilizando tecnología IoT (Internet de las cosas). Colocando un equipo <a style="color: blue!important" href="/iot-core">IoT Core</a>, desarrollado por nuestra empresa, que permite capturar información de cualquier sensor o equipo que forme parte del proceso productivo del cliente, permitiendo optimizar procesos y funcionamiento de maquinaria. De esta manera el cliente podrá ver en tiempo real las mediciones remotas, consultar estadísticas de períodos anteriores, o configurar alarmas por desvíos en las variables medidas a través de la web o de la aplicación para móviles (APP).'),
+      text: 'Gracias a nuestro equipo comercial, en conjunto con los departamentos internos de Ingeniería de hardware y desarrollo de software, podemos ayudar a todo tipo de industria, municipio o cliente particular a incrementar la rentabilidad gracias al control y medición de procesos, minimizando pérdidas, roturas de equipos, paradas de planta, y todo tipo de costos ocultos por ineficiencia propias de la falta de medición.',
       id: 1
     },
     {
       icon: 'assets/imgs/iot-icons/sustentabilidad.svg',
       title: 'Mejorar la sustentabilidad',
-      text: 'Prueba',
+      text: 'El control de uso de equipos o motores, así como la gestión correcta del consumo de agua y de energía eléctrica, favorecen tanto al cliente como a todo nuestro medioambiente.',
       id: 2
     },
     {
       icon: 'assets/imgs/iot-icons/rendimiento.svg',
       title: 'Aumentar rendimiento',
-      text: 'Prueba',
+      text: 'Teniendo información instantánea e histórica de horarios de funcionamiento de equipos y sus consumos, el cliente podrá aumentar el rendimiento de su empresa, maximizando el correcto uso del equipamiento, en base a información para la toma de decisiones.',
       id: 3
     },
     {
       icon: 'assets/imgs/iot-icons/flota.svg',
       title: 'Control de procesos',
-      text: 'Prueba',
+      text: 'La información capturada en diversos puntos críticos de cada proceso le permite al cliente contar con la información necesaria y suficiente para tener control sobre el mismo, permitiendo minimizar desvíos, garantizando la continuidad del negocio, optimizando costos y mejorando la eficiencia.  ',
       id: 4
     }
   ]
@@ -130,11 +131,11 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
       title: 'Gestión de Despacho de Combustible',
       text: 'Consiste en medir la cantidad de litros de combustible que son despachados por el sistema sólo a usuarios habilitados e identificados con un llavero o tarjeta específica. El sistema cuenta con GPS, por lo que genera informes que permiten saber quién cargó, a qué hora, en qué lugar, cuántos litros fueron suministrados, y de qué tanque en cuestión.'
     },
-    {
-      icon: 'assets/imgs/modulos-agroindustria/ic_personal.svg',
-      title: 'Gestión de Personal',
-      text: 'Permite la identificación del personal mediante credenciales de proximidad. Es un método rápido, cómodo y eficiente, que complementa la seguridad con la facilidad de uso.'
-    },
+    // {
+    //   icon: 'assets/imgs/modulos-agroindustria/ic_personal.svg',
+    //   title: 'Gestión de Personal',
+    //   text: 'Permite la identificación del personal mediante credenciales de proximidad. Es un método rápido, cómodo y eficiente, que complementa la seguridad con la facilidad de uso.'
+    // },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_tableros.svg',
       title: 'Medición Remota de Tableros',
@@ -155,26 +156,26 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
       title: 'Control Remoto de maquinarias',
       text: 'Permite optimizar el tiempo de acceso a maquinaria que se encuentra en lugares remotos, o que está distribuida de manera inconveniente para su gestión en forma personal, o simplemente que se hace más eficiente e inmediato el operarlo en forma remota.'
     },
-    {
-      icon: 'assets/imgs/modulos-agroindustria/ic_flotas.svg',
-      title: 'Gestión de flotas',
-      text: 'Permite disponer de toda la información necesaria sobre la flota para llevar a cabo un seguimiento de cada vehículo, en todo momento a través de nuestra plataforma web. Posibilita el ahorro de costos y ser más eficiente en cuanto a la gestión de la movilidad en el negocio.'
-    },
-    {
-      icon: 'assets/imgs/modulos-agroindustria/ic_senal_celular.svg',
-      title: 'Medición de calidad de señal celular',
-      text: 'Se trata de un sistema de medición de parámetros de red específicos, que son evaluados por las áreas técnicas de las operadoras de telefonía celular, permitiendo conocer el funcionamiento de la red, así como también la cobertura y capacidad en el sitio medido.'
-    },
+    // {
+    //   icon: 'assets/imgs/modulos-agroindustria/ic_flotas.svg',
+    //   title: 'Gestión de flotas',
+    //   text: 'Permite disponer de toda la información necesaria sobre la flota para llevar a cabo un seguimiento de cada vehículo, en todo momento a través de nuestra plataforma web. Posibilita el ahorro de costos y ser más eficiente en cuanto a la gestión de la movilidad en el negocio.'
+    // },
+    // {
+    //   icon: 'assets/imgs/modulos-agroindustria/ic_senal_celular.svg',
+    //   title: 'Medición de calidad de señal celular',
+    //   text: 'Se trata de un sistema de medición de parámetros de red específicos, que son evaluados por las áreas técnicas de las operadoras de telefonía celular, permitiendo conocer el funcionamiento de la red, así como también la cobertura y capacidad en el sitio medido.'
+    // },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_laboreo.svg',
       title: 'Gestión de laboreo',
       text: 'Consiste en la medición de parámetros de operación del trabajo en campo sobre maquinaria agrícola o pesada.'
     },
-    {
-      icon: 'assets/imgs/modulos-agroindustria/ic_aire.svg',
-      title: 'Medición de calidad de aire',
-      text: 'Consiste en la medición en campo, y el envío a plataforma de datos relacionados con calidad de aire, concentración de gases, partículas en suspensión, etc.'
-    },
+    // {
+    //   icon: 'assets/imgs/modulos-agroindustria/ic_aire.svg',
+    //   title: 'Medición de calidad de aire',
+    //   text: 'Consiste en la medición en campo, y el envío a plataforma de datos relacionados con calidad de aire, concentración de gases, partículas en suspensión, etc.'
+    // },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_soluciones.svg',
       title: 'I + D Soluciones a Medida:',

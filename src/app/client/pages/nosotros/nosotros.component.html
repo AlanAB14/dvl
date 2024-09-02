@@ -21,7 +21,7 @@
             </div>
             <div class="nosotros-section__data--body">
                     <div><p style="text-align: center;"><strong>MISIÓN</strong></p></div>
-                    <p style="text-align: center;">Brindar servicios innovadores de atención personalizada a individuos, empresa y vehículos, con altos estándares de calidad.</p>
+                    <p style="text-align: center;">Brindar servicios innovadores de atención personalizada a individuos, empresas y vehículos, con altos estándares de calidad.</p>
                     <div><p style="text-align: center;"><strong>VISIÓN</strong></p></div>
                     <p style="text-align: center;">Expandir la eficiencia y la sustentabilidad dentro de la sociedad, siendo sinónimo de tecnología y calidad.</p>
             </div>
@@ -30,12 +30,16 @@
     @if (estructura && empleados && anios) {
         <div class="nosotros-section__numbers">
             <div class="empleados datos-container" #numbers>
-                <div class="number" [countUp]="empleados" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                <div style="display: inline-flex;">
+                    +
+                    <div class="number" [countUp]="empleados" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                </div>
                 <div class="text">empleados</div>
             </div>
             <div class="estructura datos-container">
                 <div class="number">
                     <div style="display: inline-flex;">
+                        +
                         <div [countUp]="estructura" [options]="{separator: '', enableScrollSpy: true, scrollSpyOnce: true}">0</div>
                         <div>m2</div>
                     </div>
@@ -43,7 +47,10 @@
                 <div class="text">de estructura edilicia</div>
             </div>
             <div class="anios datos-container">
-                <div class="number" [countUp]="anios" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                <div style="display: inline-flex;">
+                    +
+                    <div class="number" [countUp]="anios" [options]="{ enableScrollSpy: true, scrollSpyOnce: true }">0</div>
+                </div>
                 <div class="text">años</div>
             </div>
         </div>

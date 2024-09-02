@@ -60,7 +60,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/bayer.jpg',
+      imgSrc: 'assets/imgs/clientes/bayer.png',
       imgAlt: 'img 1'
     },
     {
@@ -104,7 +104,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/friar.jpg',
+      imgSrc: 'assets/imgs/clientes/friar.png',
       imgAlt: 'img 1'
     },
     {
@@ -116,7 +116,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/hook.jpg',
+      imgSrc: 'assets/imgs/clientes/hook.png',
       imgAlt: 'img 1'
     },
     {
@@ -144,7 +144,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/pedroperez.jpg',
+      imgSrc: 'assets/imgs/clientes/pedroperez.png',
       imgAlt: 'img 1'
     },
     {
@@ -152,7 +152,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/rda.jpg',
+      imgSrc: 'assets/imgs/clientes/rda.png',
       imgAlt: 'img 1'
     },
     {
@@ -160,7 +160,7 @@ export default class HomeComponent implements OnInit {
       imgAlt: 'img 1'
     },
     {
-      imgSrc: 'assets/imgs/clientes/transnatali.jpg',
+      imgSrc: 'assets/imgs/clientes/transnatali.png',
       imgAlt: 'img 1'
     },
     {

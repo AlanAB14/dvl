@@ -125,7 +125,7 @@
 
     .subtitle {
       margin-top: 2.06rem;
-      color: var(--violet-secondary);
+      color: white;
       font-family: Roboto;
       font-size: 1.375rem;
       font-style: normal;
@@ -137,7 +137,7 @@
 
     .subtitle-strong {
       font-weight: 600;
-      color: var(--violet-secondary);
+      color: white;
       font-family: Roboto;
       font-size: 1.375rem;
       font-style: normal;
@@ -147,7 +147,7 @@
 
     .text {
       margin-top: 1rem;
-      color: var(--violet);
+      color: white;
       font-family: Roboto;
       font-size: 1.375rem;
       max-width: 75%;
@@ -207,11 +207,11 @@
 
 .theme-satelital {
   .subtitle {
-    color: var(--violet) !important;
+    color: white !important;
   }
 
   .subtitle-strong {
-    color: var(--violet) !important;
+    color: white !important;
   }
 
   .buttons {
@@ -264,11 +264,11 @@
       }
   
       .subtitle {
-        color: #03014C;
+        color: white;
       }
   
       .subtitle-strong {
-        color: #03014C;
+        color: white;
       }
     }
   }

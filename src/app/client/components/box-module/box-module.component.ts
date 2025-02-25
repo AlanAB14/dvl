@@ -20,6 +20,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
             <p>{{ text }}</p>
         </div>
     </div>
+    @if (pdf) {
+          <div class="box-content-pdf">
+            <div class="btn-pdf">
+                <a [href]="pdf" target="_blank">Ver más</a>
+            </div>
+          </div>
+        }
   </div>
   `,
   styleUrl: './box-module.component.scss',
@@ -29,4 +36,5 @@ export class BoxModuleComponent {
   @Input() icon!: string;
   @Input() title!: string;
   @Input() text!: string;
+  @Input() pdf!: string | undefined;
 }

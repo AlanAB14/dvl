@@ -114,22 +114,26 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_cadena_frio.svg',
       title: 'Control de cadenas de frío',
-      text: 'Consiste en la medición y control continuo de cadenas de fríos. Permite general alarmas en función de valores mínimos y máximos predeterminados.'
+      text: 'Consiste en la medición y control continuo de cadenas de fríos. Permite general alarmas en función de valores mínimos y máximos predeterminados.',
+      pdf: 'assets/data/btn-control-cadena-de-frio.pdf'
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_caudales.svg',
       title: 'Medición de Niveles y Caudales',
-      text: 'Consiste en la medición on-line de los recursos y reservorios hídricos, así como también los sistemas de bombeo, caudales en circuitos primarios y de distribución. Con esta ecnología se pueden tener históricos, así como también el conocimiento en tiempo real, detectando anomalías en forma temprana.'
+      text: 'Consiste en la medición on-line de los recursos y reservorios hídricos, así como también los sistemas de bombeo, caudales en circuitos primarios y de distribución. Con esta ecnología se pueden tener históricos, así como también el conocimiento en tiempo real, detectando anomalías en forma temprana.',
+      pdf: 'assets/data/btn-medicion-de-niveles-caudales.pdf'
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_medicion.svg',
       title: 'Medición de Niveles en silos',
-      text: 'Consiste en la medición on-line del nivel de contenido dentro de un silo, así sea harina, cereal, o alimento balanceado.'
+      text: 'Consiste en la medición on-line del nivel de contenido dentro de un silo, así sea harina, cereal, o alimento balanceado.',
+      pdf: 'assets/data/btn-medicion-de-niveles-de-silos.pdf'
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_combustible.svg',
       title: 'Gestión de Despacho de Combustible',
-      text: 'Consiste en medir la cantidad de litros de combustible que son despachados por el sistema sólo a usuarios habilitados e identificados con un llavero o tarjeta específica. El sistema cuenta con GPS, por lo que genera informes que permiten saber quién cargó, a qué hora, en qué lugar, cuántos litros fueron suministrados, y de qué tanque en cuestión.'
+      text: 'Consiste en medir la cantidad de litros de combustible que son despachados por el sistema sólo a usuarios habilitados e identificados con un llavero o tarjeta específica. El sistema cuenta con GPS, por lo que genera informes que permiten saber quién cargó, a qué hora, en qué lugar, cuántos litros fueron suministrados, y de qué tanque en cuestión.',
+      pdf: 'assets/data/btn-gestion-de-despacho-de-combustible.pdf'
     },
     // {
     //   icon: 'assets/imgs/modulos-agroindustria/ic_personal.svg',
@@ -139,22 +143,27 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_tableros.svg',
       title: 'Medición Remota de Tableros',
-      text: 'Permite transmitir y monitorear las distintas señales que son capturadas desde un tablero eléctrico o de comandos, de esta manera se puede consultar remotamente el estado del mismo, y tener histórico de las distintas variables y mediciones en cuestión. Admite generar alarmas remotas y en el propio sitio mediante señales lumínicas y sonoras.'
+      text: 'Permite transmitir y monitorear las distintas señales que son capturadas desde un tablero eléctrico o de comandos, de esta manera se puede consultar remotamente el estado del mismo, y tener histórico de las distintas variables y mediciones en cuestión. Admite generar alarmas remotas y en el propio sitio mediante señales lumínicas y sonoras.',
+      pdf: 'assets/data/btn-medicion-remota-de-tableros.pdf'
+
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_sensores.svg',
       title: 'Integración de Sensores Industriales',
-      text: 'Propone transmitir remotamente la medición realizada por sensor, generando también un histórico del mismo. Permite general alarmas digitales y por SMS en función de valores mínimos y máximos predeterminados.'
+      text: 'Propone transmitir remotamente la medición realizada por sensor, generando también un histórico del mismo. Permite general alarmas digitales y por SMS en función de valores mínimos y máximos predeterminados.',
+      pdf: 'assets/data/btn-integracion-de-sensores-industriales.pdf'
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_electrico.svg',
       title: 'Gestión de Consumo Eléctrico',
-      text: 'Permite medir de forma remota el consumo eléctrico de instalaciones de baja y media tensión.'
+      text: 'Permite medir de forma remota el consumo eléctrico de instalaciones de baja y media tensión.',
+      pdf: 'assets/data/btn-gestion-de-consumo-electrico.pdf'
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_remoto_maquinarias.svg',
       title: 'Control Remoto de maquinarias',
-      text: 'Permite optimizar el tiempo de acceso a maquinaria que se encuentra en lugares remotos, o que está distribuida de manera inconveniente para su gestión en forma personal, o simplemente que se hace más eficiente e inmediato el operarlo en forma remota.'
+      text: 'Permite optimizar el tiempo de acceso a maquinaria que se encuentra en lugares remotos, o que está distribuida de manera inconveniente para su gestión en forma personal, o simplemente que se hace más eficiente e inmediato el operarlo en forma remota.',
+      pdf: 'assets/data/btn-control-remoto-de-maquinarias.pdf'
     },
     // {
     //   icon: 'assets/imgs/modulos-agroindustria/ic_flotas.svg',
@@ -169,7 +178,8 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_laboreo.svg',
       title: 'Gestión de laboreo',
-      text: 'Consiste en la medición de parámetros de operación del trabajo en campo sobre maquinaria agrícola o pesada.'
+      text: 'Consiste en la medición de parámetros de operación del trabajo en campo sobre maquinaria agrícola o pesada.',
+      pdf: 'assets/data/btn-gestion-de-laboreo.pdf'
     },
     // {
     //   icon: 'assets/imgs/modulos-agroindustria/ic_aire.svg',
@@ -179,7 +189,8 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_soluciones.svg',
       title: 'I + D Soluciones a Medida:',
-      text: 'Investigación y desarrollo para una mayor versatilidad y adaptación a lo requerido, gestionando los recursos disponibles.'
+      text: 'Investigación y desarrollo para una mayor versatilidad y adaptación a lo requerido, gestionando los recursos disponibles.',
+      pdf: 'assets/data/btn-soluciones-a-medida.pdf'
     }
   ]
 

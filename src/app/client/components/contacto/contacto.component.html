@@ -18,6 +18,10 @@
                             <label>Empresa*</label>
                             <input type="text" formControlName="company">
                         </div>
+                        <div class="contacto-form-item">
+                            <label>DNI*</label>
+                            <input type="number" formControlName="dni">
+                        </div>
                     </div>
                     <div class="contacto-form-personal-der">
                         <div class="contacto-form-item">
@@ -25,11 +29,20 @@
                             <input type="text" formControlName="email">
                         </div>
                         <div class="contacto-form-item">
-                            <label>País*</label>
-                            <select name="" id="" formControlName="country">
-                                <option value="Argentina">Argentina</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Chile">Chile</option>
+                            <label>Teléfono*</label>
+                            <input type="number" formControlName="telephone">
+                        </div>
+                        <div class="contacto-form-item">
+                            <label>Origen*</label>
+                            <select name="" id="" formControlName="origin">
+                              <option value="" disabled selected>Selecciona una opción</option>
+                              <option value="google">Búsqueda en Google</option>
+                              <option value="redes_sociales">Redes Sociales (Facebook, Instagram, Twitter, etc.)</option>
+                              <option value="recomendacion">Recomendación de un amigo o familiar</option>
+                              <option value="publicidad">Publicidad (Anuncios en redes, TV, radio, etc.)</option>
+                              <option value="sitio_web">Visitando el sitio web</option>
+                              <option value="evento">Evento o feria</option>
+                              <option value="otros">Otros</option>
                             </select>
                         </div>
                     </div>
@@ -38,11 +51,11 @@
                     <label>Tu mensaje*</label>
                     <textarea formControlName="message"></textarea>
                 </div>
-                <re-captcha 
+                <!-- <re-captcha
                     class="recaptcha"
                     formControlName="recaptcha"
                     siteKey="6Le6LR4qAAAAANgRINwAsElWY7xc6lCtaZh1J75w">
-                </re-captcha>
+                </re-captcha> -->
                 <div class="contacto-form-descripcion">
                     <p>Al enviar este formulario, acepta nuestros términos y condiciones y nuestra Política de
                         privacidad, que explica cómo podemos recopilar su información personal para nuestra base de

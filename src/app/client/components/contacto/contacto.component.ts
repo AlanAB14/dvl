@@ -25,10 +25,13 @@ export class ContactoComponent {
   fb = inject(FormBuilder);
   contactFrom = this.fb.group({
     name: ['', Validators.required],
-    country: ['', Validators.required], 
-    email: ['', [Validators.required, Validators.email]],
+    // country: ['', Validators.required],
     company: ['', Validators.required],
-    recaptcha: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    origin: ['', Validators.required],
+    dni: ['', Validators.required],
+    telephone: ['', Validators.required],
+    // recaptcha: ['', Validators.required],
     message: ['', Validators.required]
   });
 

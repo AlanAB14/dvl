@@ -39,14 +39,14 @@ import Swal from 'sweetalert2';
   }
 
   @if (!cargandoData && this.contactos()) {
-    
+
     <div class="users">
 
       <mat-form-field>
         <mat-label>Buscar</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Texto" #input>
       </mat-form-field>
-      
+
       <div class="table-users" class="mat-elevation-z8">
 
         <div>
@@ -55,48 +55,62 @@ import Swal from 'sweetalert2';
             <ng-container matColumnDef="created_at">
               <th mat-header-cell *matHeaderCellDef> Fecha </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.created_at | date:'dd/MM/YYYY'"></div> 
+                <div [innerHTML]="element.created_at | date:'dd/MM/YYYY'"></div>
             </td>
             </ng-container>
 
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.name | appTruncate"></div> 
+                <div [innerHTML]="element.name | appTruncate"></div>
             </td>
             </ng-container>
-            
+
             <ng-container matColumnDef="email">
               <th mat-header-cell *matHeaderCellDef> Email </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.email | appTruncate"></div> 
+                <div [innerHTML]="element.email | appTruncate"></div>
               </td>
             </ng-container>
 
             <ng-container matColumnDef="company">
               <th mat-header-cell *matHeaderCellDef> Empresa </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.company | appTruncate"></div> 
+                <div [innerHTML]="element.company | appTruncate"></div>
             </td>
             </ng-container>
 
-            <ng-container matColumnDef="country">
-              <th mat-header-cell *matHeaderCellDef> País </th>
+            <ng-container matColumnDef="origin">
+              <th mat-header-cell *matHeaderCellDef> Origen </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.country | appTruncate"></div> 
+                <div [innerHTML]="element.origin | appTruncate"></div>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dni">
+              <th mat-header-cell *matHeaderCellDef> DNI </th>
+              <td mat-cell *matCellDef="let element">
+                <div>{{ element.dni }}</div>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telephone">
+              <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+              <td mat-cell *matCellDef="let element">
+                <div>{{ element.telephone }}</div>
             </td>
             </ng-container>
 
             <ng-container matColumnDef="message">
               <th mat-header-cell *matHeaderCellDef> Mensaje </th>
               <td mat-cell *matCellDef="let element">
-                <div [innerHTML]="element.message | appTruncate"></div> 
+                <div [innerHTML]="element.message | appTruncate"></div>
             </td>
             </ng-container>
-          
+
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>  </th>
-              <td mat-cell *matCellDef="let element"> 
+              <td mat-cell *matCellDef="let element">
                 <button (click)="viewContacto(element)" mat-mini-fab color="primary">
                   <mat-icon>visibility</mat-icon>
                 </button>
@@ -105,7 +119,7 @@ import Swal from 'sweetalert2';
                 </button>
               </td>
             </ng-container>
-          
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
@@ -125,7 +139,7 @@ import Swal from 'sweetalert2';
 
       </div>
   }
-  
+
   `,
   styleUrl: './contactos.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -135,7 +149,7 @@ export default class ContactosComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   dialog = inject(MatDialog);
   private paginator!: MatPaginator;
-  displayedColumns: string[] = ['created_at', 'name', 'email', 'company', 'country', 'message', 'actions'];
+  displayedColumns: string[] = ['created_at', 'name', 'email', 'company', 'origin', 'dni', 'telephone', 'message', 'actions'];
   cdrService = inject(ChangeDetectorRef);
   contactsService = inject(ContactsService);
   contactos: any = signal(null);
@@ -236,9 +250,9 @@ export default class ContactosComponent implements OnInit {
       <div class="datos">
         <div class="campo">
           <label>Fecha</label>
-          <p>{{ data.created_at | date: 'dd/MM/YYYY' }}</p> 
+          <p>{{ data.created_at | date: 'dd/MM/YYYY' }}</p>
         </div>
-  
+
         <div class="campo">
           <label>Nombre</label>
           <p>{{ data.name }}</p>
@@ -248,22 +262,27 @@ export default class ContactosComponent implements OnInit {
           <label>Email</label>
           <p>{{ data.email }}</p>
         </div>
-        
+
         <div class="campo">
           <label>Empresa</label>
           <p>{{ data.company }}</p>
         </div>
 
         <div class="campo">
-          <label>País</label>
-          <p>{{ data.country }}</p>
+          <label>Origen</label>
+          <p>{{ data.origin }}</p>
         </div>
 
         <div class="campo">
-          <label>País</label>
-          <p>{{ data.country }}</p>
+          <label>DNI</label>
+          <p>{{ data.dni }}</p>
         </div>
-        
+
+        <div class="campo">
+          <label>Teléfono</label>
+          <p>{{ data.telephone }}</p>
+        </div>
+
         <div class="campo">
           <label>Mensaje</label>
           <p>{{ data.message }}</p>
@@ -273,7 +292,7 @@ export default class ContactosComponent implements OnInit {
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Salir</button>
     </mat-dialog-actions>
-  
+
   `,
   standalone: true,
   styles: `
@@ -299,7 +318,7 @@ export default class ContactosComponent implements OnInit {
       margin-bottom: 1.2rem;
       cursor: pointer
     }
-    
+
     .campo-img, .campo-fecha {
       margin-bottom: 1rem;
     }
@@ -320,7 +339,7 @@ export default class ContactosComponent implements OnInit {
     .campo:not(:last-of-type) {
       margin-bottom: 1.2rem
     }
-  
+
   `,
 
   imports: [MatDialogModule, MatButtonModule, DatePipe],

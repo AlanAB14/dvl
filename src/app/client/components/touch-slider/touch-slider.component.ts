@@ -30,7 +30,7 @@ export class TouchSliderComponent implements OnInit{
   @Input() info!: any;
   @Input() politicas!: any;
   @Input() certificaciones!: any;
-  @Output() sendIdNoticia = new EventEmitter(); 
+  @Output() sendIdNoticia = new EventEmitter();
   idSeleccionada!: number;
   activeSlideIndex: number = 1;
   slidesPerView!: number;
@@ -42,7 +42,7 @@ export class TouchSliderComponent implements OnInit{
   ngOnInit(): void {
     this.getScreenWidth();
   }
-  
+
   @HostListener('window:resize')
   getScreenWidth() {
     this.screenWidth = window.innerWidth;
@@ -71,8 +71,7 @@ export class TouchSliderComponent implements OnInit{
 
   goToCertificacion(certificacion: any) {
     const data = certificacion;
-    const url = this.router.serializeUrl(this.router.createUrlTree(['certificaciones', { c: btoa(JSON.stringify(data)) }]));
-    window.open(`${url}`, '_self');
+    this.router.navigate(['certificaciones', data.id]);
   }
 
   enviarId(id: number) {

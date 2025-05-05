@@ -83,8 +83,8 @@ export const routes: Routes = [
                 loadComponent: () => import('./client/pages/nosotros/nosotros.component')
             },
             {
-                path: 'certificaciones',
-                loadComponent: () => import('./client/pages/certificaciones/certificaciones.component')
+              path: 'certificaciones/:id',
+              loadComponent: () => import('./client/pages/certificacion/certificacion.component')
             },
             {
                 path: 'iot',

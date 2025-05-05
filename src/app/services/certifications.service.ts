@@ -16,6 +16,10 @@ export class CertificationsService {
     return this.http.get(`${ this._url }/certifications`)
   }
 
+  getCertification(id: number) {
+    return this.http.get(`${ this._url }/certifications/${ id }`)
+  }
+
   addCertification(certification: any) {
     return this.http.post(`${ this._url }/certifications/`, certification)
   }
@@ -23,7 +27,7 @@ export class CertificationsService {
   editCertifications(id: number, certification: any) {
     return this.http.patch(`${ this._url }/certifications/${ id }`, certification)
   }
-  
+
   deleteCertifications(id: number) {
     return this.http.delete(`${ this._url }/certifications/${ id }`)
   }

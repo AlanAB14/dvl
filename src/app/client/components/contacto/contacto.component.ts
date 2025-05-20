@@ -36,11 +36,11 @@ export class ContactoComponent {
   });
 
   sendData() {
-    console.log(this.contactFrom.value)
     if (this.contactFrom.invalid) {
       return
     }
     this.createContact(this.contactFrom.value);
+    this.contactFrom.reset();
   }
 
   createContact(contact: any) {
@@ -51,8 +51,13 @@ export class ContactoComponent {
         Swal.fire('Solicitud enviada con éxito', '', 'success');
       }, (error) => {
         console.log(error);
-        this.loaderService.setLoader(false);
-        Swal.fire('Ocurrió un error al enviar la solicitud', '', 'error');
+        if (error.status === 200) {
+          this.loaderService.setLoader(false);
+          Swal.fire('Solicitud enviada con éxito', '', 'success');
+        } else {
+          this.loaderService.setLoader(false);
+          Swal.fire('Ocurrió un error al enviar la solicitud', '', 'error');
+        }
       })
   }
 

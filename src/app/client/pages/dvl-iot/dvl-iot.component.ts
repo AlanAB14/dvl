@@ -155,16 +155,16 @@ export default class DvlIotComponent implements OnInit, AfterViewInit {
     },
     {
       icon: 'assets/imgs/modulos-agroindustria/ic_electrico.svg',
-      title: 'Gestión de Consumo Eléctrico',
+      title: 'Monitoreo de Energía',
       text: 'Permite medir de forma remota el consumo eléctrico de instalaciones de baja y media tensión.',
       pdf: 'assets/data/btn-gestion-de-consumo-electrico.pdf'
     },
-    {
-      icon: 'assets/imgs/modulos-agroindustria/ic_remoto_maquinarias.svg',
-      title: 'Control Remoto de maquinarias',
-      text: 'Permite optimizar el tiempo de acceso a maquinaria que se encuentra en lugares remotos, o que está distribuida de manera inconveniente para su gestión en forma personal, o simplemente que se hace más eficiente e inmediato el operarlo en forma remota.',
-      pdf: 'assets/data/btn-control-remoto-de-maquinarias.pdf'
-    },
+    // {
+    //   icon: 'assets/imgs/modulos-agroindustria/ic_remoto_maquinarias.svg',
+    //   title: 'Control Remoto de maquinarias',
+    //   text: 'Permite optimizar el tiempo de acceso a maquinaria que se encuentra en lugares remotos, o que está distribuida de manera inconveniente para su gestión en forma personal, o simplemente que se hace más eficiente e inmediato el operarlo en forma remota.',
+    //   pdf: 'assets/data/btn-control-remoto-de-maquinarias.pdf'
+    // },
     // {
     //   icon: 'assets/imgs/modulos-agroindustria/ic_flotas.svg',
     //   title: 'Gestión de flotas',

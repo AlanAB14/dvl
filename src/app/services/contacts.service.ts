@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Contact } from '../core/interfaces/Contact';
+import { forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,17 @@ export class ContactsService {
   constructor(private http: HttpClient) { }
 
   createContact(contact: any) {
-    const body = this.transformContactBody(contact);
-    return this.http.post(`https://webservice.tcsa.com.ar/API/ContactoDVL`, body)
+    const external$ = this.http.post(`https://webservice.tcsa.com.ar/API/ContactoDVL`, this.transformContactBody(contact)).pipe(catchError(() => of(null)));
+    const internal$ = this.http.post(`${this._url}/contacts`, {
+      name: contact.name,
+      email: contact.email,
+      company: contact.company,
+      origin: contact.origin,
+      dni: contact.dni,
+      telephone: contact.telephone,
+      message: contact.message
+    });
+    return forkJoin([external$, internal$]);
   }
 
   getContacts() {
@@ -38,7 +49,7 @@ export class ContactsService {
       "¿Dónde nos conociste?": contact.origin,
       "Consulta por:": contact.message,
       "Comentarios:": "Contacto desde el sitio web",
-      "utm_campaign": "POSTMAN"
+      "utm_campaign": "SITIO_WEB"
     }
   }
 
